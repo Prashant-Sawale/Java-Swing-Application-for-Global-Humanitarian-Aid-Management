@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>350</x>
-      <y>190</y>
-      <w>210</w>
-      <h>120</h>
+      <x>576</x>
+      <y>828</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Organization
 Package::business
-{Some Properties}
---
-Responsibilities</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>720</x>
-      <y>180</y>
-      <w>210</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>Network
-Package::business
-{Some Properties}
 --
 </panel_attributes>
     <additional_attributes/>
@@ -34,42 +18,450 @@ Package::business
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>60</x>
-      <y>190</y>
-      <w>210</w>
-      <h>120</h>
+      <x>576</x>
+      <y>126</y>
+      <w>189</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Network
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>702</y>
+      <w>189</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>OrganizationDirectory
 Package::business
-{Some Properties}
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>490</y>
-      <w>210</w>
-      <h>190</h>
+      <x>576</x>
+      <y>288</y>
+      <w>189</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>EnterpriseDirectory
 Package::business
-{Some Properties}
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1050</x>
-      <y>220</y>
-      <w>210</w>
-      <h>190</h>
+      <x>576</x>
+      <y>441</y>
+      <w>189</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Enterprise
 Package::business
-{Some Properties}
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>0</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Ecosystem
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>27</x>
+      <y>1413</y>
+      <w>189</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>Person
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>558</y>
+      <w>189</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Organization
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>900</x>
+      <y>2214</y>
+      <w>90</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>SimpleClass</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>1035</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>EmployeeDirectory
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>1035</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>UserAccountDirectory
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>1179</y>
+      <w>189</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Employee
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>324</x>
+      <y>1188</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>UserAccount
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>1404</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Volunteer
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>1620</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Teacher
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>1512</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Doctor
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>1188</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Supplier
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>1026</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>SupplierDirectory
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>567</y>
+      <w>189</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>EducationOrganization
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>702</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>FoodOrganization
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>936</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>ShelterOrganization
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>819</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MedicationOrganization
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1026</x>
+      <y>1710</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>FundsDistribution
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>1368</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>DonationHistory
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>639</x>
+      <y>1809</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Funds
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>990</x>
+      <y>1512</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Donation
+Package::business
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>1737</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Donor
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1026</x>
+      <y>1215</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Infrastructure
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1026</x>
+      <y>1071</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Affiliation
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>1341</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>FoodSupplier
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>333</x>
+      <y>1422</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Volunteer
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>1440</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>EducationMaterialSupplier
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>1548</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>MedicineSupplier
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>1656</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>ShelterSupplier
+Package::business
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1062</x>
+      <y>144</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Event
+Package::business
 --</panel_attributes>
     <additional_attributes/>
   </element>
