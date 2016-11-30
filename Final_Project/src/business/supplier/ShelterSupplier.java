@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.volenteer;
+package business.supplier;
 
 /**
  *
  * @author Admin
  */
-public class Volenteer {
+public class ShelterSupplier extends Supplier{
     
 }

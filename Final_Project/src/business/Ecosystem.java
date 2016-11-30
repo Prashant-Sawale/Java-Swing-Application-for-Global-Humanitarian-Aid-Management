@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package business;
-import business.Organization.Organization;
+import business.organization.Organization;
 
 /**
  *

@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package business.Organization;
+package business.supplier;
+
 /**
  *
  * @author Admin
  */
-public class MedicationOrganization extends  Organization{
+public class FoodSupplier extends Supplier{
     
 }
