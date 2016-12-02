@@ -14,9 +14,9 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class FoodOrganization extends Organization{
-    public FoodOrganization() {
-        super(Type.Food.getValue());
+public class ShelterOrganization extends Organization{
+    public ShelterOrganization() {
+        super(Type.Shelter.getValue());
     }
     
     @Override

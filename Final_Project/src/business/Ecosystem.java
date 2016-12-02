@@ -12,4 +12,8 @@ import business.organization.Organization;
  */
 public abstract class Ecosystem extends Organization {
     
+    public Ecosystem(String name) {
+        super(name);
+    }
+    
 }

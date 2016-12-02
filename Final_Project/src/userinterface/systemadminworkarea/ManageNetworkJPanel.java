@@ -4,7 +4,7 @@
  */
 package userinterface.systemadminworkarea;
 
-import business.EcoSystem;
+import business.Ecosystem;
 import business.network.Network;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -18,13 +18,13 @@ import javax.swing.table.DefaultTableModel;
 public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-    private EcoSystem system;
+    private Ecosystem system;
 
     /**
      *
      * Creates new form ManageNetworkJPanel
      */
-    public ManageNetworkJPanel(JPanel userProcessContainer, EcoSystem system) {
+    public ManageNetworkJPanel(JPanel userProcessContainer, Ecosystem system) {
         initComponents();
 
         this.userProcessContainer = userProcessContainer;
@@ -34,6 +34,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     }
 
     private void populateNetworkTable() {
+        /*
         DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();
 
         model.setRowCount(0);
@@ -41,7 +42,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             Object[] row = new Object[1];
             row[0] = network.getName();
             model.addRow(row);
-        }
+        }*/
     }
 
     /**
@@ -146,8 +147,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         String name = nameJTextField.getText();
 
-        Network network = system.createAndAddNetwork();
-        network.setName(name);
+        //Network network = system.createAndAddNetwork();
+        //network.setName(name);
 
         populateNetworkTable();
     }//GEN-LAST:event_submitJButtonActionPerformed

@@ -11,4 +11,8 @@ import business.organization.Organization;
  */
 public abstract class Enterprise extends Organization{
     
+    public Enterprise(String name) {
+        super(name);
+    }
+    
 }
