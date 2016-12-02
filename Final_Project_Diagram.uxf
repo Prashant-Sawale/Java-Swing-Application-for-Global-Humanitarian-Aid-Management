@@ -1002,8 +1002,8 @@ Package::business
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>592</x>
-      <y>1488</y>
+      <x>696</x>
+      <y>1504</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -1015,8 +1015,8 @@ Package::business
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>1464</y>
+      <x>504</x>
+      <y>1480</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -1028,8 +1028,8 @@ Package::business
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>800</x>
-      <y>1488</y>
+      <x>904</x>
+      <y>1504</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -1041,35 +1041,35 @@ Package::business
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>472</x>
+      <x>576</x>
       <y>1360</y>
-      <w>240</w>
-      <h>120</h>
+      <w>136</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;130.0;280.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>672</x>
-      <y>1360</y>
-      <w>40</w>
-      <h>144</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;160.0;30.0;10.0</additional_attributes>
+    <additional_attributes>10.0;150.0;150.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>688</x>
       <y>1360</y>
-      <w>208</w>
-      <h>144</h>
+      <w>112</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>240.0;160.0;10.0;10.0</additional_attributes>
+    <additional_attributes>120.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>1360</y>
+      <w>312</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>370.0;180.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1085,12 +1085,12 @@ Package::business
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>328</x>
-      <y>1328</y>
+      <x>296</x>
+      <y>1424</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
-    <panel_attributes>EmployeeRole
+    <panel_attributes>AdminRole
 Package::business
 --</panel_attributes>
     <additional_attributes/>
@@ -1098,12 +1098,23 @@ Package::business
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>488</x>
-      <y>1320</y>
-      <w>152</w>
-      <h>56</h>
+      <x>456</x>
+      <y>1360</y>
+      <w>256</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;50.0;170.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>992</x>
+      <y>1152</y>
+      <w>96</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0;100.0;70.0</additional_attributes>
   </element>
 </diagram>
