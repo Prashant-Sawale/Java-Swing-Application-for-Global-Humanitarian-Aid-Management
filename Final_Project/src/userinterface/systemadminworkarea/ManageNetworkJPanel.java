@@ -4,7 +4,7 @@
  */
 package userinterface.systemadminworkarea;
 
-import business.Ecosystem;
+import business.EcoSystem;
 import business.network.Network;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -18,13 +18,13 @@ import javax.swing.table.DefaultTableModel;
 public class ManageNetworkJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-    private Ecosystem system;
+    private EcoSystem system;
 
     /**
      *
      * Creates new form ManageNetworkJPanel
      */
-    public ManageNetworkJPanel(JPanel userProcessContainer, Ecosystem system) {
+    public ManageNetworkJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
 
         this.userProcessContainer = userProcessContainer;

@@ -6,7 +6,7 @@
 package userinterface.systemadminworkarea;
 
 
-import business.Ecosystem;
+import business.EcoSystem;
 import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -17,12 +17,12 @@ import javax.swing.tree.DefaultMutableTreeNode;
 public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
-    Ecosystem system;
+    EcoSystem system;
 
     /**
      * Creates new form SystemAdminWorkAreaJPanel
      */
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, Ecosystem system) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;

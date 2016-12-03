@@ -5,7 +5,7 @@
  */
 package business.roles;
 
-import business.Ecosystem;
+import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
@@ -40,7 +40,7 @@ public abstract class Role {
             UserAccount account, 
             Organization organization, 
             Enterprise enterprise, 
-            Ecosystem business);
+            EcoSystem business);
 
     @Override
     public String toString() {
