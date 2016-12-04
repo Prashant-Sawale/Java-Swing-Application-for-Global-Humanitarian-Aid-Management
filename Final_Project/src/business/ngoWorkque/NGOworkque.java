@@ -5,6 +5,7 @@
  */
 package business.ngoWorkque;
 
+import business.enterprise.project.Project;
 import java.util.ArrayList;
 
 /**
@@ -14,9 +15,11 @@ import java.util.ArrayList;
 public class NGOworkque {
 
     private ArrayList<NGOworkque> NGOworkqueList;
+    private Project project;
 
     public NGOworkque() {
         this.NGOworkqueList = new ArrayList<>();
+        
     }
 
     public ArrayList<NGOworkque> getNGOworkqueList() {

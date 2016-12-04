@@ -6,6 +6,9 @@
 package business.network;
 
 import business.enterprise.EnterpriseDirectory;
+import business.enterprise.project.Project;
+import business.ngoWorkque.NGOworkque;
+import business.ngoWorkque.NGOworkqueList;
 
 /**
  *
@@ -14,9 +17,13 @@ import business.enterprise.EnterpriseDirectory;
 public class Network {
     private String name;
     private EnterpriseDirectory enterpriseDirectory;
+    private NGOworkqueList ngoWorkqueList;
+    //private NGOworkque nGOworkque;
 
     public Network(){
         enterpriseDirectory = new EnterpriseDirectory();
+        ngoWorkqueList=new NGOworkqueList();
+        
     }
     
     public String getName() {
