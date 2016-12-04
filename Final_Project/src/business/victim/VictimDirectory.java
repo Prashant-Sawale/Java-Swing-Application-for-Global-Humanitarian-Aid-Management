@@ -5,10 +5,23 @@
  */
 package business.victim;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Admin
  */
 public class VictimDirectory {
-    
+    private ArrayList<Victim> victimList;
+    public VictimDirectory(){
+    this.victimList=new ArrayList<>();
+    }
+
+    public ArrayList<Victim> getVictimList() {
+        return victimList;
+    }
+
+    public void setVictimList(ArrayList<Victim> victimList) {
+        this.victimList = victimList;
+    }
 }

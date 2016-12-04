@@ -15,6 +15,12 @@ public abstract class Enterprise extends Organization{
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
     
+    public Enterprise(String name, EnterpriseType type) {
+        super(name);
+        this.enterpriseType = type;
+        organizationDirectory = new OrganizationDirectory();
+    }
+    
     public enum EnterpriseType{
         
         NGO("NGO");
@@ -54,10 +60,6 @@ public abstract class Enterprise extends Organization{
         this.enterpriseType = enterpriseType;
     }
     
-    public Enterprise(String name, EnterpriseType type) {
-        super(name);
-        this.enterpriseType = type;
-        organizationDirectory = new OrganizationDirectory();
-    }
+    
     
 }
