@@ -14,22 +14,24 @@ import java.util.ArrayList;
  */
 public class NGOworkque {
 
-    private ArrayList<NGOworkque> NGOworkqueList;
+    private ArrayList<NGOworkRequest> NGOworkquRequests;
     private Project project;
 
     public NGOworkque() {
-        this.NGOworkqueList = new ArrayList<>();
+        this.NGOworkquRequests = new ArrayList<>();
 
     }
 
-    public ArrayList<NGOworkque> getNGOworkqueList() {
-        return NGOworkqueList;
+    public ArrayList<NGOworkRequest> getNGOworkquRequests() {
+        return NGOworkquRequests;
     }
 
-    public void setNGOworkqueList(ArrayList<NGOworkque> NGOworkqueList) {
-        this.NGOworkqueList = NGOworkqueList;
+    public void setNGOworkquRequests(ArrayList<NGOworkRequest> NGOworkquRequests) {
+        this.NGOworkquRequests = NGOworkquRequests;
     }
 
+    
+    
     public Project getProject() {
         return project;
     }
