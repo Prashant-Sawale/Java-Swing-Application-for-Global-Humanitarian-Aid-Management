@@ -10,5 +10,29 @@ package business.employee;
  * @author Admin
  */
 public class Employee {
-    
+ private String empployeeName;
+ private int employeeID;
+ private int count;
+
+    public Employee() {
+        employeeID=count;
+        count++;
+    }
+
+    public String getEmpployeeName() {
+        return empployeeName;
+    }
+
+    public void setEmpployeeName(String empployeeName) {
+        this.empployeeName = empployeeName;
+    }
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
+
 }

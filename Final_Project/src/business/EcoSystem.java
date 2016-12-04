@@ -21,7 +21,7 @@ public abstract class EcoSystem extends Organization {
     
     public static EcoSystem getInstance(){
         if(business == null){
-            business = new EcoSystem() {};
+            business = new EcoSystem();
         }
         return business;
     }

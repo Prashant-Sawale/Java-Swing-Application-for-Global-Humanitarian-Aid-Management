@@ -5,10 +5,31 @@
  */
 package business.employee;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Admin
  */
 public class EmployeeDirectory {
+    private ArrayList<Employee> employeeList;
+    public EmployeeDirectory(){
+     employeeList=new ArrayList<>();
+    }
+
+    public ArrayList<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(ArrayList<Employee> EmployeeList) {
+        this.employeeList = EmployeeList;
+    }
     
+    private Employee createEmployee(String name){
+    Employee employee=new Employee();
+    employee.setEmpployeeName(name);
+    employeeList.add(employee);
+    return employee;
+    
+    }
 }
