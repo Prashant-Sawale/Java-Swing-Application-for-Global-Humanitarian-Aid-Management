@@ -16,7 +16,7 @@ public class ProjectDirectory {
     private ArrayList<Project> projectList;
 
     public ProjectDirectory() {
-    projectList=new ArrayList<>();
+        projectList=new ArrayList<>();
     }
 
     public ArrayList<Project> getProjectList() {
