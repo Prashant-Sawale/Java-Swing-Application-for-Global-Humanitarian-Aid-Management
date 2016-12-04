@@ -5,7 +5,8 @@
  */
 package business.ngoWorkque;
 
-import business.enterprise.project.Project;
+
+import business.project.Project;
 import java.util.ArrayList;
 
 /**
@@ -13,10 +14,11 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class NGOworkqueList {
-    private ArrayList<NGOworkque>  NGOworkques;
+
+    private ArrayList<NGOworkque> NGOworkques;
 
     public NGOworkqueList() {
-        
+
     }
 
     public ArrayList<NGOworkque> getNGOworkques() {
@@ -26,15 +28,13 @@ public class NGOworkqueList {
     public void setNGOworkques(ArrayList<NGOworkque> NGOworkques) {
         this.NGOworkques = NGOworkques;
     }
-    
+
     /**
-     * createWorkQue method gets project as a parameter
-     * creates a work queue object and sets the project to it
+     * createWorkQue method gets project as a parameter creates a work queue
+     * object and sets the project to it
      */
-    
-    private NGOworkque createWorkQue(Project project)
-    {
-        NGOworkque ngoWorkque  = new NGOworkque();
+    private NGOworkque createWorkQue(Project project) {
+        NGOworkque ngoWorkque = new NGOworkque();
         ngoWorkque.setProject(project);
         return ngoWorkque;
     }

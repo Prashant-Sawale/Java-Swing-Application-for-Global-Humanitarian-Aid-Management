@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 package business.ngoWorkque;
+
 import business.useraccount.UserAccount;
+
 /**
  *
  * @author Admin
  */
 public class NGOworkRequest {
+
     private String message;
     private UserAccount sender;
     private UserAccount reciever;
@@ -40,6 +43,5 @@ public class NGOworkRequest {
     public void setReciever(UserAccount reciever) {
         this.reciever = reciever;
     }
-    
-    
+
 }

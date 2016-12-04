@@ -6,8 +6,7 @@
 package business.network;
 
 import business.enterprise.EnterpriseDirectory;
-import business.enterprise.project.Project;
-import business.ngoWorkque.NGOworkque;
+
 import business.ngoWorkque.NGOworkqueList;
 
 /**
@@ -15,17 +14,18 @@ import business.ngoWorkque.NGOworkqueList;
  * @author Admin
  */
 public class Network {
+
     private String name;
     private EnterpriseDirectory enterpriseDirectory;
     private NGOworkqueList ngoWorkqueList;
     //private NGOworkque nGOworkque;
 
-    public Network(){
+    public Network() {
         enterpriseDirectory = new EnterpriseDirectory();
-        ngoWorkqueList=new NGOworkqueList();
-        
+        ngoWorkqueList = new NGOworkqueList();
+
     }
-    
+
     public String getName() {
         return name;
     }
@@ -41,9 +41,9 @@ public class Network {
     public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
         this.enterpriseDirectory = enterpriseDirectory;
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return name;
     }
 }
