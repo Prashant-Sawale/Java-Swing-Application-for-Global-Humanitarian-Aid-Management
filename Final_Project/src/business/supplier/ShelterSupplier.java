@@ -11,4 +11,8 @@ package business.supplier;
  */
 public class ShelterSupplier extends Supplier{
     
+    public ShelterSupplier(String supplierName) {
+        super(supplierName, SupplierType.ShelterSupplier);
+    }
+    
 }

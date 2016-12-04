@@ -10,5 +10,11 @@ package business.supplier;
  * @author Admin
  */
 public class EducationSupplier extends Supplier{
+
+    public EducationSupplier(String supplierName) {
+        super(supplierName,SupplierType.EducationMaterialSupplier);
+        
+    }
     
+   
 }

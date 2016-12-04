@@ -11,4 +11,8 @@ package business.supplier;
  */
 public class MedicineSupplier extends Supplier{
     
+    public MedicineSupplier(String supplierName) {
+        super(supplierName, SupplierType.MedicineSupplier);
+    }
+    
 }
