@@ -7,21 +7,22 @@ package business.roles;
 
 import business.EcoSystem;
 import business.enterprise.Enterprise;
+import business.organization.EducationOrganization;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.systemadminworkarea.SystemAdminWorkAreaJPanel;
+import userinterface.teacher.TeacherWorkareaJPanel;
 
 /**
  *
- * @author Pranjal
+ * @author Admin
  */
-public class SystemAdminRole extends Role{
+public class NgoTeacherRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-        return new  SystemAdminWorkAreaJPanel(userProcessContainer, business);
+    return new TeacherWorkareaJPanel(userProcessContainer,account,(EducationOrganization)organization,enterprise);
     }
     
 }

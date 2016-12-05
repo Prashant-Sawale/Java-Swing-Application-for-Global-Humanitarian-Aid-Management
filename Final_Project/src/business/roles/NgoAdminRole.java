@@ -10,17 +10,18 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.ngoadminworkarea.NgoAdminWorkareaJPanel;
 
 /**
  *
- * @author Admin
+ * @author Pranjal
  */
-public class DoctorRole extends Role{
+public class NgoAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      return new   NgoAdminWorkareaJPanel(userProcessContainer,enterprise);
     }
     
 }

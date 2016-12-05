@@ -15,12 +15,10 @@ import javax.swing.JPanel;
  *
  * @author Admin
  */
-public class TeacherRole extends Role{
-
+public class NgoChefRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      return new   NgoChefRole(userProcessContainer,enterprise);
     }
-    
 }

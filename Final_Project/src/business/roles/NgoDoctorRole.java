@@ -7,20 +7,22 @@ package business.roles;
 
 import business.EcoSystem;
 import business.enterprise.Enterprise;
+import business.organization.MedicationOrganization;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.doctor.DoctorWorkareaJPanel;
 
 /**
  *
- * @author Pranjal
+ * @author Admin
  */
-public class AdminRole extends Role{
+public class NgoDoctorRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new DoctorWorkareaJPanel(userProcessContainer,account,(MedicationOrganization)organization);
     }
     
 }

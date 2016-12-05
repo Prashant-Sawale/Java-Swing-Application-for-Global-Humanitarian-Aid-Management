@@ -5,8 +5,8 @@
  */
 package business.organization;
 
-import business.roles.AdminRole;
-import business.roles.DoctorRole;
+import business.roles.NgoAdminRole;
+import business.roles.NgoDoctorRole;
 import business.roles.Role;
 import java.util.ArrayList;
 
@@ -22,8 +22,8 @@ public class MedicationOrganization extends  Organization{
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new AdminRole());
-        roles.add(new DoctorRole());
+        roles.add(new NgoAdminRole());
+        roles.add(new NgoDoctorRole());
         return roles;
     }
 }

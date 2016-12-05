@@ -5,9 +5,9 @@
  */
 package business.organization;
 
-import business.roles.AdminRole;
+import business.roles.NgoAdminRole;
 import business.roles.Role;
-import business.roles.WorkerRole;
+import business.roles.NgoWorkerRole;
 import java.util.ArrayList;
 
 /**
@@ -22,8 +22,8 @@ public class FoodOrganization extends Organization{
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new ArrayList();
-        roles.add(new AdminRole());
-        roles.add(new WorkerRole());
+        roles.add(new NgoAdminRole());
+        roles.add(new NgoWorkerRole());
         return roles;
     }
 }
