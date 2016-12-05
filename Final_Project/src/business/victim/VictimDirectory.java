@@ -24,4 +24,10 @@ public class VictimDirectory {
     public void setVictimList(ArrayList<Victim> victimList) {
         this.victimList = victimList;
     }
+    
+    public Victim addVictim(){
+        Victim v = new Victim();
+        victimList.add(v);
+        return v;
+    }
 }

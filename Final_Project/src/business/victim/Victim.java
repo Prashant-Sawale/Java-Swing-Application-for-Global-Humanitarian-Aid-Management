@@ -10,11 +10,18 @@ package business.victim;
  * @author Admin
  */
 public class Victim {
+    private int victimId;
+    private static int count = 0;
     private String victimName;
     private int age;
-    private boolean gender;
+    private boolean maleGender;
+    private boolean foodRequired;
+    private boolean shelterRequired;
+    private boolean medicationRequired;
+    private boolean educationRequired;
 
     public Victim() {
+        victimId = ++count;
     }
 
     public String getVictimName() {
@@ -33,13 +40,46 @@ public class Victim {
         this.age = age;
     }
 
-    public boolean isGender() {
-        return gender;
+    public boolean isMaleGender() {
+        return maleGender;
     }
 
-    public void setGender(boolean gender) {
-        this.gender = gender;
+    public void setMaleGender(boolean maleGender) {
+        this.maleGender = maleGender;
     }
+
+    public boolean isFoodRequired() {
+        return foodRequired;
+    }
+
+    public void setFoodRequired(boolean foodRequired) {
+        this.foodRequired = foodRequired;
+    }
+
+    public boolean isShelterRequired() {
+        return shelterRequired;
+    }
+
+    public void setShelterRequired(boolean shelterRequired) {
+        this.shelterRequired = shelterRequired;
+    }
+
+    public boolean isMedicationRequired() {
+        return medicationRequired;
+    }
+
+    public void setMedicationRequired(boolean medicationRequired) {
+        this.medicationRequired = medicationRequired;
+    }
+
+    public boolean isEducationRequired() {
+        return educationRequired;
+    }
+
+    public void setEducationRequired(boolean educationRequired) {
+        this.educationRequired = educationRequired;
+    }
+    
     
     
 }

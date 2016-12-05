@@ -6,7 +6,9 @@
 package business.project;
 
 import business.enterprise.funds.FundAllocation;
+import business.victim.VictimDirectory;
 import business.volunteer.Volunteer;
+import com.db4o.collections.ActivatableArrayList;
 import java.util.ArrayList;
 
 /**
@@ -19,11 +21,13 @@ public class Project {
     private static int count = 0;
     private ArrayList<FundAllocation> projectFunds;
     private ArrayList<Volunteer> volunteers;
+    private VictimDirectory victimDirectory;
     
     public Project(String projectName) {
         projectID = ++count;
         this.projectName = projectName;
         projectFunds = new ArrayList<FundAllocation>();
+        volunteers = new ActivatableArrayList<Volunteer>();
     }
 
     public String getProjectName() {
