@@ -11,7 +11,7 @@ import business.organization.MedicationOrganization;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.doctor.DoctorWorkareaJPanel;
+import userinterface.volunteer.DoctorWorkAreaJPanel;
 
 /**
  *
@@ -22,7 +22,7 @@ public class NgoDoctorRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-        return new DoctorWorkareaJPanel(userProcessContainer,account,(MedicationOrganization)organization);
+        return new DoctorWorkAreaJPanel(userProcessContainer,account,(MedicationOrganization)organization);
     }
     
 }

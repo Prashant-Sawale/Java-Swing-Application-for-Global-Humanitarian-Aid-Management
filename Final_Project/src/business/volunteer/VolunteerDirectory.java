@@ -5,10 +5,32 @@
  */
 package business.volunteer;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  *
  * @author Admin
  */
 public class VolunteerDirectory {
+    private ArrayList<Volunteer> volunteers;
+
+    public ArrayList<Volunteer> getVolunteers() {
+        return volunteers;
+    }
+
+    public void setVolunteers(ArrayList<Volunteer> volunteers) {
+        this.volunteers = volunteers;
+    }
+    
+    public Volunteer createVolunteer(String Name,String Address,Date dob, double contactNumber, Volunteer.VolunteerRoleType roleType){
+        Volunteer v = new Volunteer(Name,Address,dob,contactNumber, roleType);
+        volunteers.add(v);
+        return v;
+    }
+    
+    public void removeVolunteer(Volunteer v){
+        volunteers.remove(v);
+    }
     
 }

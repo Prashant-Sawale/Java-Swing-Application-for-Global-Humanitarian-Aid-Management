@@ -3,19 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.doctor;
+package userinterface.volunteer;
+
+import business.enterprise.Enterprise;
+import javax.swing.JPanel;
 
 /**
  *
- * @author Admin
+ * @author Pranjal
  */
-public class DoctorWorkareaJPanel extends javax.swing.JPanel {
+public class ChefWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form DoctorWorkareaJPanel
+     * Creates new form ChefWorkAreaJPanel
      */
-    public DoctorWorkareaJPanel() {
+    public ChefWorkAreaJPanel() {
         initComponents();
+    }
+
+    public ChefWorkAreaJPanel(JPanel userProcessContainer, Enterprise enterprise) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

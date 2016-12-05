@@ -6,6 +6,7 @@
 package business.project;
 
 import business.enterprise.funds.FundAllocation;
+import business.volunteer.Volunteer;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +18,7 @@ public class Project {
     private String projectName;
     private static int count = 0;
     private ArrayList<FundAllocation> projectFunds;
+    private ArrayList<Volunteer> volunteers;
     
     public Project(String projectName) {
         projectID = ++count;
@@ -33,11 +35,19 @@ public class Project {
     }
     
     public void addFundAllocation(FundAllocation fa){
-        this.projectFunds.add(fa);
+        projectFunds.add(fa);
     }
     
     public void removeFundAllocation(FundAllocation fa){
-        this.projectFunds.remove(fa);
+        projectFunds.remove(fa);
+    }
+    
+    public void addVolunteer(Volunteer v){
+        volunteers.add(v);
+    }
+    
+    public void removeVolunteer(Volunteer v){
+        volunteers.remove(v);
     }
     
 }
