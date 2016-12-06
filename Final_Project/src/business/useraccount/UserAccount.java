@@ -8,6 +8,7 @@ package business.useraccount;
 import business.employee.Employee;
 import business.roles.Role;
 import business.volunteer.Volunteer;
+import business.ngoWorkque.NGOWorkQueue;
 
 /**
  *
@@ -19,6 +20,7 @@ public class UserAccount {
     private Employee employee;
     private Volunteer volunteer;
     private Role role;
+    private NGOWorkQueue ngoWorkqueue;
     
 
     public UserAccount() {

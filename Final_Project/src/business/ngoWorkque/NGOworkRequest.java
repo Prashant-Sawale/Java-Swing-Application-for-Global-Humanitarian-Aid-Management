@@ -6,6 +6,7 @@
 package business.ngoWorkque;
 
 import business.useraccount.UserAccount;
+import java.util.List;
 
 /**
  *
@@ -15,7 +16,7 @@ public class NGOworkRequest {
 
     private String message;
     private UserAccount sender;
-    private UserAccount reciever;
+    private List<UserAccount> recieverList;
 
     public NGOworkRequest() {
     }
@@ -36,12 +37,14 @@ public class NGOworkRequest {
         this.sender = sender;
     }
 
-    public UserAccount getReciever() {
-        return reciever;
+    public List<UserAccount> getRecieverList() {
+        return recieverList;
     }
 
-    public void setReciever(UserAccount reciever) {
-        this.reciever = reciever;
+    public void setRecieverList(List<UserAccount> recieverList) {
+        this.recieverList = recieverList;
     }
+
+    
 
 }

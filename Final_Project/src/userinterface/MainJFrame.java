@@ -68,6 +68,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2.setText("Password:");
 
         btnLogOut.setText("Logout");
+        btnLogOut.setEnabled(false);
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);

@@ -16,17 +16,15 @@ import business.useraccount.UserAccount;
 public class ConfigureSystem {
 
     public static EcoSystem configure() {
-        
+
         EcoSystem system = EcoSystem.getInstance();
-        
-        
+
         Employee employee = system.getEmployeeDirectory().createEmployee("NGOSysAdmin");
-        
+
         UserAccount userAccount = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
-        
+
         return system;
-        
-        
+
     }
-    
+
 }

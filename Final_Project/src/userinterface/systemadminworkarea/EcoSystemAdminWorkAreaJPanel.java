@@ -20,7 +20,7 @@ import javax.swing.tree.DefaultTreeModel;
  *
  * @author rohan
  */
-public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
+public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     JPanel userProcessContainer;
     EcoSystem system;
@@ -28,7 +28,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form SystemAdminWorkAreaJPanel
      */
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem system) {
+    public EcoSystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
@@ -125,7 +125,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jSplitPane.setLeftComponent(jPanel1);
@@ -168,7 +168,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                     .addComponent(btnManageEnterprise)
                     .addComponent(btnManageNetwork)
                     .addComponent(selectedNodeJlabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +183,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnManageEnterprise)
                 .addGap(18, 18, 18)
                 .addComponent(btnEnterAdmin)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -201,7 +201,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
         
-       ManageEnterpriseJPanel manageEnterpriseJPanel = new ManageEnterpriseJPanel(userProcessContainer, system);
+       ManageNGOEnterpriseJPanel manageEnterpriseJPanel = new ManageNGOEnterpriseJPanel(userProcessContainer, system);
        userProcessContainer.add("manageEnterpriseJPanel", manageEnterpriseJPanel);
        CardLayout layout= (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -209,7 +209,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnEnterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterAdminActionPerformed
         
-       ManageEnterpriseAdminJPanel manageEnterpriseAdminJPanel = new ManageEnterpriseAdminJPanel(userProcessContainer, system);
+       ManageNGOEnterpriseAdminJPanel manageEnterpriseAdminJPanel = new ManageNGOEnterpriseAdminJPanel(userProcessContainer, system);
       userProcessContainer.add("manageEnterpriseAdminJPanel", manageEnterpriseAdminJPanel);
        CardLayout layout= (CardLayout) userProcessContainer.getLayout();
        layout.next(userProcessContainer);

@@ -15,17 +15,17 @@ import java.util.ArrayList;
  */
 public class NGOworkqueList {
 
-    private ArrayList<NGOworkque> NGOworkques;
+    private ArrayList<NGOWorkQueue> NGOworkques;
 
     public NGOworkqueList() {
 
     }
 
-    public ArrayList<NGOworkque> getNGOworkques() {
+    public ArrayList<NGOWorkQueue> getNGOworkques() {
         return NGOworkques;
     }
 
-    public void setNGOworkques(ArrayList<NGOworkque> NGOworkques) {
+    public void setNGOworkques(ArrayList<NGOWorkQueue> NGOworkques) {
         this.NGOworkques = NGOworkques;
     }
 
@@ -33,8 +33,8 @@ public class NGOworkqueList {
      * createWorkQue method gets project as a parameter creates a work queue
      * object and sets the project to it
      */
-    private NGOworkque createWorkQue(Project project) {
-        NGOworkque ngoWorkque = new NGOworkque();
+    private NGOWorkQueue createWorkQue(Project project) {
+        NGOWorkQueue ngoWorkque = new NGOWorkQueue();
         ngoWorkque.setProject(project);
         return ngoWorkque;
     }

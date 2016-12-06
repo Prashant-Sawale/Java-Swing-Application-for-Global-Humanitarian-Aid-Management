@@ -12,12 +12,12 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class NGOworkque {
+public class NGOWorkQueue {
 
     private ArrayList<NGOworkRequest> NGOworkquRequests;
     private Project project;
 
-    public NGOworkque() {
+    public NGOWorkQueue() {
         this.NGOworkquRequests = new ArrayList<>();
 
     }

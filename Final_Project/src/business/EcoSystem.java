@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package business;
+
 import business.network.Network;
 import business.organization.Organization;
 import business.roles.Role;
@@ -15,13 +16,14 @@ import java.util.ArrayList;
  * @author Admin
  */
 public abstract class EcoSystem extends Organization {
-    
+
     private static EcoSystem business;
     private ArrayList<Network> networkList;
-    
-    public static EcoSystem getInstance(){
-        if(business == null){
-            business = new EcoSystem() {};
+
+    public static EcoSystem getInstance() {
+        if (business == null) {
+            business = new EcoSystem() {
+            };
         }
         return business;
     }
@@ -38,28 +40,28 @@ public abstract class EcoSystem extends Organization {
     public void setNetworkList(ArrayList<Network> networkList) {
         this.networkList = networkList;
     }
-    
-    public Network createAndAddNetwork(){
-        Network network= new Network();
+
+    public Network createAndAddNetwork() {
+        Network network = new Network();
         networkList.add(network);
         return network;
     }
-    
-    public Boolean checkIfUserNameIsUnique(String username){
-        if(!this.getUserAccountDirectory().checkIfUsernameIsUnique(username)){
+
+    public Boolean checkIfUserNameIsUnique(String username) {
+        if (!this.getUserAccountDirectory().checkIfUsernameIsUnique(username)) {
             return false;
         }
-        for(Network network:networkList){
-            
+        for (Network network : networkList) {
+
         }
         return true;
     }
-    
+
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roleList = new ArrayList<Role>();
         roleList.add(new SystemAdminRole());
         return roleList;
     }
-    
+
 }
