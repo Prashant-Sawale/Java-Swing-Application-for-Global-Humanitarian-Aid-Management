@@ -6,7 +6,13 @@
 package userinterface.systemadminworkarea;
 
 import business.EcoSystem;
+import business.enterprise.Enterprise;
+import business.network.Network;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,11 +20,50 @@ import javax.swing.JPanel;
  */
 public class ManageNGOEnterpriseJPanel extends javax.swing.JPanel {
 
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+
     /**
      * Creates new form ManageEnterpriseJPanel
      */
     public ManageNGOEnterpriseJPanel(JPanel userProcessContainer, EcoSystem system) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.system = system;
+
+        populateTable();
+        populateComboBox();
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblNGOEnterprise.getModel();
+
+        model.setRowCount(0);
+        for (Network network : system.getNetworkList()) {
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
+                Object[] row = new Object[3];
+                row[0] = enterprise.getName();
+                row[1] = network.getName();
+                row[2] = enterprise.getEnterpriseType().getValue();
+
+                model.addRow(row);
+            }
+        }
+    }
+
+    private void populateComboBox() {
+        comboNetwork.removeAllItems();
+        comboEnterpriseType.removeAllItems();
+
+        for (Network network : system.getNetworkList()) {
+            comboNetwork.addItem(network);
+        }
+
+        for (Enterprise.EnterpriseType type : Enterprise.EnterpriseType.values()) {
+            comboEnterpriseType.addItem(type);
+        }
+
     }
 
     /**
@@ -167,7 +212,7 @@ public class ManageNGOEnterpriseJPanel extends javax.swing.JPanel {
 
         String name = txtName.getText();
 
-        Enterprise enterprise = network.getEnterpriseDirectory().addEnterprise(name, type);
+        Enterprise enterprise = network.getEnterpriseDirectory().createAndAddEnterprise(name, type);
 
         populateTable();
     }//GEN-LAST:event_btnSubmitActionPerformed
@@ -176,7 +221,7 @@ public class ManageNGOEnterpriseJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        EcoSystemAdminWorkAreaJPanel sysAdminwjp = (EcoSystemAdminWorkAreaJPanel) component;
         sysAdminwjp.populateTree();
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

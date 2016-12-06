@@ -147,8 +147,8 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
 
         String name = txtName.getText();
 
-        //Network network = system.createAndAddNetwork();
-        //network.setName(name);
+        Network network = system.createAndAddNetwork();
+        network.setName(name);
 
         populateNetworkTable();
     }//GEN-LAST:event_btnSubmitActionPerformed
