@@ -32,7 +32,7 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
-        populateTree();
+     //   populateTree();
     }
 
     public void populateTree() {

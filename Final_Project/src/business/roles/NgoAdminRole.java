@@ -10,6 +10,7 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.enterpriseadministrator.EnterpriseAdminWorkArea;
 import userinterface.ngoadminworkarea.NgoAdminWorkareaJPanel;
 
 /**
@@ -21,7 +22,7 @@ public class NgoAdminRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-      return new   NgoAdminWorkareaJPanel(userProcessContainer,enterprise);
+      return new   EnterpriseAdminWorkArea(userProcessContainer,enterprise);
     }
     
 }
