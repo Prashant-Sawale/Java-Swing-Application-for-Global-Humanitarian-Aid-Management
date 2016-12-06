@@ -7,6 +7,7 @@ package userinterface.systemadminworkarea;
 
 
 import business.EcoSystem;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -31,48 +32,48 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     public void populateTree() {
 
-//        DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
-//        ArrayList<Network> networkList = system.getNetworkList();
-//        ArrayList<Enterprise> enterpriseList;
-//        ArrayList<Organization> organizationList;
-//
-//        Network network;
-//        Enterprise enterprise;
-//        Organization organization;
-//
-//        DefaultMutableTreeNode networks = new DefaultMutableTreeNode("Networks");
-//        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-//
-//        root.removeAllChildren();
-//        root.insert(networks, 0);
-//        DefaultMutableTreeNode netwrokNode;
-//        DefaultMutableTreeNode enterpriseNode;
-//        DefaultMutableTreeNode organizationNode;
-//
-//        for (int i = 0; i < networkList.size(); i++) {
-//            network = networkList.get(i);
-//            netwrokNode = new DefaultMutableTreeNode(network.getName());
-//            netwrokNode.insert(netwrokNode, i);
-//
-//            enterpriseList = network.getEnterpriseDirectory().getEnterpriseList();
-//
-//            for (int j = 0; j < enterpriseList.size(); j++) {
-//                enterprise = enterpriseList.get(j);
-//                enterpriseNode = new DefaultMutableTreeNode(enterprise.getName());
-//                netwrokNode.insert(enterpriseNode, j);
-//
-//                organizationList = enterprise.getOrganizationDirectory().getOrganizationList();
-//
-//                for (int k = 0; k < organizationList.size(); k++) {
-//
-//                    organization = organizationList.get(k);
-//                    organizationNode = new DefaultMutableTreeNode(organization.getName());
-//                    enterpriseNode.insert(organizationNode, k);
-//
-//                }
-//            }
-//        }
-//        model.reload();
+        DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+        ArrayList<Network> networkList = system.getNetworkList();
+        ArrayList<Enterprise> enterpriseList;
+        ArrayList<Organization> organizationList;
+
+        Network network;
+        Enterprise enterprise;
+        Organization organization;
+
+        DefaultMutableTreeNode networks = new DefaultMutableTreeNode("Networks");
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+
+        root.removeAllChildren();
+        root.insert(networks, 0);
+        DefaultMutableTreeNode netwrokNode;
+        DefaultMutableTreeNode enterpriseNode;
+        DefaultMutableTreeNode organizationNode;
+
+        for (int i = 0; i < networkList.size(); i++) {
+            network = networkList.get(i);
+            netwrokNode = new DefaultMutableTreeNode(network.getName());
+            netwrokNode.insert(netwrokNode, i);
+
+            enterpriseList = network.getEnterpriseDirectory().getEnterpriseList();
+
+            for (int j = 0; j < enterpriseList.size(); j++) {
+                enterprise = enterpriseList.get(j);
+                enterpriseNode = new DefaultMutableTreeNode(enterprise.getName());
+                netwrokNode.insert(enterpriseNode, j);
+
+                organizationList = enterprise.getOrganizationDirectory().getOrganizationList();
+
+                for (int k = 0; k < organizationList.size(); k++) {
+
+                    organization = organizationList.get(k);
+                    organizationNode = new DefaultMutableTreeNode(organization.getName());
+                    enterpriseNode.insert(organizationNode, k);
+
+                }
+            }
+        }
+        model.reload();
     }
 
     /**
@@ -187,26 +188,26 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
         
-//       ManageNetworkJPanel manageNetworkJPanel = new ManageNetworkJPanel(userProcessContainer, system);
-//       userProcessContainer.add("manageNetworkJPanel", manageNetworkJPanel);
-//        CardLayout layout= (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+      ManageNetworkJPanel manageNetworkJPanel = new ManageNetworkJPanel(userProcessContainer, system);
+       userProcessContainer.add("manageNetworkJPanel", manageNetworkJPanel);
+        CardLayout layout= (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageNetworkActionPerformed
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
         
-//        ManageEnterpriseJPanel manageEnterpriseJPanel = new ManageEnterpriseJPanel(userProcessContainer, system);
-//       userProcessContainer.add("manageEnterpriseJPanel", manageEnterpriseJPanel);
-//        CardLayout layout= (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+       ManageEnterpriseJPanel manageEnterpriseJPanel = new ManageEnterpriseJPanel(userProcessContainer, system);
+       userProcessContainer.add("manageEnterpriseJPanel", manageEnterpriseJPanel);
+       CardLayout layout= (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageEnterpriseActionPerformed
 
     private void btnEnterAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterAdminActionPerformed
         
-//        ManageEnterpriseAdminJPanel manageEnterpriseAdminJPanel = new ManageEnterpriseAdminJPanel(userProcessContainer, system);
-//       userProcessContainer.add("manageEnterpriseAdminJPanel", manageEnterpriseAdminJPanel);
-//        CardLayout layout= (CardLayout) userProcessContainer.getLayout();
-//        layout.next(userProcessContainer);
+       ManageEnterpriseAdminJPanel manageEnterpriseAdminJPanel = new ManageEnterpriseAdminJPanel(userProcessContainer, system);
+      userProcessContainer.add("manageEnterpriseAdminJPanel", manageEnterpriseAdminJPanel);
+       CardLayout layout= (CardLayout) userProcessContainer.getLayout();
+       layout.next(userProcessContainer);
     }//GEN-LAST:event_btnEnterAdminActionPerformed
 
     private void jTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_jTreeValueChanged
