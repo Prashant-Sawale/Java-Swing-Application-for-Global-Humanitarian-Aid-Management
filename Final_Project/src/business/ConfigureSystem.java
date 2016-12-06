@@ -5,6 +5,10 @@
  */
 package business;
 
+import business.employee.Employee;
+import business.roles.SystemAdminRole;
+import business.useraccount.UserAccount;
+
 /**
  *
  * @author Admin
@@ -12,7 +16,17 @@ package business;
 public class ConfigureSystem {
 
     public static EcoSystem configure() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        EcoSystem system = EcoSystem.getInstance();
+        
+        
+        Employee employee = system.getEmployeeDirectory().createEmployee("NGOSysAdmin");
+        
+        UserAccount userAccount = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
+        
+        return system;
+        
+        
     }
     
 }
