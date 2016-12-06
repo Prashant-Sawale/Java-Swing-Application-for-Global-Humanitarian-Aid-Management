@@ -8,7 +8,9 @@ package userinterface.volunteer;
 import business.enterprise.Enterprise;
 import business.organization.EducationOrganization;
 import business.useraccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,14 +21,36 @@ public class TeacherWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TeacherWorkareaJPanel
      */
-    public TeacherWorkAreaJPanel() {
-        initComponents();
-    }
-
+    JPanel userProcessContainer;
+    UserAccount account;
+    EducationOrganization educationOrganization;
+    Enterprise enterprise;
     public TeacherWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EducationOrganization educationOrganization, Enterprise enterprise) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.account = account;
+        this.educationOrganization=educationOrganization;
+        this.enterprise=enterprise;
+        
     }
 
+      public void populateProjectEventTbl(){
+        DefaultTableModel model = (DefaultTableModel) tblProjectEvent.getModel();
+        //wtite a logic for populating the project and event in the table 
+//        model.setRowCount(0);
+//        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
+//            Object[] row = new Object[4];
+//            row[0] = request.getMessage();
+//            row[1] = request.getReceiver();
+//            row[2] = request.getStatus();
+//            String result = ((LabTestWorkRequest) request).getTestResult();
+//            row[3] = result == null ? "Waiting" : result;
+//            
+//            model.addRow(row);
+//        }
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,19 +60,103 @@ public class TeacherWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblProjectEvent = new javax.swing.JTable();
+        refreshTestJButton = new javax.swing.JButton();
+        requestTestJButton = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
+
+        tblProjectEvent.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Sr.No", "Event", "Project", "Status"
+            }
+        ));
+        jScrollPane1.setViewportView(tblProjectEvent);
+
+        refreshTestJButton.setText("Refresh");
+        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshTestJButtonActionPerformed(evt);
+            }
+        });
+
+        requestTestJButton.setText("Volunteer for the selected Project");
+        requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                requestTestJButtonActionPerformed(evt);
+            }
+        });
+
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(backJButton)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(requestTestJButton)
+                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(backJButton)
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(requestTestJButton)
+                    .addComponent(refreshTestJButton))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
+
+        populateRequestTable();
+
+    }//GEN-LAST:event_refreshTestJButtonActionPerformed
+
+    private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("RequestLabTestJPanel", new RequestLabTestJPanel(userProcessContainer, userAccount, enterprise));
+        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_requestTestJButtonActionPerformed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcesContainer.getLayout();
+        layout.previous(userProcesContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
+
+*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backJButton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton refreshTestJButton;
+    private javax.swing.JButton requestTestJButton;
+    private javax.swing.JTable tblProjectEvent;
     // End of variables declaration//GEN-END:variables
 }
