@@ -16,12 +16,14 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class Project {
+
     private int projectID;
     private String projectName;
     private static int count = 0;
     private ArrayList<FundAllocation> projectFunds;
     private ArrayList<Volunteer> volunteers;
     private VictimDirectory victimDirectory;
+    private  String event;
     
     public Project(String projectName) {
         projectID = ++count;
@@ -30,6 +32,47 @@ public class Project {
         volunteers = new ActivatableArrayList<Volunteer>();
     }
 
+    
+    public int getProjectID() {
+        return projectID;
+    }
+
+    public void setProjectID(int projectID) {
+        this.projectID = projectID;
+    }
+
+    public ArrayList<FundAllocation> getProjectFunds() {
+        return projectFunds;
+    }
+
+    public void setProjectFunds(ArrayList<FundAllocation> projectFunds) {
+        this.projectFunds = projectFunds;
+    }
+
+    public ArrayList<Volunteer> getVolunteers() {
+        return volunteers;
+    }
+
+    public void setVolunteers(ArrayList<Volunteer> volunteers) {
+        this.volunteers = volunteers;
+    }
+
+    public VictimDirectory getVictimDirectory() {
+        return victimDirectory;
+    }
+
+    public void setVictimDirectory(VictimDirectory victimDirectory) {
+        this.victimDirectory = victimDirectory;
+    }
+
+    public String getEvent() {
+        return event;
+    }
+
+    public void setEvent(String event) {
+        this.event = event;
+    }
+    
     public String getProjectName() {
         return projectName;
     }
