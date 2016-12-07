@@ -25,6 +25,11 @@ public class Project {
     private VictimDirectory victimDirectory;
     private  String event;
     
+    public Project(){
+        
+        
+    }
+    
     public Project(String projectName) {
         projectID = ++count;
         this.projectName = projectName;

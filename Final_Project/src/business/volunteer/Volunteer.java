@@ -19,6 +19,7 @@ public class Volunteer {
     private String Name;
     private String Address;
     private Date dob;
+    private boolean isAvailable=false;
     private double contactNumber;
     private String volunteerRole;
     private ArrayList<Project> projectHistory;
@@ -77,6 +78,14 @@ public class Volunteer {
 
     public void setProjectHistory(ArrayList<Project> projectHistory) {
         this.projectHistory = projectHistory;
+    }
+
+    public boolean isIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setIsAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
     

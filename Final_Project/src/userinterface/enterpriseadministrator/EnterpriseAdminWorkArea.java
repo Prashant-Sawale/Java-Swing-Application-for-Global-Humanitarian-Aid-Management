@@ -36,17 +36,17 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
     private void initComponents() {
 
         jSlider1 = new javax.swing.JSlider();
-        jButton1 = new javax.swing.JButton();
+        btnNGOCommu = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnManageOrganization = new javax.swing.JButton();
         btnManageEmployee = new javax.swing.JButton();
         btnManageUser = new javax.swing.JButton();
         btnCreateProject = new javax.swing.JButton();
 
-        jButton1.setText("NGO Communications");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnNGOCommu.setText("NGO Communications");
+        btnNGOCommu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnNGOCommuActionPerformed(evt);
             }
         });
 
@@ -88,7 +88,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
                 .addGap(217, 217, 217)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNGOCommu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -99,7 +99,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jButton1)
+                .addComponent(btnNGOCommu)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(17, 17, 17)
@@ -150,9 +150,11 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateProjectActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnNGOCommuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNGOCommuActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_btnNGOCommuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -160,7 +162,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnManageEmployee;
     private javax.swing.JButton btnManageOrganization;
     private javax.swing.JButton btnManageUser;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnNGOCommu;
     private javax.swing.JButton jButton2;
     private javax.swing.JSlider jSlider1;
     // End of variables declaration//GEN-END:variables

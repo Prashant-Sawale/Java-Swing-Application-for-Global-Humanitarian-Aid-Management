@@ -27,4 +27,11 @@ public class ProjectDirectory {
         this.projectList = projectList;
     }
     
+    
+    public Project addProject(){
+        
+        Project project = new Project();
+        return null;
+    }
+    
 }
