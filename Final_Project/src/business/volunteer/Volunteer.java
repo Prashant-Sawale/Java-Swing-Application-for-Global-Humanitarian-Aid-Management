@@ -7,14 +7,21 @@ package business.volunteer;
 
 import business.project.Project;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
  * @author Admin
  */
 public class Volunteer {
+
     private int volunteerID;
+    private static int count = 0;
+    private String Name;
+    private String Address;
+    private boolean isAvailable = false;
+    private double contactNumber;
+    private String volunteerRole;
+    private ArrayList<Project> projectHistory;
 
     public int getVolunteerID() {
         return volunteerID;
@@ -23,20 +30,12 @@ public class Volunteer {
     public void setVolunteerID(int volunteerID) {
         this.volunteerID = volunteerID;
     }
-    private static int count = 0;
-    private String Name;
-    private String Address;
-    private Date dob;
-    private boolean isAvailable=false;
-    private double contactNumber;
-    private String volunteerRole;
-    private ArrayList<Project> projectHistory;
-    
-    public enum VolunteerRoleType{
-        Chef, Doctor, Teacher, Worker;
-    }
-    
-    public Volunteer(String Name,String Address,Date dob, double contactNumber, VolunteerRoleType roleType){
+
+//    public enum VolunteerRoleType {
+//        Chef, Doctor, Teacher, Worker;
+//    }
+
+    public Volunteer(String Name, String Address, double contactNumber) {
         volunteerID = ++count;
     }
 
@@ -54,14 +53,6 @@ public class Volunteer {
 
     public void setAddress(String Address) {
         this.Address = Address;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
     }
 
     public double getContactNumber() {
@@ -96,11 +87,9 @@ public class Volunteer {
         this.isAvailable = isAvailable;
     }
 
-    
-    
     @Override
-    public String toString(){
+    public String toString() {
         return this.Name;
     }
-    
+
 }

@@ -23,8 +23,8 @@ public class VolunteerDirectory {
         this.volunteers = volunteers;
     }
     
-    public Volunteer createVolunteer(String Name,String Address,Date dob, double contactNumber, Volunteer.VolunteerRoleType roleType){
-        Volunteer v = new Volunteer(Name,Address,dob,contactNumber, roleType);
+    public Volunteer createVolunteer(String Name,String Address, double contactNumber){
+        Volunteer v = new Volunteer(Name,Address,contactNumber);
         volunteers.add(v);
         return v;
     }
