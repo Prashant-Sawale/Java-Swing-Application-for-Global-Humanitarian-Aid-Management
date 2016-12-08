@@ -24,5 +24,8 @@ public class NgoTeacherRole extends Role{
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
     return new TeacherWorkAreaJPanel(userProcessContainer,account,(EducationOrganization)organization,enterprise);
     }
-    
+     @Override
+    public String toString(){
+    return "NGO Teacher";
+    }
 }

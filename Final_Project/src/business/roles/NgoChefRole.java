@@ -22,4 +22,8 @@ public class NgoChefRole extends Role{
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
       return new ChefWorkAreaJPanel(userProcessContainer,enterprise);
     }
+     @Override
+    public String toString(){
+    return "NGO Chef";
+    }
 }

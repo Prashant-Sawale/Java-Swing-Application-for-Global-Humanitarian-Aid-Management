@@ -10,12 +10,13 @@ package business.employee;
  * @author Admin
  */
 public class Employee {
- private String empployeeName;
- private int employeeID;
- private int count;
+
+    private String empployeeName;
+    private int employeeID;
+    private int count;
 
     public Employee() {
-        employeeID=count;
+        employeeID = count;
         count++;
     }
 
@@ -35,4 +36,8 @@ public class Employee {
         this.employeeID = employeeID;
     }
 
+    @Override
+    public String toString() {
+        return empployeeName;
+    }
 }

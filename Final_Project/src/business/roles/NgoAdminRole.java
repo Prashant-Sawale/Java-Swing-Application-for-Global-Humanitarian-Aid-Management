@@ -24,5 +24,8 @@ public class NgoAdminRole extends Role{
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
       return new   EnterpriseAdminWorkArea(userProcessContainer,enterprise);
     }
-    
+    @Override
+    public String toString(){
+    return "NGO Administrator";
+    }
 }

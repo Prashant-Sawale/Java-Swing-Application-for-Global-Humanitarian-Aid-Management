@@ -23,5 +23,8 @@ public class SystemAdminRole extends Role{
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
         return new  EcoSystemAdminWorkAreaJPanel(userProcessContainer, business);
     }
-    
+     @Override
+    public String toString(){
+    return "NGO System Administrator";
+    }
 }

@@ -26,6 +26,22 @@ public class UserAccount {
     public UserAccount() {
         
     }
+
+    public NGOWorkQueue getNgoWorkqueue() {
+        return ngoWorkqueue;
+    }
+
+    public void setNgoWorkqueue(NGOWorkQueue ngoWorkqueue) {
+        this.ngoWorkqueue = ngoWorkqueue;
+    }
+
+    public Volunteer getVolunteer() {
+        return volunteer;
+    }
+
+    public void setVolunteer(Volunteer volunteer) {
+        this.volunteer = volunteer;
+    }
        
     
     public String getUsername() {

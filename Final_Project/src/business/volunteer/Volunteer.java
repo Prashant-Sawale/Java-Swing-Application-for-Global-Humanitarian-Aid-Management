@@ -15,6 +15,14 @@ import java.util.Date;
  */
 public class Volunteer {
     private int volunteerID;
+
+    public int getVolunteerID() {
+        return volunteerID;
+    }
+
+    public void setVolunteerID(int volunteerID) {
+        this.volunteerID = volunteerID;
+    }
     private static int count = 0;
     private String Name;
     private String Address;

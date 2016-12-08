@@ -24,5 +24,8 @@ public class NgoDoctorRole extends Role{
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
         return new DoctorWorkAreaJPanel(userProcessContainer,account,(MedicationOrganization)organization);
     }
-    
+     @Override
+    public String toString(){
+    return "NGO Doctor";
+    }
 }

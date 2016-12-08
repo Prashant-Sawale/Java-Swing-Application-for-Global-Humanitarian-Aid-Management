@@ -24,5 +24,8 @@ public class NgoWorkerRole extends Role {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
         return new WorkerWorkAreaJPanel(userProcessContainer,account,(ShelterOrganization)organization,enterprise);
     }
-    
+     @Override
+    public String toString(){
+    return "NGO Worker";
+    }
 }

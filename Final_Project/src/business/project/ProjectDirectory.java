@@ -5,7 +5,6 @@
  */
 package business.project;
 
-
 import java.util.ArrayList;
 
 /**
@@ -13,10 +12,11 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class ProjectDirectory {
+
     private ArrayList<Project> projectList;
 
     public ProjectDirectory() {
-        projectList=new ArrayList<>();
+        projectList = new ArrayList<>();
     }
 
     public ArrayList<Project> getProjectList() {
@@ -26,12 +26,13 @@ public class ProjectDirectory {
     public void setProjectList(ArrayList<Project> projectList) {
         this.projectList = projectList;
     }
-    
-    
-    public Project addProject(){
-        
+
+    public Project addProject() {
+
         Project project = new Project();
-        return null;
+        projectList.add(project);
+        return project;
+
     }
-    
+
 }

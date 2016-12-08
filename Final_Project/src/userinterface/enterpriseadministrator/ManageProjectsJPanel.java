@@ -30,7 +30,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         populateTable();
     }
     
-     private void populateTable() {
+     public void populateTable() {
           
         DefaultTableModel model = (DefaultTableModel) tblProjects.getModel();
         

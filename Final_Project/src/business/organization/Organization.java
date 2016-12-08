@@ -8,6 +8,7 @@ package business.organization;
 import business.employee.EmployeeDirectory;
 import business.roles.Role;
 import business.useraccount.UserAccountDirectory;
+import business.volunteer.VolunteerDirectory;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +21,7 @@ public abstract class Organization {
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
     private static int counter;
+    private VolunteerDirectory volunteerDirectory;
     
     public enum Type{
         Education("Education Organization"), Food("Food Organization"), Medical("Medical Organization"), Shelter("Shelter Organization");
@@ -37,7 +39,16 @@ public abstract class Organization {
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
         organizationID = counter;
+        volunteerDirectory= new VolunteerDirectory();
         ++counter;
+    }
+
+    public VolunteerDirectory getVolunteerDirectory() {
+        return volunteerDirectory;
+    }
+
+    public void setVolunteerDirectory(VolunteerDirectory volunteerDirectory) {
+        this.volunteerDirectory = volunteerDirectory;
     }
 
     public abstract ArrayList<Role> getSupportedRole();

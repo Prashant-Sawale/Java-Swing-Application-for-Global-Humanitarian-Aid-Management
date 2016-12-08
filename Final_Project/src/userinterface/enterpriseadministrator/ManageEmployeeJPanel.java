@@ -8,8 +8,12 @@ package userinterface.enterpriseadministrator;
 import business.employee.Employee;
 import business.organization.Organization;
 import business.organization.OrganizationDirectory;
+import business.volunteer.Volunteer;
 import java.awt.CardLayout;
+import java.awt.FlowLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,6 +27,10 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcesContainer;
     private OrganizationDirectory organizationDirectory;
+    JRadioButton employeeRB = new JRadioButton("Employee");
+    JRadioButton volunteerRB = new JRadioButton("Volunteer");
+    ButtonGroup btnGrp = new ButtonGroup();
+    private String type;
 
     public ManageEmployeeJPanel(JPanel userProcesContainer, OrganizationDirectory organizationDirectory) {
         initComponents();
@@ -30,37 +38,60 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         this.userProcesContainer = userProcesContainer;
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
-        
+        setRadioButtons();
+
     }
-    
-     public void populateOrganizationComboBox(){
+
+    private void setRadioButtons() {
+
+        btnGrp.add(employeeRB);
+        btnGrp.add(volunteerRB);
+        radiojPanel.add(employeeRB);
+        radiojPanel.add(volunteerRB);
+        radiojPanel.setSize(100, 200);
+        radiojPanel.setLayout(new FlowLayout());
+        employeeRB.setSelected(true);
+        volunteerRB.setVisible(true);
+    }
+
+    public void populateOrganizationComboBox() {
         comboOrganization.removeAllItems();
-        
-        for (Organization organization : organizationDirectory.getOrganizationList()){
+
+        for (Organization organization : organizationDirectory.getOrganizationList()) {
             comboOrganization.addItem(organization);
         }
     }
-    
-     private void populateTable(Organization organization){
+
+    private void populateTable(Organization organization) {
         DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
-        
+
         model.setRowCount(0);
-        
-        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
+        if (employeeRB.isSelected()) {
+            for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
             Object[] row = new Object[2];
             row[0] = employee.getEmployeeID();
             row[1] = employee.getEmpployeeName();
             model.addRow(row);
         }
+        } else {
+            for ( Volunteer volunteer : organization.getVolunteerDirectory().getVolunteers()) {
+            Object[] row = new Object[2];
+            row[0] = volunteer.getVolunteerID();
+            row[1] =volunteer.getName();
+            model.addRow(row);
+        }
+        }
+        
     }
 
-      public void populateOrganizationEmpComboBox(){
+    public void populateOrganizationEmpComboBox() {
         organizationEmpJComboBox.removeAllItems();
-        
-        for (Organization organization : organizationDirectory.getOrganizationList()){
+
+        for (Organization organization : organizationDirectory.getOrganizationList()) {
             organizationEmpJComboBox.addItem(organization);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +111,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         btnCreateEmployee = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        radiojPanel = new javax.swing.JPanel();
 
         jLabel1.setText("Organization");
 
@@ -138,6 +170,17 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             }
         });
 
+        javax.swing.GroupLayout radiojPanelLayout = new javax.swing.GroupLayout(radiojPanel);
+        radiojPanel.setLayout(radiojPanelLayout);
+        radiojPanelLayout.setHorizontalGroup(
+            radiojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 112, Short.MAX_VALUE)
+        );
+        radiojPanelLayout.setVerticalGroup(
+            radiojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 77, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -151,9 +194,11 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1)
                         .addGap(32, 32, 32)
                         .addComponent(comboOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(291, Short.MAX_VALUE))
+                        .addGap(83, 83, 83)
+                        .addComponent(radiojPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 56, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,14 +218,19 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(comboOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backJButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(comboOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(backJButton)))
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(radiojPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -198,17 +248,31 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
 
     private void comboOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrganizationActionPerformed
         Organization organization = (Organization) comboOrganization.getSelectedItem();
-        if (organization != null){
+        if (organization != null) {
             populateTable(organization);
         }
     }//GEN-LAST:event_comboOrganizationActionPerformed
 
     private void btnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmployeeActionPerformed
-
-        Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
-        String name = txtEmployeeName.getText();
-
+                Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
+//
+        if (employeeRB.isSelected()) {
+            type="Employee";
+            String name = txtEmployeeName.getText();
+            organization.getEmployeeDirectory().createEmployee(name);
+            
+            
+        } else {
+        type="Volunteer";
+        String name= txtEmployeeName.getText();
         organization.getEmployeeDirectory().createEmployee(name);
+        organization.getVolunteerDirectory().createVolunteer(name, name, dob, TOP_ALIGNMENT, Volunteer.VolunteerRoleType.Doctor)
+        }
+        //
+
+        
+
+        
 
     }//GEN-LAST:event_btnCreateEmployeeActionPerformed
 
@@ -229,6 +293,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox organizationEmpJComboBox;
+    private javax.swing.JPanel radiojPanel;
     private javax.swing.JTable tblEmployee;
     private javax.swing.JTextField txtEmployeeName;
     // End of variables declaration//GEN-END:variables

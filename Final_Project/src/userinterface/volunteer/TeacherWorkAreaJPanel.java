@@ -7,6 +7,7 @@ package userinterface.volunteer;
 
 import business.enterprise.Enterprise;
 import business.organization.EducationOrganization;
+import business.project.Project;
 import business.useraccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -21,33 +22,34 @@ public class TeacherWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TeacherWorkareaJPanel
      */
-    JPanel userProcessContainer;
-    UserAccount account;
-    EducationOrganization educationOrganization;
-    Enterprise enterprise;
+   private JPanel userProcessContainer;
+   private  UserAccount account;
+   private  EducationOrganization educationOrganization;
+   private  Enterprise enterprise;
+   private int count;
     public TeacherWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EducationOrganization educationOrganization, Enterprise enterprise) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account = account;
         this.educationOrganization=educationOrganization;
         this.enterprise=enterprise;
+        populateProjectEventTbl();
         
     }
 
       public void populateProjectEventTbl(){
         DefaultTableModel model = (DefaultTableModel) tblProjectEvent.getModel();
         //wtite a logic for populating the project and event in the table 
-//        model.setRowCount(0);
-//        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
-//            Object[] row = new Object[4];
-//            row[0] = request.getMessage();
-//            row[1] = request.getReceiver();
-//            row[2] = request.getStatus();
-//            String result = ((LabTestWorkRequest) request).getTestResult();
-//            row[3] = result == null ? "Waiting" : result;
-//            
-//            model.addRow(row);
-//        }
+        model.setRowCount(0);
+        count=0;
+        for (Project project : enterprise.getProjectDirectory().getProjectList()){
+            Object[] row = new Object[3];
+            row[0] = project.getProjectID();
+            row[1] = project.getEvent();
+            row[2] = project.getProjectName();
+            //row[3] = result == null ? "Waiting" : result;
+            model.addRow(row);
+        }
     }
 
     
@@ -71,7 +73,7 @@ public class TeacherWorkAreaJPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Sr.No", "Event", "Project", "Status"
+                "Sr.No", "Event", "Project"
             }
         ));
         jScrollPane1.setViewportView(tblProjectEvent);
@@ -131,12 +133,12 @@ public class TeacherWorkAreaJPanel extends javax.swing.JPanel {
 
     private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
 
-       
+       populateProjectEventTbl();
 
     }//GEN-LAST:event_refreshTestJButtonActionPerformed
 
     private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
-
+        
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
       //  userProcessContainer.add("RequestLabTestJPanel", new RequestLabTestJPanel(userProcessContainer, userAccount, enterprise));
         layout.next(userProcessContainer);
