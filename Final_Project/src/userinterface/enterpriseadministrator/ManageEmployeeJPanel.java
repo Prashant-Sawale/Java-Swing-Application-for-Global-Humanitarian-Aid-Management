@@ -61,6 +61,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         radiojPanel.setLayout(new FlowLayout());
         employeeRB.setSelected(true);
         volunteerRB.setVisible(true);
+        
     }
 
     public void populateOrganizationComboBox() {
@@ -82,7 +83,8 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                 row[1] = employee.getEmpployeeName();
                 model.addRow(row);
             }
-        } else {
+        } else if(volunteerRB.isSelected()){
+            
             for (Volunteer volunteer : organization.getVolunteerDirectory().getVolunteers()) {
                 Object[] row = new Object[2];
                 row[0] = volunteer.getVolunteerID();

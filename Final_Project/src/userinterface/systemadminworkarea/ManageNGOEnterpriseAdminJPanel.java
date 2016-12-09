@@ -255,7 +255,7 @@ private void populateTable() {
 
         Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
 
-        UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new NgoAdminRole());
+        UserAccount account = enterprise.getUserAccountDirectory().createEmployeeUserAccount(username, password, employee, new NgoAdminRole());
         populateTable();
 
     }//GEN-LAST:event_btnSubmitActionPerformed

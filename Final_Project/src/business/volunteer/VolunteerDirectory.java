@@ -15,6 +15,10 @@ import java.util.Date;
 public class VolunteerDirectory {
     private ArrayList<Volunteer> volunteers;
 
+    
+    public VolunteerDirectory(){
+        volunteers = new ArrayList<>();
+    }
     public ArrayList<Volunteer> getVolunteers() {
         return volunteers;
     }
@@ -23,8 +27,11 @@ public class VolunteerDirectory {
         this.volunteers = volunteers;
     }
     
-    public Volunteer createVolunteer(String Name,String Address, double contactNumber){
-        Volunteer v = new Volunteer(Name,Address,contactNumber);
+    public Volunteer createVolunteer(String Name,String Address, String contactNumber){
+        Volunteer v = new Volunteer();
+        v.setAddress(Address);
+        v.setContactNumber(contactNumber);
+        v.setName(Name);
         volunteers.add(v);
         return v;
     }

@@ -174,7 +174,7 @@ public class AddVolunteerJPanel extends javax.swing.JPanel {
             } else {
                 
                 String address = txtAddrL1.getText() + ", " +txtAddrL2.getText() + ", " + txtCity.getText() + ", " + txtPin.getText() + ", " + txtState.getText();
-                org.getVolunteerDirectory().createVolunteer(txtName.getText(), address, Double.parseDouble(txtNumber.getText()));
+                org.getVolunteerDirectory().createVolunteer(txtName.getText(), address, txtNumber.getText());
                 JOptionPane.showMessageDialog(null, "Volunteer created", "INFO Message", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {

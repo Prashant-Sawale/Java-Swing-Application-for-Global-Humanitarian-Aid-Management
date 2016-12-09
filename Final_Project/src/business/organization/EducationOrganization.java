@@ -5,6 +5,7 @@
  */
 package business.organization;
 
+import business.roles.NgoAccountantRole;
 import business.roles.Role;
 import business.roles.NgoAdminRole;
 import business.roles.NgoTeacherRole;
@@ -20,11 +21,20 @@ public class EducationOrganization extends Organization {
     }
     
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Role> getSupportedEmployeeRole() {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new NgoAdminRole());
+        roles.add(new NgoAccountantRole());
+        return roles;
+    }
+    @Override
+    public ArrayList<Role> getSupportedVolunteerRole() {
         ArrayList<Role> roles = new ArrayList();
         roles.add(new NgoAdminRole());
         roles.add(new NgoTeacherRole());
         return roles;
     }
+    
+    
     
 }

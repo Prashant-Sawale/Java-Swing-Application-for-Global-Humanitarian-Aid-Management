@@ -10,51 +10,100 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.roles.Role;
 import business.useraccount.UserAccount;
+import business.volunteer.Volunteer;
 import java.awt.CardLayout;
+import java.awt.FlowLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author rohan
  */
-public class ManageUserAccountJPanel extends javax.swing.JPanel {
+public class ManageUserAccountJPanel extends javax.swing.JPanel{
 
     /**
      * Creates new form ManageUserAccountJPanel
      */
-     private  JPanel userProcessContainer;
-    private  Enterprise enterprise;
-    public ManageUserAccountJPanel(JPanel userProcessContainer,Enterprise enterprise) {
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    JRadioButton employeeRB = new JRadioButton("Employee");
+    JRadioButton volunteerRB = new JRadioButton("Volunteer");
+    ButtonGroup btnGrp = new ButtonGroup();
+
+    public ManageUserAccountJPanel(JPanel userProcessContainer, Enterprise enterprise) {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.enterprise=enterprise;
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
+        setRadioButtons();
         popOrganizationComboBox();
-       // employeeJComboBox.removeAllItems();
+        // employeeJComboBox.removeAllItems();
         popData();
+        
+        setLbl();
     }
-    
-     public void popOrganizationComboBox() {
+
+    private void setLbl() {
+
+        if (employeeRB.isSelected()) {
+            lblPerson.setText("Employee");
+        } else if (volunteerRB.isSelected()) {
+            lblPerson.setText("Volunteer");
+        }
+    }
+
+    private void setRadioButtons() {
+
+        btnGrp.add(employeeRB);
+        btnGrp.add(volunteerRB);
+        radiojPanel.add(employeeRB);
+        radiojPanel.add(volunteerRB);
+        radiojPanel.setSize(100, 200);
+        radiojPanel.setLayout(new FlowLayout());
+        employeeRB.setSelected(true);
+        volunteerRB.setVisible(true);
+        
+    }
+
+    public void popOrganizationComboBox() {
         organizationJComboBox.removeAllItems();
 
         for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
             organizationJComboBox.addItem(organization);
         }
     }
-    
-    public void populateEmployeeComboBox(Organization organization){
+
+    public void populateEmployeeComboBox(Organization organization) {
         employeeJComboBox.removeAllItems();
-        
-        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()){
-            employeeJComboBox.addItem(employee);
+        if (employeeRB.isSelected()) {
+
+            for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+                employeeJComboBox.addItem(employee);
+            }
+
+        } else {
+            for (Volunteer volunteer : organization.getVolunteerDirectory().getVolunteers()) {
+                employeeJComboBox.addItem(volunteer);
+            }
+
         }
     }
-    
-    private void populateRoleComboBox(Organization organization){
+
+    private void populateRoleComboBox(Organization organization) {
         roleJComboBox.removeAllItems();
-        for (Role role : organization.getSupportedRole()){
-            roleJComboBox.addItem(role);
+        if (employeeRB.isSelected()) {
+            for (Role role : organization.getSupportedEmployeeRole()) {
+                roleJComboBox.addItem(role);
+            }
+        } else if (volunteerRB.isSelected()) {
+            for (Role role : organization.getSupportedVolunteerRole()) {
+                roleJComboBox.addItem(role);
+            }
+
         }
+
     }
 
     public void popData() {
@@ -62,15 +111,40 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblUsers.getModel();
 
         model.setRowCount(0);
+//
+        if (employeeRB.isSelected()) {
+            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
+                    if (ua.getEmployee() != null) {
+                        Object row[] = new Object[2];
+                        row[0] = ua;
+                        row[1] = ua.getRole();
+                        ((DefaultTableModel) tblUsers.getModel()).addRow(row);
+                    }
 
-        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
-            for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
-                Object row[] = new Object[2];
-                row[0] = ua;
-                row[1] = ua.getRole();
-                ((DefaultTableModel) tblUsers.getModel()).addRow(row);
+                }
+            }
+        } else if (volunteerRB.isSelected()){
+            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
+                    if (ua.getVolunteer() != null) {
+                        Object row[] = new Object[2];
+                        row[0] = ua;
+                        row[1] = ua.getRole();
+                        ((DefaultTableModel) tblUsers.getModel()).addRow(row);
+                    }
+                }
             }
         }
+//
+//        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+//            for (UserAccount ua : organization.getUserAccountDirectory().getUserAccountList()) {
+//                Object row[] = new Object[2];
+//                row[0] = ua;
+//                row[1] = ua.getRole();
+//                ((DefaultTableModel) tblUsers.getModel()).addRow(row);
+//            }
+//        }
     }
 
     /**
@@ -87,7 +161,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         tblUsers = new javax.swing.JTable();
         organizationJComboBox = new javax.swing.JComboBox();
         employeeJComboBox = new javax.swing.JComboBox();
-        jLabel3 = new javax.swing.JLabel();
+        lblPerson = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -96,6 +170,8 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         btnCreateUserAccount = new javax.swing.JButton();
         roleJComboBox = new javax.swing.JComboBox();
         btnBack = new javax.swing.JButton();
+        radiojPanel = new javax.swing.JPanel();
+        btnRefresh = new javax.swing.JButton();
 
         jLabel5.setText("Organization");
 
@@ -138,7 +214,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setText("Employee");
+        lblPerson.setText("Employee");
 
         jLabel4.setText("Role");
 
@@ -153,7 +229,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        roleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         roleJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roleJComboBoxActionPerformed(evt);
@@ -168,6 +243,24 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
+        javax.swing.GroupLayout radiojPanelLayout = new javax.swing.GroupLayout(radiojPanel);
+        radiojPanel.setLayout(radiojPanelLayout);
+        radiojPanelLayout.setHorizontalGroup(
+            radiojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 112, Short.MAX_VALUE)
+        );
+        radiojPanelLayout.setVerticalGroup(
+            radiojPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 77, Short.MAX_VALUE)
+        );
+
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,11 +271,13 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radiojPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel3)
+                            .addComponent(lblPerson)
                             .addComponent(jLabel4)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
@@ -194,23 +289,33 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                             .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(passwordJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCreateUserAccount))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRefresh)
+                        .addGap(31, 31, 31)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnBack)
+                                .addGap(8, 8, 8)
+                                .addComponent(radiojPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(btnRefresh)))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lblPerson)
                     .addComponent(employeeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -232,7 +337,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
 
     private void organizationJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationJComboBoxActionPerformed
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
-        if (organization != null){
+        if (organization != null) {
             populateEmployeeComboBox(organization);
             populateRoleComboBox(organization);
         }
@@ -242,10 +347,16 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         String userName = nameJTextField.getText();
         String password = passwordJTextField.getText();
         Organization organization = (Organization) organizationJComboBox.getSelectedItem();
-        Employee employee = (Employee) employeeJComboBox.getSelectedItem();
-        Role role = (Role) roleJComboBox.getSelectedItem();
+        if (employeeRB.isSelected()) {
 
-        organization.getUserAccountDirectory().createUserAccount(userName, password, employee, role);
+            Employee employee = (Employee) employeeJComboBox.getSelectedItem();
+            Role role = (Role) roleJComboBox.getSelectedItem();
+            organization.getUserAccountDirectory().createEmployeeUserAccount(userName, password, employee, role);
+        } else if (volunteerRB.isSelected()){
+            Volunteer volunteer = (Volunteer) employeeJComboBox.getSelectedItem();
+            Role role = (Role) roleJComboBox.getSelectedItem();
+            organization.getUserAccountDirectory().createVolunteerUserAccount(userName, password, volunteer, role);
+        }
 
         popData();
     }//GEN-LAST:event_btnCreateUserAccountActionPerformed
@@ -258,28 +369,43 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void employeeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeJComboBoxActionPerformed
-        // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_employeeJComboBoxActionPerformed
 
     private void roleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleJComboBoxActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_roleJComboBoxActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        popOrganizationComboBox();
+        // employeeJComboBox.removeAllItems();
+        popData();
+        
+        setLbl();
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreateUserAccount;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JComboBox employeeJComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblPerson;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox organizationJComboBox;
     private javax.swing.JTextField passwordJTextField;
+    private javax.swing.JPanel radiojPanel;
     private javax.swing.JComboBox roleJComboBox;
     private javax.swing.JTable tblUsers;
     // End of variables declaration//GEN-END:variables
+
+    
 }

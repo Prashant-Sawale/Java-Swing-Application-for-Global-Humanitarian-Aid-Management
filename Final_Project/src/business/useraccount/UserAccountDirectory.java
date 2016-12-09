@@ -7,6 +7,7 @@ package business.useraccount;
 
 import business.employee.Employee;
 import business.roles.Role;
+import business.volunteer.Volunteer;
 import java.util.ArrayList;
 
 /**
@@ -32,7 +33,7 @@ public class UserAccountDirectory {
         return null;
     }
     
-    public UserAccount createUserAccount(String username, String password, Employee employee, Role role){
+    public UserAccount createEmployeeUserAccount(String username, String password, Employee employee, Role role){
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
@@ -42,6 +43,15 @@ public class UserAccountDirectory {
         return userAccount;
     }
     
+    public UserAccount createVolunteerUserAccount(String username, String password, Volunteer volunteer, Role role){
+        UserAccount userAccount = new UserAccount();
+        userAccount.setUsername(username);
+        userAccount.setPassword(password);
+        userAccount.setVolunteer(volunteer);
+        userAccount.setRole(role);
+        userAccountList.add(userAccount);
+        return userAccount;
+    }
     public boolean checkIfUsernameIsUnique(String username){
         for (UserAccount ua : userAccountList){
             if (ua.getUsername().equals(username))

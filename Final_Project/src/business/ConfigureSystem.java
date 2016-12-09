@@ -21,7 +21,7 @@ public class ConfigureSystem {
 
         Employee employee = system.getEmployeeDirectory().createEmployee("NGOSysAdmin");
 
-        UserAccount userAccount = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
+        UserAccount userAccount = system.getUserAccountDirectory().createEmployeeUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
 
         return system;
 

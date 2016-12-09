@@ -58,10 +58,14 @@ public abstract class EcoSystem extends Organization {
     }
 
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Role> getSupportedEmployeeRole() {
         ArrayList<Role> roleList = new ArrayList<Role>();
         roleList.add(new SystemAdminRole());
         return roleList;
+    }
+
+    public ArrayList<Role> getSupportedVolunteerRole() {
+        return null;
     }
 
 }

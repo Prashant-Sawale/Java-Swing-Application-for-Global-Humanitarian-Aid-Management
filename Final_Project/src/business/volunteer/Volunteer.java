@@ -16,10 +16,10 @@ public class Volunteer {
 
     private int volunteerID;
     private static int count = 0;
-    private String Name;
-    private String Address;
+    private String name;
+    private String address;
     private boolean isAvailable = false;
-    private double contactNumber;
+    private String contactNumber;
     private String volunteerRole;
     private ArrayList<Project> projectHistory;
 
@@ -34,32 +34,40 @@ public class Volunteer {
 //    public enum VolunteerRoleType {
 //        Chef, Doctor, Teacher, Worker;
 //    }
-
-    public Volunteer(String Name, String Address, double contactNumber) {
+    
+    public Volunteer(){
+        
+    }
+    public Volunteer(String name, String address, String contactNumber) {
         volunteerID = ++count;
+        this.name=name;
+        this.address=address;
+        this.contactNumber=contactNumber;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
-    public void setAddress(String Address) {
-        this.Address = Address;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public double getContactNumber() {
+    
+
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(double contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
@@ -89,7 +97,7 @@ public class Volunteer {
 
     @Override
     public String toString() {
-        return this.Name;
+        return this.name;
     }
 
 }

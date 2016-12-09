@@ -5,8 +5,10 @@
  */
 package business.organization;
 
+import business.roles.NgoAccountantRole;
 import business.roles.NgoAdminRole;
 import business.roles.NgoDoctorRole;
+import business.roles.NgoTeacherRole;
 import business.roles.Role;
 import java.util.ArrayList;
 
@@ -19,8 +21,17 @@ public class MedicationOrganization extends  Organization{
         super(Type.Medical.getValue());
     }
     
+    
+    
+     @Override
+    public ArrayList<Role> getSupportedEmployeeRole() {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new NgoAdminRole());
+        roles.add(new NgoAccountantRole());
+        return roles;
+    }
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Role> getSupportedVolunteerRole() {
         ArrayList<Role> roles = new ArrayList();
         roles.add(new NgoAdminRole());
         roles.add(new NgoDoctorRole());

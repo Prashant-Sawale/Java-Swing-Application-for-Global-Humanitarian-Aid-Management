@@ -51,7 +51,8 @@ public abstract class Organization {
         this.volunteerDirectory = volunteerDirectory;
     }
 
-    public abstract ArrayList<Role> getSupportedRole();
+    public abstract ArrayList<Role> getSupportedEmployeeRole();
+    public abstract ArrayList<Role> getSupportedVolunteerRole();
     
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;

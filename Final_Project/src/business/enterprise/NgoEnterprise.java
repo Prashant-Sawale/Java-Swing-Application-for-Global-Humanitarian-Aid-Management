@@ -7,6 +7,7 @@ package business.enterprise;
 
 import business.enterprise.Enterprise.EnterpriseType;
 import business.roles.Role;
+import static com.db4o.qlin.QLinSupport.p;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +20,12 @@ public class NgoEnterprise extends Enterprise{
     }
 
    // @Override
-    public ArrayList<Role> getSupportedRole() {
+    
+    public ArrayList<Role> getSupportedEmployeeRole(){
         return null;
     }
+    public ArrayList<Role> getSupportedVolunteerRole(){
+        return null;
+    }
+    
 }

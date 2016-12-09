@@ -5,7 +5,9 @@
  */
 package business.organization;
 
+import business.roles.NgoAccountantRole;
 import business.roles.NgoAdminRole;
+import business.roles.NgoTeacherRole;
 import business.roles.Role;
 import business.roles.NgoWorkerRole;
 import java.util.ArrayList;
@@ -19,8 +21,15 @@ public class ShelterOrganization extends Organization{
         super(Type.Shelter.getValue());
     }
     
+     @Override
+    public ArrayList<Role> getSupportedEmployeeRole() {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new NgoAdminRole());
+        roles.add(new NgoAccountantRole());
+        return roles;
+    }
     @Override
-    public ArrayList<Role> getSupportedRole() {
+    public ArrayList<Role> getSupportedVolunteerRole() {
         ArrayList<Role> roles = new ArrayList();
         roles.add(new NgoAdminRole());
         roles.add(new NgoWorkerRole());
