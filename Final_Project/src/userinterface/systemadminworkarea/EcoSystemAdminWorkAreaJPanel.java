@@ -32,49 +32,46 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.system = system;
         this.userProcessContainer = userProcessContainer;
-     //   populateTree();
+        populateTree();
     }
 
-    public void populateTree() {
-
+   public void populateTree(){
         DefaultTreeModel model = (DefaultTreeModel) jTree.getModel();
+        
         ArrayList<Network> networkList = system.getNetworkList();
         ArrayList<Enterprise> enterpriseList;
         ArrayList<Organization> organizationList;
-
+        
         Network network;
         Enterprise enterprise;
         Organization organization;
-
+        
         DefaultMutableTreeNode networks = new DefaultMutableTreeNode("Networks");
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-
         root.removeAllChildren();
         root.insert(networks, 0);
-        DefaultMutableTreeNode netwrokNode;
+        
+        DefaultMutableTreeNode networkNode;
         DefaultMutableTreeNode enterpriseNode;
         DefaultMutableTreeNode organizationNode;
-
-        for (int i = 0; i < networkList.size(); i++) {
-            network = networkList.get(i);
-            netwrokNode = new DefaultMutableTreeNode(network.getName());
-            netwrokNode.insert(netwrokNode, i);
-
+        
+        for(int i = 0;i<networkList.size();i++){
+            network =networkList.get(i);
+            networkNode = new DefaultMutableTreeNode(network.getName());
+            root.insert(networkNode,i);
+            
             enterpriseList = network.getEnterpriseDirectory().getEnterpriseList();
-
-            for (int j = 0; j < enterpriseList.size(); j++) {
+            for(int j=0;j< enterpriseList.size();j++){
                 enterprise = enterpriseList.get(j);
                 enterpriseNode = new DefaultMutableTreeNode(enterprise.getName());
-                netwrokNode.insert(enterpriseNode, j);
-
+                networkNode.insert(enterpriseNode, j);
+                
                 organizationList = enterprise.getOrganizationDirectory().getOrganizationList();
-
-                for (int k = 0; k < organizationList.size(); k++) {
-
+                for(int k=0;k<organizationList.size();k++){
                     organization = organizationList.get(k);
                     organizationNode = new DefaultMutableTreeNode(organization.getName());
                     enterpriseNode.insert(organizationNode, k);
-
+                
                 }
             }
         }
@@ -104,6 +101,8 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        jSplitPane.setDividerLocation(200);
+
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);
@@ -117,8 +116,8 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,10 +129,13 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setLeftComponent(jPanel1);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Selected Node:");
 
+        selectedNodeJlabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         selectedNodeJlabel.setText("<view_selected_node>");
 
+        btnManageNetwork.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnManageNetwork.setText("Manage Network");
         btnManageNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +143,7 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageEnterprise.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnManageEnterprise.setText("Manage Enterprise");
         btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +151,7 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnEnterAdmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnEnterAdmin.setText("Manage Enterprise Admin");
         btnEnterAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,15 +164,16 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEnterAdmin)
-                    .addComponent(btnManageEnterprise)
-                    .addComponent(btnManageNetwork)
-                    .addComponent(selectedNodeJlabel))
-                .addContainerGap(239, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(selectedNodeJlabel))
+                    .addComponent(btnEnterAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,13 +182,13 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(selectedNodeJlabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnManageNetwork)
-                .addGap(18, 18, 18)
-                .addComponent(btnManageEnterprise)
-                .addGap(18, 18, 18)
-                .addComponent(btnEnterAdmin)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addComponent(btnEnterAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
