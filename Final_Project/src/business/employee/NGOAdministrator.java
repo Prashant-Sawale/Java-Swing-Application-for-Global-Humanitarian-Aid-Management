@@ -5,16 +5,16 @@
  */
 package business.employee;
 
-import business.ngoWorkque.NGOWorkRequest;
+import business.ngoWorkque.WorkRequest;
 
 /**
  *
  * @author Admin
  */
 public class NGOAdministrator extends Employee{
-    private NGOWorkRequest ngoWorkque;
+    private WorkRequest ngoWorkque;
 
-    public NGOAdministrator(NGOWorkRequest ngoWorkque) {
+    public NGOAdministrator(WorkRequest ngoWorkque) {
         this.ngoWorkque = ngoWorkque;
     }
     

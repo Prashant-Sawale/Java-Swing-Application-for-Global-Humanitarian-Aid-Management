@@ -36,7 +36,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
     public void populateDonors(){
         DefaultTableModel dtm =  (DefaultTableModel) tblDonors.getModel() ;
         dtm.setRowCount(0);
-        for(Donor d: enterprise.getDonorDiectory().getDonorDirectory()){
+        for(Donor d: enterprise.getDonorDirectory().getDonorDirectory()){
             Object row[] = new Object[3];
             row[0] = d.getDonorID();
             row[1] = d;
@@ -227,7 +227,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         int selectedRow = tblDonors.getSelectedRow();
         if(selectedRow >= 0){
             Donor donor = (Donor)tblDonors.getValueAt(selectedRow, 1);
-            enterprise.getDonorDiectory().deleteDonor(donor);
+            enterprise.getDonorDirectory().deleteDonor(donor);
             JOptionPane.showMessageDialog(null, "Donor Deleted", "Success",JOptionPane.INFORMATION_MESSAGE);
         }else{
             JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
@@ -235,8 +235,8 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDeleteDonorActionPerformed
 
     private void btnAddDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDonorActionPerformed
-        Donor donor = enterprise.getDonorDiectory().createDonor();
-        DonorPersonalInformationJPanel dpijp = new DonorPersonalInformationJPanel(userProcessContainer, donor, false);
+        Donor donor = enterprise.getDonorDirectory().createDonor();
+        DonorPersonalInformationJPanel dpijp = new DonorPersonalInformationJPanel(userProcessContainer, donor, true);
         userProcessContainer.add("donorPersonalInfoJPanel", dpijp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
