@@ -5,6 +5,7 @@
  */
 package userinterface.enterpriseadministrator;
 
+import userinterface.donor.ViewDonorDonations;
 import business.enterprise.Enterprise;
 import business.enterprise.donation.Donor;
 import business.project.Project;
