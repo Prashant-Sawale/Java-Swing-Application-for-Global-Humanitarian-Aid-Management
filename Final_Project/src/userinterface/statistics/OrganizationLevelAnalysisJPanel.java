@@ -9,6 +9,8 @@ import business.employee.Employee;
 import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.volunteer.Volunteer;
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
@@ -16,6 +18,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import userinterface.systemadminworkarea.EcoSystemAdminWorkAreaJPanel;
 
 /**
  *
@@ -49,10 +52,18 @@ public class OrganizationLevelAnalysisJPanel extends javax.swing.JPanel {
 
         empToVolRatioJPanel = new javax.swing.JPanel();
         nosOfOrgsOfEachTypeJPanel = new javax.swing.JPanel();
+        brnBack = new javax.swing.JButton();
 
         empToVolRatioJPanel.setLayout(new java.awt.BorderLayout());
 
         nosOfOrgsOfEachTypeJPanel.setLayout(new java.awt.BorderLayout());
+
+        brnBack.setText("<<Back");
+        brnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                brnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -60,9 +71,12 @@ public class OrganizationLevelAnalysisJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(empToVolRatioJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(nosOfOrgsOfEachTypeJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(empToVolRatioJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(nosOfOrgsOfEachTypeJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(brnBack))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -72,9 +86,18 @@ public class OrganizationLevelAnalysisJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(empToVolRatioJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(nosOfOrgsOfEachTypeJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(brnBack)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void brnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brnBackActionPerformed
+        
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_brnBackActionPerformed
 
     private void getEmployeeToVolunteerRation() {
        
@@ -138,6 +161,7 @@ public class OrganizationLevelAnalysisJPanel extends javax.swing.JPanel {
         nosOfOrgsOfEachTypeJPanel.validate();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton brnBack;
     private javax.swing.JPanel empToVolRatioJPanel;
     private javax.swing.JPanel nosOfOrgsOfEachTypeJPanel;
     // End of variables declaration//GEN-END:variables
