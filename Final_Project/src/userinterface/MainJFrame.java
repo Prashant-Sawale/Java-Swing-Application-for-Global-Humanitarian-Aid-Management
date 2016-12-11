@@ -250,7 +250,7 @@ public class MainJFrame extends javax.swing.JFrame {
         barchartdata.setValue(No of total volunteers for a given NGO, "Volunteers", "NGO1");
          */
         
-      //  ArrayList<Integer> volunteers = new ArrayList();
+      //  ArrayList<Integer> volunteers = new ArrayList<>();
         for (Network network : system.getNetworkList()) {
            
             int count1=10;

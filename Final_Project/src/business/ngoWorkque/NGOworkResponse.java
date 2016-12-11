@@ -5,20 +5,23 @@
  */
 package business.ngoWorkque;
 
+import business.enterprise.Enterprise;
 import business.useraccount.UserAccount;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author Admin
  */
-public class NGOworkRequest {
+public class NGOworkResponse {
 
     private String message;
-    private UserAccount sender;
-    private List<UserAccount> recieverList;
+    private Enterprise sender;
+    private ArrayList<Enterprise> recieverList;
 
-    public NGOworkRequest() {
+    public NGOworkResponse() {
+    
     }
 
     public String getMessage() {
@@ -29,22 +32,6 @@ public class NGOworkRequest {
         this.message = message;
     }
 
-    public UserAccount getSender() {
-        return sender;
-    }
-
-    public void setSender(UserAccount sender) {
-        this.sender = sender;
-    }
-
-    public List<UserAccount> getRecieverList() {
-        return recieverList;
-    }
-
-    public void setRecieverList(List<UserAccount> recieverList) {
-        this.recieverList = recieverList;
-    }
-
-    
+   
 
 }

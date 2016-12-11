@@ -26,6 +26,9 @@ public class EnterpriseDirectory {
         enterpriseList = new ArrayList<Enterprise>();
     }
     
+    public void DeleteEnterprise(Enterprise e){
+        this.enterpriseList.remove(e);
+    }
     //createEnterprise
     public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type){
         Enterprise enterprise = null;

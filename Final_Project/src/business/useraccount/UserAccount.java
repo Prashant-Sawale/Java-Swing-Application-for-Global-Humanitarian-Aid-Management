@@ -8,7 +8,7 @@ package business.useraccount;
 import business.employee.Employee;
 import business.roles.Role;
 import business.volunteer.Volunteer;
-import business.ngoWorkque.NGOWorkQueue;
+import business.ngoWorkque.NGOWorkRequest;
 
 /**
  *
@@ -20,18 +20,18 @@ public class UserAccount {
     private Employee employee;
     private Volunteer volunteer;
     private Role role;
-    private NGOWorkQueue ngoWorkqueue;
+    private NGOWorkRequest ngoWorkqueue;
     
 
     public UserAccount() {
         
     }
 
-    public NGOWorkQueue getNgoWorkqueue() {
+    public NGOWorkRequest getNgoWorkqueue() {
         return ngoWorkqueue;
     }
 
-    public void setNgoWorkqueue(NGOWorkQueue ngoWorkqueue) {
+    public void setNgoWorkqueue(NGOWorkRequest ngoWorkqueue) {
         this.ngoWorkqueue = ngoWorkqueue;
     }
 

@@ -7,7 +7,7 @@ package business.network;
 
 import business.enterprise.EnterpriseDirectory;
 
-import business.ngoWorkque.NGOworkqueList;
+import business.ngoWorkque.NGOWorkRequestList;
 
 /**
  *
@@ -17,12 +17,11 @@ public class Network {
 
     private String name;
     private EnterpriseDirectory enterpriseDirectory;
-    private NGOworkqueList ngoWorkqueList;
-    //private NGOworkque nGOworkque;
+    private NGOWorkRequestList ngoWorkqueList;
 
     public Network() {
         enterpriseDirectory = new EnterpriseDirectory();
-        ngoWorkqueList = new NGOworkqueList();
+        ngoWorkqueList = new NGOWorkRequestList();
 
     }
 

@@ -20,7 +20,7 @@ public abstract class Organization {
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
-    private static int counter;
+    private static int counter = 0;
     private VolunteerDirectory volunteerDirectory;
     
     public enum Type{
@@ -38,9 +38,8 @@ public abstract class Organization {
         this.name = name;
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
-        organizationID = counter;
+        organizationID = ++counter;
         volunteerDirectory= new VolunteerDirectory();
-        ++counter;
     }
 
     public VolunteerDirectory getVolunteerDirectory() {

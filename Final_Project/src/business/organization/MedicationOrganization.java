@@ -25,14 +25,14 @@ public class MedicationOrganization extends  Organization{
     
      @Override
     public ArrayList<Role> getSupportedEmployeeRole() {
-        ArrayList<Role> roles = new ArrayList();
+        ArrayList<Role> roles = new ArrayList<>();
         roles.add(new NgoAdminRole());
         roles.add(new NgoAccountantRole());
         return roles;
     }
     @Override
     public ArrayList<Role> getSupportedVolunteerRole() {
-        ArrayList<Role> roles = new ArrayList();
+        ArrayList<Role> roles = new ArrayList<>();
         roles.add(new NgoAdminRole());
         roles.add(new NgoDoctorRole());
         return roles;

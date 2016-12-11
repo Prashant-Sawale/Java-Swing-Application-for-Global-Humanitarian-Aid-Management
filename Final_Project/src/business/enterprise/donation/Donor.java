@@ -21,12 +21,8 @@ public class Donor {
     private ArrayList<Donation> Donations;
     private static int counter = 0;
         
-    public Donor(String name, String address, Date dob, boolean maleSex){
+    public Donor(){
         donorID = ++counter;
-        this.name = name;
-        this.address = address;
-        this.dob = dob;
-        this.maleSex = maleSex;
     }
 
     public int getDonorID() {

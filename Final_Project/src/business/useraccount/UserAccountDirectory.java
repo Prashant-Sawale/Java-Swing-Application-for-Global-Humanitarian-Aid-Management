@@ -18,7 +18,7 @@ public class UserAccountDirectory {
     private ArrayList<UserAccount> userAccountList;
 
     public UserAccountDirectory() {
-        userAccountList = new ArrayList();
+        userAccountList = new ArrayList<>();
     }
 
     public ArrayList<UserAccount> getUserAccountList() {
@@ -58,5 +58,9 @@ public class UserAccountDirectory {
                 return false;
         }
         return true;
+    }
+    
+    public void removeUser(UserAccount userAccount){
+        this.userAccountList.remove(userAccount);
     }
 }

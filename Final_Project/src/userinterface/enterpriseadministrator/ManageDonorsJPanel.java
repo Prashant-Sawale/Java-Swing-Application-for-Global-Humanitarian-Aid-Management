@@ -13,6 +13,7 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.donor.DonorPersonalInformationJPanel;
 import userinterface.entepriseaccountant.FundAllocationJPanel;
 
 /**
@@ -90,8 +91,18 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         }
 
         btnViewDonorDetails.setText("View Donor Details");
+        btnViewDonorDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDonorDetailsActionPerformed(evt);
+            }
+        });
 
         btnDeleteDonor.setText("Delete Donor");
+        btnDeleteDonor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteDonorActionPerformed(evt);
+            }
+        });
 
         btnViewDonorDonations.setText("View Donations");
         btnViewDonorDonations.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +164,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewDonorDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDonorDonationsActionPerformed
-         int selectedRow = tblDonors.getSelectedRow();
+        int selectedRow = tblDonors.getSelectedRow();
         
         if(selectedRow >= 0){
             Donor donor = (Donor)tblDonors.getValueAt(selectedRow, 1);
@@ -166,6 +177,30 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         } 
         
     }//GEN-LAST:event_btnViewDonorDonationsActionPerformed
+
+    private void btnViewDonorDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDonorDetailsActionPerformed
+        int selectedRow = tblDonors.getSelectedRow();
+        if(selectedRow >= 0){
+            Donor donor = (Donor)tblDonors.getValueAt(selectedRow, 1);
+            DonorPersonalInformationJPanel dpijp = new DonorPersonalInformationJPanel(userProcessContainer, donor);
+            userProcessContainer.add("donorPersonalInfoJPanel", dpijp);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnViewDonorDetailsActionPerformed
+
+    private void btnDeleteDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteDonorActionPerformed
+        int selectedRow = tblDonors.getSelectedRow();
+        if(selectedRow >= 0){
+            Donor donor = (Donor)tblDonors.getValueAt(selectedRow, 1);
+            enterprise.getDonorDiectory().deleteDonor(donor);
+            JOptionPane.showMessageDialog(null, "Donor Deleted", "Success",JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDeleteDonorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

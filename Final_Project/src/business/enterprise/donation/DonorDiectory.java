@@ -23,10 +23,14 @@ public class DonorDiectory {
         this.donorDirectory = donorDirectory;
     }
     
-    public Donor createDonor(String name, String address, Date dob, boolean maleSex){
-        Donor d = new Donor(name, address, dob, maleSex);
+    public Donor createDonor(){
+        Donor d = new Donor();
         donorDirectory.add(d);
         return d;
+    }
+    
+    public void deleteDonor(Donor d){
+        donorDirectory.remove(d);
     }
     
 }

@@ -12,26 +12,25 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class NGOWorkQueue {
+public class NGOWorkRequest {
 
-    private ArrayList<NGOworkRequest> NGOworkquRequests;
+    private ArrayList<NGOworkResponse> NGOworkquResponses;
     private Project project;
 
-    public NGOWorkQueue() {
-        this.NGOworkquRequests = new ArrayList<>();
+    public NGOWorkRequest(Project project) {
+        this.project = project;
+        this.NGOworkquResponses = new ArrayList<>();
 
     }
 
-    public ArrayList<NGOworkRequest> getNGOworkquRequests() {
-        return NGOworkquRequests;
+    public ArrayList<NGOworkResponse> getNGOworkquResponses() {
+        return NGOworkquResponses;
     }
 
-    public void setNGOworkquRequests(ArrayList<NGOworkRequest> NGOworkquRequests) {
-        this.NGOworkquRequests = NGOworkquRequests;
+    public void setNGOworkquResponses(ArrayList<NGOworkResponse> NGOworkquResponses) {
+        this.NGOworkquResponses = NGOworkquResponses;
     }
 
-    
-    
     public Project getProject() {
         return project;
     }

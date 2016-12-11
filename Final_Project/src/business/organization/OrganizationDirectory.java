@@ -16,7 +16,7 @@ public class OrganizationDirectory {
     private ArrayList<Organization> organizationList;
 
     public OrganizationDirectory() {
-        organizationList = new ArrayList();
+        organizationList = new ArrayList<>();
     }
 
     public ArrayList<Organization> getOrganizationList() {
@@ -42,5 +42,9 @@ public class OrganizationDirectory {
             organizationList.add(organization);
         }
         return organization;
+    }
+    
+    public void deleteOrganization(Organization o){
+        organizationList.remove(o);
     }
 }
