@@ -23,6 +23,7 @@ public abstract class Role {
         NgoAccountant("NgoAccountant"),
         NgoWorker("NgoWorker"),
         NgoTeacher("NgoTeacher"),
+        NgoDonor("Donor"),
         SystemAdmin("SystemAdmin");
         
         
