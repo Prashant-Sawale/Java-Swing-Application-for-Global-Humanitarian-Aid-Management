@@ -190,7 +190,7 @@ public class AddVolunteerJPanel extends javax.swing.JPanel {
                 
                 String address = txtAddrL1.getText() + ", " +txtAddrL2.getText() + ", " + txtCity.getText() + ", " + txtPin.getText() + ", " + txtState.getText();
                 org.getVolunteerDirectory().createVolunteer(txtName.getText(), address, txtNumber.getText());
-                JOptionPane.showMessageDialog(null, "Volunteer created", "INFO Message", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Volunteer Created Succeffully", "INFO Message", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Check format validity of phone number or zip code.", "ERROR!", JOptionPane.ERROR_MESSAGE);

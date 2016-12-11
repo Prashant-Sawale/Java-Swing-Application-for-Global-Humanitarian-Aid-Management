@@ -6,7 +6,7 @@
 package business.enterprise;
 
 import business.enterprise.donation.DonationHistory;
-import business.enterprise.donation.DonorDiectory;
+import business.enterprise.donation.DonorDirectory;
 import business.enterprise.funds.Funds;
 import business.organization.Organization;
 import business.organization.OrganizationDirectory;
@@ -23,7 +23,7 @@ public abstract class Enterprise extends Organization {
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
     private DonationHistory donationHistory;
-    private DonorDiectory donorDiectory;
+    private DonorDirectory donorDirectory;
     private Funds funds;
     private ProjectDirectory projectDirectory;
 
@@ -33,7 +33,7 @@ public abstract class Enterprise extends Organization {
         this.enterpriseType = type;
         organizationDirectory = new OrganizationDirectory();
         donationHistory = new DonationHistory();
-        donorDiectory = new DonorDiectory();
+        donorDirectory = new DonorDirectory();
         funds = new Funds();
         projectDirectory = new ProjectDirectory();
     }
@@ -85,12 +85,12 @@ public abstract class Enterprise extends Organization {
         this.donationHistory = donationHistory;
     }
 
-    public DonorDiectory getDonorDiectory() {
-        return donorDiectory;
+    public DonorDirectory getDonorDirectory() {
+        return donorDirectory;
     }
 
-    public void setDonorDiectory(DonorDiectory donorDiectory) {
-        this.donorDiectory = donorDiectory;
+    public void setDonorDirectory(DonorDirectory donorDirectory) {
+        this.donorDirectory = donorDirectory;
     }
 
     public Funds getFunds() {

@@ -12,10 +12,14 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class DonorDiectory {
+public class DonorDirectory {
 
     private ArrayList<Donor> donorDirectory;
-
+    
+    public DonorDirectory(){
+        donorDirectory = new ArrayList<Donor>();
+    }
+    
     public ArrayList<Donor> getDonorDirectory() {
         return donorDirectory;
     }

@@ -13,19 +13,19 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class NGOWorkRequestList {
+public class WorkRequestList {
 
-    private ArrayList<NGOWorkRequest> ngoWorkRequests;
+    private ArrayList<WorkRequest> ngoWorkRequests;
 
-    public NGOWorkRequestList() {
+    public WorkRequestList() {
         ngoWorkRequests  = new ArrayList<>();
     }
 
-    public ArrayList<NGOWorkRequest> getNgoWorkRequests() {
+    public ArrayList<WorkRequest> getNgoWorkRequests() {
         return ngoWorkRequests;
     }
 
-    public void setNgoWorkRequests(ArrayList<NGOWorkRequest> ngoWorkRequests) {
+    public void setNgoWorkRequests(ArrayList<WorkRequest> ngoWorkRequests) {
         this.ngoWorkRequests = ngoWorkRequests;
     }
 
@@ -33,8 +33,8 @@ public class NGOWorkRequestList {
      * createWorkRequest method gets project as a parameter creates a work queue
  object and sets the project to it
      */
-    private NGOWorkRequest createWorkRequest(Project project) {
-        NGOWorkRequest ngoWorkque = new NGOWorkRequest(project);
+    private WorkRequest createWorkRequest(Project project) {
+        WorkRequest ngoWorkque = new WorkRequest(project);
         return ngoWorkque;
     }
 }
