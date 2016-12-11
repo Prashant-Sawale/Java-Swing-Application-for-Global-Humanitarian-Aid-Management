@@ -33,6 +33,11 @@ public class DonorJPanel extends javax.swing.JPanel {
         btnViewDonations.setText("View Donations");
 
         btnPerInfo.setText("Personal Information");
+        btnPerInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -55,6 +60,10 @@ public class DonorJPanel extends javax.swing.JPanel {
                 .addContainerGap(444, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPerInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerInfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPerInfoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
