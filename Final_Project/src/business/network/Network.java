@@ -10,6 +10,7 @@ import business.enterprise.EnterpriseDirectory;
 import business.ngoWorkque.NGOWorkRequestList;
 
 /**
+ * This class contains the enterprise lists and the work request list.
  *
  * @author Admin
  */

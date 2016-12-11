@@ -34,6 +34,7 @@ public class FundAllocationJPanel extends javax.swing.JPanel {
     }
     
     public void populateDetails(){
+        
         txtProjectId.setText(String.valueOf(project.getProjectID()));
         txtProjectName.setText(project.getProjectName());
         txtFundRequired.setText(String.valueOf(project.fundsRemaining()));

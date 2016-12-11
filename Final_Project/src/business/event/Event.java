@@ -6,10 +6,12 @@
 package business.event;
 
 /**
+ * This class is used to define the event.
  *
  * @author Admin
  */
 public class Event {
+
     private Event event;
     private String eventLocation;
     private String eventDescription;
@@ -46,8 +48,9 @@ public class Event {
     public void setPredictedVictims(int predictedVictims) {
         this.predictedVictims = predictedVictims;
     }
+
     public Event(Event event) {
         this.event = event;
     }
-    
+
 }

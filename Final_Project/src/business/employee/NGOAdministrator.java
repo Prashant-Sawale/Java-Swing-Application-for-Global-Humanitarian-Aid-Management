@@ -8,17 +8,16 @@ package business.employee;
 import business.ngoWorkque.NGOWorkRequest;
 
 /**
+ * This class defines the enterprise administrator.
  *
  * @author Admin
  */
-public class NGOAdministrator extends Employee{
+public class NGOAdministrator extends Employee {
+
     private NGOWorkRequest ngoWorkque;
 
     public NGOAdministrator(NGOWorkRequest ngoWorkque) {
         this.ngoWorkque = ngoWorkque;
     }
-    
-    
-    
-    
+
 }

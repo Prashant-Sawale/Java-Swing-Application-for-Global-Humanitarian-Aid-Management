@@ -8,10 +8,12 @@ package business.enterprise.donation;
 import java.util.ArrayList;
 
 /**
+ * This class defines the donation history.
  *
  * @author Admin
  */
 public class DonationHistory {
+
     private ArrayList<Donation> donationDirectory;
 
     public ArrayList<Donation> getDonationDirectory() {
@@ -21,12 +23,11 @@ public class DonationHistory {
     public void setDonationDirectory(ArrayList<Donation> donationDirectory) {
         this.donationDirectory = donationDirectory;
     }
-    
-    public Donation addDonation(Donor donor, int donationAmount){
+
+    public Donation addDonation(Donor donor, int donationAmount) {
         Donation d = new Donation(donor, donationAmount);
         donationDirectory.add(d);
         return d;
     }
-    
-    
+
 }

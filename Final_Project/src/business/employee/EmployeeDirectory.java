@@ -8,13 +8,16 @@ package business.employee;
 import java.util.ArrayList;
 
 /**
+ * This class has the list of employees.
  *
- * @author Admin
+ * @author rohan
  */
 public class EmployeeDirectory {
+
     private ArrayList<Employee> employeeList;
-    public EmployeeDirectory(){
-     employeeList=new ArrayList<>();
+
+    public EmployeeDirectory() {
+        employeeList = new ArrayList<>();
     }
 
     public ArrayList<Employee> getEmployeeList() {
@@ -24,12 +27,12 @@ public class EmployeeDirectory {
     public void setEmployeeList(ArrayList<Employee> EmployeeList) {
         this.employeeList = EmployeeList;
     }
-    
-    public Employee createEmployee(String name){
-    Employee employee=new Employee();
-    employee.setEmpployeeName(name);
-    employeeList.add(employee);
-    return employee;
-    
+
+    public Employee createEmployee(String name) {
+        Employee employee = new Employee();
+        employee.setEmpployeeName(name);
+        employeeList.add(employee);
+        return employee;
+
     }
 }

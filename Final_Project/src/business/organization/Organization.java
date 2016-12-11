@@ -12,10 +12,12 @@ import business.volunteer.VolunteerDirectory;
 import java.util.ArrayList;
 
 /**
+ ** This class defines the organization details.
  *
  * @author Pranjal
  */
 public abstract class Organization {
+
     private String name;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
@@ -23,14 +25,15 @@ public abstract class Organization {
     private static int counter = 0;
     private VolunteerDirectory volunteerDirectory;
     private String subOrgType;
-//    private ProjectDirectory projectDirectory;
-    
-    public enum Type{
+
+    public enum Type {
         Education("Education Organization"), Food("Food Organization"), Medical("Medical Organization"), Shelter("Shelter Organization");
         private String value;
+
         private Type(String value) {
             this.value = value;
         }
+
         public String getValue() {
             return value;
         }
@@ -41,7 +44,7 @@ public abstract class Organization {
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
         organizationID = ++counter;
-        volunteerDirectory= new VolunteerDirectory();
+        volunteerDirectory = new VolunteerDirectory();
     }
 
     public VolunteerDirectory getVolunteerDirectory() {
@@ -53,8 +56,9 @@ public abstract class Organization {
     }
 
     public abstract ArrayList<Role> getSupportedEmployeeRole();
+
     public abstract ArrayList<Role> getSupportedVolunteerRole();
-    
+
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;
     }
@@ -66,7 +70,7 @@ public abstract class Organization {
     public EmployeeDirectory getEmployeeDirectory() {
         return employeeDirectory;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -74,14 +78,6 @@ public abstract class Organization {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public ProjectDirectory getProjectDirectory() {
-//        return projectDirectory;
-//    }
-//
-//    public void setProjectDirectory(ProjectDirectory projectDirectory) {
-//        this.projectDirectory = projectDirectory;
-//    }
 
     public String getSubOrgType() {
         return subOrgType;
@@ -91,7 +87,6 @@ public abstract class Organization {
         this.subOrgType = subOrgType;
     }
 
-    
     @Override
     public String toString() {
         return name;

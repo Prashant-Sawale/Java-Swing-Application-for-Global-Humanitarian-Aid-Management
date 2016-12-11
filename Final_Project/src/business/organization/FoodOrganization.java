@@ -8,31 +8,32 @@ package business.organization;
 import business.roles.NgoAccountantRole;
 import business.roles.NgoAdminRole;
 import business.roles.NgoChefRole;
-import business.roles.NgoTeacherRole;
 import business.roles.Role;
 import business.roles.NgoWorkerRole;
 import java.util.ArrayList;
 
 /**
+ * This class defines the organization as food org.
  *
  * @author Admin
  */
-public class FoodOrganization extends Organization{
-     
+public class FoodOrganization extends Organization {
+
     private String subOrgType;
+
     public FoodOrganization() {
         super(Type.Food.getValue());
         subOrgType = Type.Food.getValue();
     }
-    
-    
-     @Override
+
+    @Override
     public ArrayList<Role> getSupportedEmployeeRole() {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new NgoAdminRole());
         roles.add(new NgoAccountantRole());
         return roles;
     }
+
     @Override
     public ArrayList<Role> getSupportedVolunteerRole() {
         ArrayList<Role> roles = new ArrayList<>();
@@ -40,5 +41,5 @@ public class FoodOrganization extends Organization{
         roles.add(new NgoChefRole());
         return roles;
     }
-    
+
 }

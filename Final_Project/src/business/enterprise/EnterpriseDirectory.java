@@ -8,10 +8,12 @@ package business.enterprise;
 import java.util.ArrayList;
 
 /**
+ * This class has the list of enterprises.
  *
- * @author Admin
+ * @author rohan
  */
 public class EnterpriseDirectory {
+
     private ArrayList<Enterprise> enterpriseList;
 
     public ArrayList<Enterprise> getEnterpriseList() {
@@ -21,22 +23,22 @@ public class EnterpriseDirectory {
     public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
         this.enterpriseList = enterpriseList;
     }
-    
-    public EnterpriseDirectory(){
+
+    public EnterpriseDirectory() {
         enterpriseList = new ArrayList<Enterprise>();
     }
-    
-    public void DeleteEnterprise(Enterprise e){
+
+    public void DeleteEnterprise(Enterprise e) {
         this.enterpriseList.remove(e);
     }
+
     //createEnterprise
-    public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type){
+    public Enterprise createAndAddEnterprise(String name, Enterprise.EnterpriseType type) {
         Enterprise enterprise = null;
-        if(type == Enterprise.EnterpriseType.NGO){
+        if (type == Enterprise.EnterpriseType.NGO) {
             enterprise = new NgoEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        
         return enterprise;
     }
 }
