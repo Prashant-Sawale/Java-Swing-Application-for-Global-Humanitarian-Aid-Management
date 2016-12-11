@@ -6,8 +6,10 @@
 package userinterface.donor;
 
 import business.enterprise.donation.Donor;
+import business.validation.Validator;
 import java.awt.CardLayout;
 import java.sql.Date;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -15,10 +17,11 @@ import javax.swing.JPanel;
  * @author rohan
  */
 public class DonorPersonalInformationJPanel extends javax.swing.JPanel {
-    
-    JPanel userProcessContainer; 
+
+    JPanel userProcessContainer;
     Donor donor;
     boolean updateInfo = false;
+
     /**
      * Creates new form DonorPersonalInformationJPanel
      */
@@ -26,21 +29,21 @@ public class DonorPersonalInformationJPanel extends javax.swing.JPanel {
         initComponents();
         this.donor = donor;
         this.userProcessContainer = userProcessContainer;
-        if(firstTimeUser){
+        if (firstTimeUser) {
             btnUpdateInfo.setEnabled(false);
             btnSubmit.setEnabled(true);
-        }else{
+        } else {
             populateDetails();
             btnUpdateInfo.setEnabled(true);
             btnSubmit.setEnabled(false);
         }
     }
-    
-    public void populateDetails(){
+
+    public void populateDetails() {
         txtName.setText(donor.getName());
         txtAddress.setText(donor.getAddress());
         txtName.setText(String.valueOf(donor.getDob()));
-        if(!donor.isMaleSex()){
+        if (!donor.isMaleSex()) {
             radioFemale.setSelected(true);
         }
     }
@@ -191,12 +194,24 @@ public class DonorPersonalInformationJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        donor.setName(txtName.getText());
-        donor.setAddress(txtAddress.getText());
-        donor.setDob(Date.valueOf(txtDob.getText()));
-        donor.setMaleSex(radioMale.isSelected());
-        btnUpdateInfo.setEnabled(true);
-        btnSubmit.setEnabled(false);
+
+        Validator validator = new Validator();
+        boolean date = validator.validateDate(txtDob.getText());
+        if (date) {
+            if (txtName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtDob.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "All fields are mandatory.", "Warning!", JOptionPane.WARNING_MESSAGE);
+            } else {
+
+                donor.setName(txtName.getText());
+                donor.setAddress(txtAddress.getText());
+                donor.setDob(Date.valueOf(txtDob.getText()));
+                donor.setMaleSex(radioMale.isSelected());
+                btnUpdateInfo.setEnabled(true);
+                btnSubmit.setEnabled(false);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Check format validity of date of birth", "ERROR!", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnUpdateInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateInfoActionPerformed
