@@ -6,6 +6,7 @@
 package business.useraccount;
 
 import business.employee.Employee;
+import business.enterprise.donation.Donor;
 import business.roles.Role;
 import business.volunteer.Volunteer;
 import java.util.ArrayList;
@@ -48,6 +49,15 @@ public class UserAccountDirectory {
         userAccount.setUsername(username);
         userAccount.setPassword(password);
         userAccount.setVolunteer(volunteer);
+        userAccount.setRole(role);
+        userAccountList.add(userAccount);
+        return userAccount;
+    }
+    public UserAccount createDonorUserAccount(String username, String password, Donor donor, Role role){
+        UserAccount userAccount = new UserAccount();
+        userAccount.setUsername(username);
+        userAccount.setPassword(password);
+        userAccount.setDonor(donor);
         userAccount.setRole(role);
         userAccountList.add(userAccount);
         return userAccount;

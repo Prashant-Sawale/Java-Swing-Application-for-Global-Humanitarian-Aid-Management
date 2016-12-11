@@ -31,6 +31,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
+        populateDonors();
     }
     public void populateDonors(){
         DefaultTableModel dtm =  (DefaultTableModel) tblDonors.getModel() ;
@@ -61,6 +62,8 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         btnDeleteDonor = new javax.swing.JButton();
         btnViewDonorDonations = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnAddDonor = new javax.swing.JButton();
+        btnManageDonorUserAccount = new javax.swing.JButton();
 
         lblPageHeading.setText("Donor Directory");
 
@@ -90,6 +93,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
             tblDonors.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        btnViewDonorDetails.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnViewDonorDetails.setText("View Donor Details");
         btnViewDonorDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +101,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDeleteDonor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnDeleteDonor.setText("Delete Donor");
         btnDeleteDonor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +109,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnViewDonorDonations.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnViewDonorDonations.setText("View Donations");
         btnViewDonorDonations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,10 +117,27 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnBack.setText("<< back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
+            }
+        });
+
+        btnAddDonor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAddDonor.setText("Add Donor");
+        btnAddDonor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddDonorActionPerformed(evt);
+            }
+        });
+
+        btnManageDonorUserAccount.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnManageDonorUserAccount.setText("Manage Donor User Account");
+        btnManageDonorUserAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageDonorUserAccountActionPerformed(evt);
             }
         });
 
@@ -126,15 +149,20 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPageHeading)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnViewDonorDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnViewDonorDonations, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDeleteDonor, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnAddDonor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnViewDonorDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnViewDonorDonations, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnManageDonorUserAccount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnDeleteDonor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -146,13 +174,17 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnViewDonorDetails)
-                    .addComponent(btnDeleteDonor))
-                .addGap(18, 18, 18)
-                .addComponent(btnViewDonorDonations)
-                .addGap(18, 18, 18)
-                .addComponent(btnBack)
-                .addContainerGap(147, Short.MAX_VALUE))
+                    .addComponent(btnDeleteDonor)
+                    .addComponent(btnAddDonor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnViewDonorDonations)
+                    .addComponent(btnViewDonorDetails))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(btnManageDonorUserAccount))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -182,7 +214,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         int selectedRow = tblDonors.getSelectedRow();
         if(selectedRow >= 0){
             Donor donor = (Donor)tblDonors.getValueAt(selectedRow, 1);
-            DonorPersonalInformationJPanel dpijp = new DonorPersonalInformationJPanel(userProcessContainer, donor);
+            DonorPersonalInformationJPanel dpijp = new DonorPersonalInformationJPanel(userProcessContainer, donor, false);
             userProcessContainer.add("donorPersonalInfoJPanel", dpijp);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
@@ -202,10 +234,28 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnDeleteDonorActionPerformed
 
+    private void btnAddDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDonorActionPerformed
+        Donor donor = enterprise.getDonorDiectory().createDonor();
+        DonorPersonalInformationJPanel dpijp = new DonorPersonalInformationJPanel(userProcessContainer, donor, false);
+        userProcessContainer.add("donorPersonalInfoJPanel", dpijp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnAddDonorActionPerformed
+
+    private void btnManageDonorUserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDonorUserAccountActionPerformed
+        
+        ManageDonorUserAccountJPanel donorUserAccountJPanel = new ManageDonorUserAccountJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("donorPersonalInfoJPanel", donorUserAccountJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageDonorUserAccountActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddDonor;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDeleteDonor;
+    private javax.swing.JButton btnManageDonorUserAccount;
     private javax.swing.JButton btnViewDonorDetails;
     private javax.swing.JButton btnViewDonorDonations;
     private javax.swing.JScrollPane jScrollPane1;

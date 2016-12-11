@@ -6,6 +6,7 @@
 package business.useraccount;
 
 import business.employee.Employee;
+import business.enterprise.donation.Donor;
 import business.roles.Role;
 import business.volunteer.Volunteer;
 import business.ngoWorkque.NGOWorkRequest;
@@ -19,21 +20,22 @@ public class UserAccount {
     private String password;
     private Employee employee;
     private Volunteer volunteer;
+    private Donor donor;
     private Role role;
-    private NGOWorkRequest ngoWorkqueue;
+//    private NGOWorkRequest ngoWorkqueue;
     
 
     public UserAccount() {
         
     }
 
-    public NGOWorkRequest getNgoWorkqueue() {
-        return ngoWorkqueue;
-    }
-
-    public void setNgoWorkqueue(NGOWorkRequest ngoWorkqueue) {
-        this.ngoWorkqueue = ngoWorkqueue;
-    }
+//    public NGOWorkRequest getNgoWorkqueue() {
+//        return ngoWorkqueue;
+//    }
+//
+//    public void setNgoWorkqueue(NGOWorkRequest ngoWorkqueue) {
+//        this.ngoWorkqueue = ngoWorkqueue;
+//    }
 
     public Volunteer getVolunteer() {
         return volunteer;
@@ -75,6 +77,14 @@ public class UserAccount {
     public Employee getEmployee() {
         return employee;
     }    
+
+    public Donor getDonor() {
+        return donor;
+    }
+
+    public void setDonor(Donor donor) {
+        this.donor = donor;
+    }
     
     @Override
     public String toString() {

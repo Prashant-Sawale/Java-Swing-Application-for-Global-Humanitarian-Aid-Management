@@ -10,21 +10,21 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.enterpriseadministrator.EnterpriseAdminWorkArea;
+import userinterface.donor.DonorWorkAreaJPanel;
 
 /**
  *
  * @author Pranjal
  */
-public class NgoAdminRole extends Role{
-
+public class NgoDonorRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-      return new   EnterpriseAdminWorkArea(userProcessContainer,enterprise);
+        return new DonorWorkAreaJPanel(userProcessContainer, enterprise, account);
     }
+
     @Override
-    public String toString(){
-    return "NGO Administrator";
+    public String toString() {
+        return "NGO Donor";
     }
 }
