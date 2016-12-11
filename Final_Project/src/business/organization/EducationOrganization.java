@@ -9,6 +9,7 @@ import business.roles.NgoAccountantRole;
 import business.roles.Role;
 import business.roles.NgoAdminRole;
 import business.roles.NgoTeacherRole;
+import business.roles.NgoWorkerRole;
 import java.util.ArrayList;
 
 /**
@@ -30,8 +31,8 @@ public class EducationOrganization extends Organization {
     @Override
     public ArrayList<Role> getSupportedVolunteerRole() {
         ArrayList<Role> roles = new ArrayList<>();
-        roles.add(new NgoAdminRole());
         roles.add(new NgoTeacherRole());
+           roles.add(new NgoWorkerRole());
         return roles;
     }
     

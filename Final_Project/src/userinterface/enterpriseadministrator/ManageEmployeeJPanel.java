@@ -32,36 +32,24 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     ButtonGroup btnGrp = new ButtonGroup();
     private String type;
 
-    public ManageEmployeeJPanel(JPanel userProcessContainer, OrganizationDirectory organizationDirectory) {
+    public ManageEmployeeJPanel(JPanel userProcessContainer, OrganizationDirectory organizationDirectory, String type) {
         initComponents();
         this.organizationDirectory = organizationDirectory;
         this.userProcessContainer = userProcessContainer;
+        this.type=type;
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
-        setRadioButtons();
+        
         setLbl();
     }
 
     private void setLbl() {
 
-        if (employeeRB.isSelected()) {
+        if (type.equalsIgnoreCase("Employee")) {
             lblVolEmp.setText("Add New Employee");
-        } else if (volunteerRB.isSelected()) {
+        } else if (type.equalsIgnoreCase("Volunteer")) {
             lblVolEmp.setText("Add New Volunteer");
         }
-    }
-
-    private void setRadioButtons() {
-
-        btnGrp.add(employeeRB);
-        btnGrp.add(volunteerRB);
-        radiojPanel.add(employeeRB);
-        radiojPanel.add(volunteerRB);
-        radiojPanel.setSize(100, 200);
-        radiojPanel.setLayout(new FlowLayout());
-        employeeRB.setSelected(true);
-        volunteerRB.setVisible(true);
-        
     }
 
     public void populateOrganizationComboBox() {
@@ -76,14 +64,14 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblEmployee.getModel();
 
         model.setRowCount(0);
-        if (employeeRB.isSelected()) {
+        if (type.equalsIgnoreCase("Employee")) {
             for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
                 Object[] row = new Object[2];
                 row[0] = employee.getEmployeeID();
                 row[1] = employee.getEmpployeeName();
                 model.addRow(row);
             }
-        } else if(volunteerRB.isSelected()){
+        } else if(type.equalsIgnoreCase("volunteer")){
             
             for (Volunteer volunteer : organization.getVolunteerDirectory().getVolunteers()) {
                 Object[] row = new Object[2];
@@ -276,11 +264,11 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     private void btnCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEmployeeActionPerformed
 
         Organization organization = (Organization) organizationEmpJComboBox.getSelectedItem();
-        if (employeeRB.isSelected()) {
+        if (type.equalsIgnoreCase("Employee")) {
             String name = txtEmpVolName.getText();
             organization.getEmployeeDirectory().createEmployee(name);
 
-        } else if (volunteerRB.isSelected()) {
+        } else if (type.equalsIgnoreCase("Volunteer")) {
             AddVolunteerJPanel addVolunteerJPanel = new AddVolunteerJPanel(userProcessContainer, txtEmpVolName.getText(), organizationEmpJComboBox.getSelectedItem());
             userProcessContainer.add("AddVolunteerJPanel", addVolunteerJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
