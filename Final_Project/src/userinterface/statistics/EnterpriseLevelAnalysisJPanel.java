@@ -10,6 +10,7 @@ import business.enterprise.donation.Donation;
 import business.project.Project;
 import business.victim.Victim;
 import business.volunteer.Volunteer;
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JPanel;
@@ -53,6 +54,7 @@ public class EnterpriseLevelAnalysisJPanel extends javax.swing.JPanel {
         donationPerMonthJPanel = new javax.swing.JPanel();
         volunteersWorkingJPanel = new javax.swing.JPanel();
         volToVitctimJPanel = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
 
         donationPerMonthJPanel.setLayout(new java.awt.BorderLayout());
 
@@ -69,6 +71,13 @@ public class EnterpriseLevelAnalysisJPanel extends javax.swing.JPanel {
             .addGap(0, 500, Short.MAX_VALUE)
         );
 
+        btnBack.setText("<< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,7 +89,10 @@ public class EnterpriseLevelAnalysisJPanel extends javax.swing.JPanel {
                         .addComponent(donationPerMonthJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(volunteersWorkingJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(volToVitctimJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(volToVitctimJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBack)))
                 .addContainerGap(451, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -91,10 +103,19 @@ public class EnterpriseLevelAnalysisJPanel extends javax.swing.JPanel {
                     .addComponent(donationPerMonthJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                     .addComponent(volunteersWorkingJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(volToVitctimJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(volToVitctimJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void getTotalDonationsPerMonth() {
 
@@ -184,6 +205,7 @@ public class EnterpriseLevelAnalysisJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JPanel donationPerMonthJPanel;
     private javax.swing.JPanel volToVitctimJPanel;
     private javax.swing.JPanel volunteersWorkingJPanel;
