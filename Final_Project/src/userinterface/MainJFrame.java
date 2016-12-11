@@ -12,7 +12,6 @@ import business.network.Network;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import java.awt.CardLayout;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
