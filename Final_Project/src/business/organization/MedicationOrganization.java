@@ -17,8 +17,11 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class MedicationOrganization extends  Organization{
+    
+    private String subOrgType;
     public MedicationOrganization() {
         super(Type.Medical.getValue());
+        subOrgType = Type.Medical.getValue();
     }
     
     

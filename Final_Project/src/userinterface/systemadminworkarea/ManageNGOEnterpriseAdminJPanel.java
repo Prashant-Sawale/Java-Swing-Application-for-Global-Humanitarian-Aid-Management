@@ -139,6 +139,11 @@ private void populateTable() {
 
         comboEnterprise.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         comboEnterprise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboEnterprise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEnterpriseActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Username");
@@ -315,6 +320,10 @@ private void populateTable() {
             JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnRemoveUserActionPerformed
+
+    private void comboEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEnterpriseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboEnterpriseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

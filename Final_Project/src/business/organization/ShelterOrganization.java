@@ -17,8 +17,11 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class ShelterOrganization extends Organization{
+    
+     private String subOrgType;
     public ShelterOrganization() {
         super(Type.Shelter.getValue());
+        subOrgType = Type.Shelter.getValue();
     }
     
      @Override

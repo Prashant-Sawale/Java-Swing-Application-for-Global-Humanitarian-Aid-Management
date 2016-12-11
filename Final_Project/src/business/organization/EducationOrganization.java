@@ -16,8 +16,11 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class EducationOrganization extends Organization {
+    
+    private String subOrgType;
     public EducationOrganization() {
         super(Type.Education.getValue());
+        subOrgType = Type.Education.getValue();
     }
     
     @Override

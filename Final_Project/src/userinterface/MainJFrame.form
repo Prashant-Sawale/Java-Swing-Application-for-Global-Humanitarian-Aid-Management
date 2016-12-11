@@ -72,7 +72,7 @@
                           <Component id="txtUserName" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnLogOut" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnShowChart" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnStats" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="39" max="32767" attributes="0"/>
                   </Group>
@@ -94,7 +94,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnLogOut" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnShowChart" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="btnStats" min="-2" pref="39" max="-2" attributes="0"/>
                       <EmptySpace pref="160" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -175,15 +175,15 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnShowChart">
+            <Component class="javax.swing.JButton" name="btnStats">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Show Chart"/>
+                <Property name="text" type="java.lang.String" value="Statistics"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowChartActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStatsActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

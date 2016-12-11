@@ -22,6 +22,8 @@ public abstract class Organization {
     private int organizationID;
     private static int counter = 0;
     private VolunteerDirectory volunteerDirectory;
+    private String subOrgType;
+//    private ProjectDirectory projectDirectory;
     
     public enum Type{
         Education("Education Organization"), Food("Food Organization"), Medical("Medical Organization"), Shelter("Shelter Organization");
@@ -73,6 +75,23 @@ public abstract class Organization {
         this.name = name;
     }
 
+//    public ProjectDirectory getProjectDirectory() {
+//        return projectDirectory;
+//    }
+//
+//    public void setProjectDirectory(ProjectDirectory projectDirectory) {
+//        this.projectDirectory = projectDirectory;
+//    }
+
+    public String getSubOrgType() {
+        return subOrgType;
+    }
+
+    public void setSubOrgType(String subOrgType) {
+        this.subOrgType = subOrgType;
+    }
+
+    
     @Override
     public String toString() {
         return name;

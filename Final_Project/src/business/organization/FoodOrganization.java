@@ -18,8 +18,11 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class FoodOrganization extends Organization{
+     
+    private String subOrgType;
     public FoodOrganization() {
         super(Type.Food.getValue());
+        subOrgType = Type.Food.getValue();
     }
     
     

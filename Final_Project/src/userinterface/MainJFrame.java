@@ -14,12 +14,7 @@ import business.useraccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.DefaultCategoryDataset;
+import userinterface.statistics.StatisticalAnalysisJPanel;
 
 /**
  *
@@ -55,7 +50,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnLogOut = new javax.swing.JButton();
         txtPass = new javax.swing.JPasswordField();
-        btnShowChart = new javax.swing.JButton();
+        btnStats = new javax.swing.JButton();
         userProcessContainer = new javax.swing.JPanel();
         chartJPanel = new javax.swing.JPanel();
 
@@ -104,11 +99,11 @@ public class MainJFrame extends javax.swing.JFrame {
         txtPass.setMinimumSize(new java.awt.Dimension(6, 37));
         txtPass.setPreferredSize(new java.awt.Dimension(150, 37));
 
-        btnShowChart.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnShowChart.setText("Show Chart");
-        btnShowChart.addActionListener(new java.awt.event.ActionListener() {
+        btnStats.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnStats.setText("Statistics");
+        btnStats.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowChartActionPerformed(evt);
+                btnStatsActionPerformed(evt);
             }
         });
 
@@ -125,7 +120,7 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnShowChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         masterPanelLayout.setVerticalGroup(
@@ -144,7 +139,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnShowChart, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnStats, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(160, Short.MAX_VALUE))
         );
 
@@ -243,40 +238,17 @@ public class MainJFrame extends javax.swing.JFrame {
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_btnLogOutActionPerformed
 
-    private void btnShowChartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowChartActionPerformed
-         int count =0;
-        DefaultCategoryDataset barchartdata = new DefaultCategoryDataset();
-        /*
-        barchartdata.setValue(No of total volunteers for a given NGO, "Volunteers", "NGO1");
-         */
-        
-      //  ArrayList<Integer> volunteers = new ArrayList<>();
-        for (Network network : system.getNetworkList()) {
-           
-            int count1=10;
-            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                 
-                    //count+=organization.getVolunteerDirectory().getVolunteers().size();
-                    count+=organization.getEmployeeDirectory().getEmployeeList().size();
-                    
-                }
-                barchartdata.setValue(count, "Number of Volunteers", enterprise.getName());
-                count+=count1+10;
+    private void btnStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatsActionPerformed
+
+        if (system != null) {
+            if (system.getNetworkList() != null && system.getNetworkList().size() > 0) {
+                StatisticalAnalysisJPanel statisticalAnalysisJPanel = new StatisticalAnalysisJPanel(userProcessContainer, system);
+                userProcessContainer.add("statisticalAnalysisJPanel", statisticalAnalysisJPanel);
+                CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+                layout.next(userProcessContainer);
             }
-                    
         }
-
-       
-       
-        JFreeChart barchart = ChartFactory.createBarChart("Number of Volunteers In Each NGO", "In year 2016", "Volunteers", barchartdata, PlotOrientation.VERTICAL, false, true, false);
-        CategoryPlot barchrt = (CategoryPlot) barchart.getPlot();
-
-        ChartPanel barchartPanel = new ChartPanel(barchart);
-        chartJPanel.removeAll();
-        chartJPanel.add(barchartPanel);
-        chartJPanel.validate();
-    }//GEN-LAST:event_btnShowChartActionPerformed
+    }//GEN-LAST:event_btnStatsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,7 +287,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogOut;
-    private javax.swing.JButton btnShowChart;
+    private javax.swing.JButton btnStats;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JPanel chartJPanel;
     private javax.swing.JLabel jLabel1;
