@@ -168,6 +168,7 @@ public class MainJFrame extends javax.swing.JFrame {
         String password = String.valueOf(passwordCharArray);
         //Step1: check in the  system user account directory if you have the user
         UserAccount userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
+        Network inNetwork = null;
         Enterprise inEnterprise = null;
         Organization inOrganization = null;
         if (userAccount == null) {
@@ -184,11 +185,13 @@ public class MainJFrame extends javax.swing.JFrame {
                             if (userAccount != null) {
                                 inEnterprise = enterprise;
                                 inOrganization = organization;
+                                inNetwork = network;
                                 break;
                             }
                         }
                     } else {
                         inEnterprise = enterprise;
+                        inNetwork = network;
                         break;
                     }
                     if (inOrganization != null) {
@@ -199,14 +202,13 @@ public class MainJFrame extends javax.swing.JFrame {
                     break;
                 }
             }
-
         }
         if (userAccount == null) {
             JOptionPane.showMessageDialog(null, "Invalid Credentials");
             return;
         } else {
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-            userProcessContainer.add("WorkArea", userAccount.getRole().createWorkArea(userProcessContainer, userAccount, inOrganization, inEnterprise, system));
+            userProcessContainer.add("WorkArea", userAccount.getRole().createWorkArea(userProcessContainer, userAccount, inOrganization, inEnterprise, inNetwork, system));
             layout.next(userProcessContainer);
         }
 
