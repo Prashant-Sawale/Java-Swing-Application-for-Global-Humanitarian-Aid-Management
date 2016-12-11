@@ -8,18 +8,21 @@ package business.enterprise.donation;
 import java.util.Date;
 
 /**
+ * This class defines the donation details.
  *
  * @author Admin
  */
 public class Donation {
+
     private int donationID;
     private static int count = 0;
     private Donor donor;
-    private int donationAmount; 
+    private int donationAmount;
     private Date donationDate;
-    
-    public Donation(Donor donor, int donationAmount){
-        donationID =  ++count;
+
+    public Donation(Donor donor, int donationAmount) {
+
+        donationID = ++count;
         this.donor = donor;
         this.donationAmount = donationAmount;
         this.donationDate = new Date();
@@ -28,7 +31,7 @@ public class Donation {
     public int getDonationID() {
         return donationID;
     }
-    
+
     public Donor getDonor() {
         return donor;
     }
@@ -48,7 +51,5 @@ public class Donation {
     public Date getDonationDate() {
         return donationDate;
     }
-    
-    
-    
+
 }

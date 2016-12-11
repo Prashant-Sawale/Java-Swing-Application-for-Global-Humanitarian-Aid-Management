@@ -13,17 +13,19 @@ import business.roles.NgoWorkerRole;
 import java.util.ArrayList;
 
 /**
+ * This class defines the organization as education org.
  *
  * @author Admin
  */
 public class EducationOrganization extends Organization {
-    
+
     private String subOrgType;
+
     public EducationOrganization() {
         super(Type.Education.getValue());
         subOrgType = Type.Education.getValue();
     }
-    
+
     @Override
     public ArrayList<Role> getSupportedEmployeeRole() {
         ArrayList<Role> roles = new ArrayList<>();
@@ -31,14 +33,13 @@ public class EducationOrganization extends Organization {
         roles.add(new NgoAccountantRole());
         return roles;
     }
+
     @Override
     public ArrayList<Role> getSupportedVolunteerRole() {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new NgoTeacherRole());
-           roles.add(new NgoWorkerRole());
+        roles.add(new NgoWorkerRole());
         return roles;
     }
-    
-    
-    
+
 }

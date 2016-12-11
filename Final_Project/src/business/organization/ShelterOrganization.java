@@ -7,30 +7,32 @@ package business.organization;
 
 import business.roles.NgoAccountantRole;
 import business.roles.NgoAdminRole;
-import business.roles.NgoTeacherRole;
 import business.roles.Role;
 import business.roles.NgoWorkerRole;
 import java.util.ArrayList;
 
 /**
+ * This class defines the organization as shelter org.
  *
  * @author Admin
  */
-public class ShelterOrganization extends Organization{
-    
-     private String subOrgType;
+public class ShelterOrganization extends Organization {
+
+    private String subOrgType;
+
     public ShelterOrganization() {
         super(Type.Shelter.getValue());
         subOrgType = Type.Shelter.getValue();
     }
-    
-     @Override
+
+    @Override
     public ArrayList<Role> getSupportedEmployeeRole() {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new NgoAdminRole());
         roles.add(new NgoAccountantRole());
         return roles;
     }
+
     @Override
     public ArrayList<Role> getSupportedVolunteerRole() {
         ArrayList<Role> roles = new ArrayList<>();

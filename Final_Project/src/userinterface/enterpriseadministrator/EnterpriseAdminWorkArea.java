@@ -6,6 +6,7 @@
 package userinterface.enterpriseadministrator;
 
 import business.enterprise.Enterprise;
+import business.network.Network;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -20,10 +21,12 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
      */
     private  JPanel userProcessContainer;
     private  Enterprise enterprise;
-    public EnterpriseAdminWorkArea(JPanel userProcessContainer,Enterprise enterprise) {
+    private Network network;
+    public EnterpriseAdminWorkArea(JPanel userProcessContainer,Enterprise enterprise, Network network) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
+        this.network = network;
         lblWelcome.setText("Welcome !!" );
     }
 
@@ -57,6 +60,11 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Employee Communications");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         btnManageOrganization.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnManageOrganization.setText("Manage Organization");
@@ -189,7 +197,11 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCreateProjectActionPerformed
 
     private void btnNGOCommuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNGOCommuActionPerformed
-        
+        ManageWorkRequests manageWorkRequests= new ManageWorkRequests(userProcessContainer,enterprise,network);
+        userProcessContainer.add("manageProjectsJPanel", manageWorkRequests);
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
         
         
     }//GEN-LAST:event_btnNGOCommuActionPerformed
@@ -210,6 +222,10 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageDonorsActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,12 +8,18 @@ package business.enterprise.donation;
 import java.util.ArrayList;
 
 /**
+ * THis class has the list of donors.
  *
  * @author Admin
  */
-public class DonorDiectory {
-    private ArrayList<Donor> donorDirectory;
+public class DonorDirectory {
 
+    private ArrayList<Donor> donorDirectory;
+    
+    public DonorDirectory(){
+        donorDirectory = new ArrayList<Donor>();
+    }
+    
     public ArrayList<Donor> getDonorDirectory() {
         return donorDirectory;
     }
@@ -21,15 +27,15 @@ public class DonorDiectory {
     public void setDonorDirectory(ArrayList<Donor> donorDirectory) {
         this.donorDirectory = donorDirectory;
     }
-    
-    public Donor createDonor(){
+
+    public Donor createDonor() {
         Donor d = new Donor();
         donorDirectory.add(d);
         return d;
     }
-    
-    public void deleteDonor(Donor d){
+
+    public void deleteDonor(Donor d) {
         donorDirectory.remove(d);
     }
-    
+
 }

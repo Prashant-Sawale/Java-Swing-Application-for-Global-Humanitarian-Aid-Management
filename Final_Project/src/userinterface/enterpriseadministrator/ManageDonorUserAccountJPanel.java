@@ -36,17 +36,18 @@ public class ManageDonorUserAccountJPanel extends javax.swing.JPanel {
     public void populateDonors(){
         DefaultTableModel dtm =  (DefaultTableModel) tblDonors.getModel() ;
         dtm.setRowCount(0);
-        for(Donor d: enterprise.getDonorDiectory().getDonorDirectory()){
+        for(Donor d: enterprise.getDonorDirectory().getDonorDirectory()){
             Object row[] = new Object[3];
             row[0] = d.getDonorID();
             row[1] = d;
-            UserAccount userAccount;
-            for(UserAccount Account: enterprise.getUserAccountDirectory().getUserAccountList()){
-                
+            String userName = "";
+            for(UserAccount account: enterprise.getUserAccountDirectory().getUserAccountList()){
+                if(account.getDonor().equals(d)){
+                    userName = account.getUsername();
+                }
             }
             
-            row[2] = d.getTotalDonations();
-
+            row[2] = userName;
             dtm.addRow(row);
         }
     }

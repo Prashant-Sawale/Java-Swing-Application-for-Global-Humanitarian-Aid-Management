@@ -7,6 +7,7 @@ package business.roles;
 
 import business.EcoSystem;
 import business.enterprise.Enterprise;
+import business.network.Network;
 import business.organization.EducationOrganization;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
@@ -20,7 +21,7 @@ import userinterface.volunteer.TeacherWorkAreaJPanel;
 public class NgoTeacherRole extends Role{
 
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business) {
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
     return new TeacherWorkAreaJPanel(userProcessContainer,account,(EducationOrganization)organization,enterprise);
     }

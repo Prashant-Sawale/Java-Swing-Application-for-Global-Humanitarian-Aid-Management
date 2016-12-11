@@ -7,6 +7,7 @@ package business.roles;
 
 import business.EcoSystem;
 import business.enterprise.Enterprise;
+import business.network.Network;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
@@ -47,6 +48,7 @@ public abstract class Role {
             UserAccount account,
             Organization organization,
             Enterprise enterprise,
+            Network network,
             EcoSystem business);
 
     @Override

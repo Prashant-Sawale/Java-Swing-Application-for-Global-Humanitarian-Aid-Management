@@ -6,6 +6,7 @@
 package business.employee;
 
 /**
+ * This is the employee class.
  *
  * @author Admin
  */

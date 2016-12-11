@@ -25,6 +25,7 @@ public class Project {
     private VictimDirectory victimDirectory;
     private  String event;
     private double totalFundsRequired;
+    private int volunteersRequired;
     
     
     public Project(String projectName) {

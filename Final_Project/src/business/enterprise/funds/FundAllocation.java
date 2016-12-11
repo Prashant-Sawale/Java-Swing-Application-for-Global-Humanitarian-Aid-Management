@@ -8,16 +8,18 @@ package business.enterprise.funds;
 import business.project.Project;
 
 /**
+ * This class is used to allocate funds to the project.
  *
  * @author Admin
  */
 public class FundAllocation {
+
     private int fundDistributionID;
     private static int count = 0;
-    private Project project; 
+    private Project project;
     private double fundsAllocated;
-    
-    public FundAllocation(Project project, double fundsAllocated){
+
+    public FundAllocation(Project project, double fundsAllocated) {
         fundDistributionID = ++count;
         this.project = project;
         this.fundsAllocated = fundsAllocated;
@@ -38,7 +40,5 @@ public class FundAllocation {
     public void setFundsAllocated(double fundsAllocated) {
         this.fundsAllocated = fundsAllocated;
     }
-    
-    
-    
+
 }

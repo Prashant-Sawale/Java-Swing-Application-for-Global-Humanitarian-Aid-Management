@@ -4,41 +4,46 @@
  * and open the template in the editor.
  */
 package business.enterprise;
+
 import business.enterprise.donation.DonationHistory;
-import business.enterprise.donation.DonorDiectory;
+import business.enterprise.donation.DonorDirectory;
 import business.enterprise.funds.Funds;
 import business.organization.Organization;
 import business.organization.OrganizationDirectory;
 import business.project.ProjectDirectory;
+
 /**
+ * This class defines the attributes of an enterprise and inherits attributes of
+ * Organization.
  *
- * @author Admin
+ * @author rohan
  */
-public abstract class Enterprise extends Organization{
-    
+public abstract class Enterprise extends Organization {
+
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
     private DonationHistory donationHistory;
-    private DonorDiectory donorDiectory;
+    private DonorDirectory donorDirectory;
     private Funds funds;
     private ProjectDirectory projectDirectory;
-        
+
     public Enterprise(String name, EnterpriseType type) {
+
         super(name);
         this.enterpriseType = type;
         organizationDirectory = new OrganizationDirectory();
         donationHistory = new DonationHistory();
-        donorDiectory = new DonorDiectory();
+        donorDirectory = new DonorDirectory();
         funds = new Funds();
         projectDirectory = new ProjectDirectory();
     }
-    
-    public enum EnterpriseType{
-        
+
+    public enum EnterpriseType {
+
         NGO("NGO");
         private String value;
-        
-        private EnterpriseType(String value){
+
+        private EnterpriseType(String value) {
             this.value = value;
         }
 
@@ -49,9 +54,9 @@ public abstract class Enterprise extends Organization{
         public void setValue(String value) {
             this.value = value;
         }
-        
-        @Override 
-        public String toString(){
+
+        @Override
+        public String toString() {
             return value;
         }
     }
@@ -71,7 +76,7 @@ public abstract class Enterprise extends Organization{
     public void setEnterpriseType(EnterpriseType enterpriseType) {
         this.enterpriseType = enterpriseType;
     }
-    
+
     public DonationHistory getDonationHistory() {
         return donationHistory;
     }
@@ -80,12 +85,12 @@ public abstract class Enterprise extends Organization{
         this.donationHistory = donationHistory;
     }
 
-    public DonorDiectory getDonorDiectory() {
-        return donorDiectory;
+    public DonorDirectory getDonorDirectory() {
+        return donorDirectory;
     }
 
-    public void setDonorDiectory(DonorDiectory donorDiectory) {
-        this.donorDiectory = donorDiectory;
+    public void setDonorDirectory(DonorDirectory donorDirectory) {
+        this.donorDirectory = donorDirectory;
     }
 
     public Funds getFunds() {
@@ -103,6 +108,5 @@ public abstract class Enterprise extends Organization{
     public void setProjectDirectory(ProjectDirectory projectDirectory) {
         this.projectDirectory = projectDirectory;
     }
-    
-    
+
 }

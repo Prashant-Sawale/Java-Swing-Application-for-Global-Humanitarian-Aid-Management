@@ -6,21 +6,19 @@
 package business.ngoWorkque;
 
 import business.enterprise.Enterprise;
-import business.useraccount.UserAccount;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Admin
  */
-public class NGOworkResponse {
+public class WorkResponse {
 
     private String message;
     private Enterprise sender;
     private ArrayList<Enterprise> recieverList;
 
-    public NGOworkResponse() {
+    public WorkResponse() {
     
     }
 

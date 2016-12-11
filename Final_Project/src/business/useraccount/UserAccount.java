@@ -9,7 +9,6 @@ import business.employee.Employee;
 import business.enterprise.donation.Donor;
 import business.roles.Role;
 import business.volunteer.Volunteer;
-import business.ngoWorkque.NGOWorkRequest;
 
 /**
  *

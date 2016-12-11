@@ -10,8 +10,10 @@ import business.roles.SystemAdminRole;
 import business.useraccount.UserAccount;
 
 /**
+ * This class is used to set the System administrator's user account
+ * credentials.
  *
- * @author Admin
+ * @author rohan
  */
 public class ConfigureSystem {
 

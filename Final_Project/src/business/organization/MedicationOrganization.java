@@ -8,37 +8,37 @@ package business.organization;
 import business.roles.NgoAccountantRole;
 import business.roles.NgoAdminRole;
 import business.roles.NgoDoctorRole;
-import business.roles.NgoTeacherRole;
 import business.roles.NgoWorkerRole;
 import business.roles.Role;
 import java.util.ArrayList;
 
 /**
+ * This class defines the organization as medication org.
  *
  * @author Admin
  */
-public class MedicationOrganization extends  Organization{
-    
+public class MedicationOrganization extends Organization {
+
     private String subOrgType;
+
     public MedicationOrganization() {
         super(Type.Medical.getValue());
         subOrgType = Type.Medical.getValue();
     }
-    
-    
-    
-     @Override
+
+    @Override
     public ArrayList<Role> getSupportedEmployeeRole() {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new NgoAdminRole());
         roles.add(new NgoAccountantRole());
         return roles;
     }
+
     @Override
     public ArrayList<Role> getSupportedVolunteerRole() {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(new NgoDoctorRole());
-           roles.add(new NgoWorkerRole());
+        roles.add(new NgoWorkerRole());
         return roles;
     }
 }

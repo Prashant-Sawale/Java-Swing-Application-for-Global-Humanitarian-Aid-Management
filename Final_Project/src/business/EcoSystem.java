@@ -12,8 +12,10 @@ import business.roles.SystemAdminRole;
 import java.util.ArrayList;
 
 /**
+ * This class is used to define the ecosystem with the singleton design pattern
+ * and defines the network list.
  *
- * @author Admin
+ * @author rohan
  */
 public abstract class EcoSystem extends Organization {
 
@@ -30,7 +32,7 @@ public abstract class EcoSystem extends Organization {
 
     private EcoSystem() {
         super(null);
-        networkList = new ArrayList<Network>();
+        networkList = new ArrayList<>();
     }
 
     public ArrayList<Network> getNetworkList() {
@@ -51,15 +53,12 @@ public abstract class EcoSystem extends Organization {
         if (!this.getUserAccountDirectory().checkIfUsernameIsUnique(username)) {
             return false;
         }
-        for (Network network : networkList) {
-
-        }
         return true;
     }
 
     @Override
     public ArrayList<Role> getSupportedEmployeeRole() {
-        ArrayList<Role> roleList = new ArrayList<Role>();
+        ArrayList<Role> roleList = new ArrayList<>();
         roleList.add(new SystemAdminRole());
         return roleList;
     }
