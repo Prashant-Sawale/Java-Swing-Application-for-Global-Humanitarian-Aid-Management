@@ -43,7 +43,9 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
         btnManageUser = new javax.swing.JButton();
         btnCreateProject = new javax.swing.JButton();
         btnManageVolunteer = new javax.swing.JButton();
+        btnManageDonors = new javax.swing.JButton();
 
+        btnNGOCommu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnNGOCommu.setText("NGO Communications");
         btnNGOCommu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,8 +53,10 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton2.setText("Employee Communications");
 
+        btnManageOrganization.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnManageOrganization.setText("Manage Organization");
         btnManageOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +64,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
             }
         });
 
+        btnManageEmployee.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnManageEmployee.setText("Manage Employee");
         btnManageEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +72,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
             }
         });
 
+        btnManageUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnManageUser.setText("Manage User");
         btnManageUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +80,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
             }
         });
 
+        btnCreateProject.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnCreateProject.setText("Create Project");
         btnCreateProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,10 +88,19 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
             }
         });
 
+        btnManageVolunteer.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnManageVolunteer.setText("Manage Volunteer");
         btnManageVolunteer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageVolunteerActionPerformed(evt);
+            }
+        });
+
+        btnManageDonors.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnManageDonors.setText("Manage Donors");
+        btnManageDonors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageDonorsActionPerformed(evt);
             }
         });
 
@@ -93,7 +109,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(217, 217, 217)
+                .addGap(172, 172, 172)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnNGOCommu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -101,15 +117,16 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
                     .addComponent(btnManageEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCreateProject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(190, Short.MAX_VALUE))
+                    .addComponent(btnManageVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageDonors, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnManageVolunteer)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnNGOCommu)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
@@ -121,7 +138,9 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
                 .addComponent(btnManageUser)
                 .addGap(18, 18, 18)
                 .addComponent(btnCreateProject)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnManageDonors)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -144,7 +163,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageEmployeeActionPerformed
 
     private void btnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserActionPerformed
-        // TODO add your handling code here:
+
         ManageUserAccountJPanel muajp = new ManageUserAccountJPanel(userProcessContainer, enterprise);
         userProcessContainer.add("ManageUserAccountJPanel", muajp);
 
@@ -153,7 +172,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageUserActionPerformed
 
     private void btnCreateProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateProjectActionPerformed
-        // TODO add your handling code here:
+
         ManageProjectsJPanel manageProjectsJPanel= new ManageProjectsJPanel(userProcessContainer,enterprise);
         userProcessContainer.add("manageProjectsJPanel", manageProjectsJPanel);
 
@@ -168,16 +187,26 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNGOCommuActionPerformed
 
     private void btnManageVolunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageVolunteerActionPerformed
- ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
+        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
         userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageVolunteerActionPerformed
 
+    private void btnManageDonorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDonorsActionPerformed
+
+        ManageDonorsJPanel manageDonorsJPanel = new ManageDonorsJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageDonorsJPanel", manageDonorsJPanel);
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnManageDonorsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateProject;
+    private javax.swing.JButton btnManageDonors;
     private javax.swing.JButton btnManageEmployee;
     private javax.swing.JButton btnManageOrganization;
     private javax.swing.JButton btnManageUser;

@@ -215,7 +215,7 @@ private void populateTable() {
                                     .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(btnBack))
-                        .addGap(0, 343, Short.MAX_VALUE))
+                        .addGap(0, 346, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -260,7 +260,7 @@ private void populateTable() {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack)
                     .addComponent(btnSubmit))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

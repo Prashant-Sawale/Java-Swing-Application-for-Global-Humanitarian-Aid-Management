@@ -5,6 +5,7 @@
  */
 package business.enterprise.donation;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -17,6 +18,7 @@ public class Donor {
     private String address;
     private Date dob;
     private boolean maleSex;
+    private ArrayList<Donation> Donations;
     private static int counter = 0;
         
     public Donor(String name, String address, Date dob, boolean maleSex){
@@ -27,6 +29,10 @@ public class Donor {
         this.maleSex = maleSex;
     }
 
+    public int getDonorID() {
+        return donorID;
+    }
+    
     public String getName() {
         return name;
     }
@@ -58,11 +64,29 @@ public class Donor {
     public void setMaleSex(boolean maleSex) {
         this.maleSex = maleSex;
     }
+    
+    public double getTotalDonations(){
+        double result = 0;
+        for(Donation d: Donations){
+            result += d.getDonationAmount();
+        }
+        return result;
+    }
 
+    public ArrayList<Donation> getDonations() {
+        return Donations;
+    }
+
+    public void setDonations(ArrayList<Donation> Donations) {
+        this.Donations = Donations;
+    }
+    
+    public void addDonation(Donation d){
+        this.Donations.add(d);
+    }
     
     @Override
     public String toString(){
         return this.name;
     }
-    
 }

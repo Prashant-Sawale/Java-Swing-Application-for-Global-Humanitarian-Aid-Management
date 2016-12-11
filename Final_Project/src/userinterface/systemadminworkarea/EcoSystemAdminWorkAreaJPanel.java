@@ -103,6 +103,7 @@ public class EcoSystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane.setDividerLocation(200);
 
+        jTree.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 jTreeValueChanged(evt);

@@ -25,17 +25,17 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageEmployeeJPanel
      */
-    private JPanel userProcesContainer;
+    private JPanel userProcessContainer;
     private OrganizationDirectory organizationDirectory;
     JRadioButton employeeRB = new JRadioButton("Employee");
     JRadioButton volunteerRB = new JRadioButton("Volunteer");
     ButtonGroup btnGrp = new ButtonGroup();
     private String type;
 
-    public ManageEmployeeJPanel(JPanel userProcesContainer, OrganizationDirectory organizationDirectory) {
+    public ManageEmployeeJPanel(JPanel userProcessContainer, OrganizationDirectory organizationDirectory) {
         initComponents();
         this.organizationDirectory = organizationDirectory;
-        this.userProcesContainer = userProcesContainer;
+        this.userProcessContainer = userProcessContainer;
         populateOrganizationComboBox();
         populateOrganizationEmpComboBox();
         setRadioButtons();
@@ -281,18 +281,18 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             organization.getEmployeeDirectory().createEmployee(name);
 
         } else if (volunteerRB.isSelected()) {
-            AddVolunteerJPanel addVolunteerJPanel = new AddVolunteerJPanel(txtEmpVolName.getText(), organizationEmpJComboBox.getSelectedItem());
-            userProcesContainer.add("AddVolunteerJPanel", addVolunteerJPanel);
-            CardLayout layout = (CardLayout) userProcesContainer.getLayout();
-            layout.next(userProcesContainer);
+            AddVolunteerJPanel addVolunteerJPanel = new AddVolunteerJPanel(userProcessContainer, txtEmpVolName.getText(), organizationEmpJComboBox.getSelectedItem());
+            userProcessContainer.add("AddVolunteerJPanel", addVolunteerJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
         }
     }//GEN-LAST:event_btnCreateEmployeeActionPerformed
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
 
-        userProcesContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcesContainer.getLayout();
-        layout.previous(userProcesContainer);
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void organizationEmpJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_organizationEmpJComboBoxActionPerformed

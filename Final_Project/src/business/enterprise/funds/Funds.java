@@ -28,7 +28,7 @@ public class Funds {
         this.fundsDistributionHistory = fundsDistributionHistory;
     }
     
-    public FundAllocation createFundsDistribution(Project project, int fundsAllocated){
+    public FundAllocation createFundAllocation(Project project, double fundsAllocated){
         FundAllocation fd =  new FundAllocation(project, fundsAllocated);
         this.fundsDistributionHistory.add(fd);
         this.totalFundsAvailable -= fundsAllocated; 

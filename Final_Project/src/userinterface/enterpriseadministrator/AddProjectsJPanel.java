@@ -121,15 +121,13 @@ public class AddProjectsJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEventActionPerformed
-    project= enterprise.getProjectDirectory().addProject();
+    project= enterprise.getProjectDirectory().addProject(txtProjectName.getText());
     project.setEvent(txtEvent.getText());
-    project.setProjectName(txtProjectName.getText());
-    
     
     }//GEN-LAST:event_btnAddEventActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-userProcessContainer.remove(this);
+        userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         ManageProjectsJPanel manageProjectsJPanel = (ManageProjectsJPanel) component;

@@ -27,9 +27,9 @@ public class ProjectDirectory {
         this.projectList = projectList;
     }
 
-    public Project addProject() {
+    public Project addProject(String projectName) {
 
-        Project project = new Project();
+        Project project = new Project(projectName);
         projectList.add(project);
         return project;
 

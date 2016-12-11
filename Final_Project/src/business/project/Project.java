@@ -24,17 +24,14 @@ public class Project {
     private ArrayList<Volunteer> volunteers;
     private VictimDirectory victimDirectory;
     private  String event;
+    private double totalFundsRequired;
     
-    public Project(){
-        
-        
-    }
     
     public Project(String projectName) {
         projectID = ++count;
         this.projectName = projectName;
         projectFunds = new ArrayList<FundAllocation>();
-        volunteers = new ActivatableArrayList<Volunteer>();
+        volunteers = new ArrayList<Volunteer>();
     }
 
     
@@ -100,6 +97,26 @@ public class Project {
     
     public void removeVolunteer(Volunteer v){
         volunteers.remove(v);
+    }
+
+    public double getTotalFundsRequired() {
+        return totalFundsRequired;
+    }
+
+    public void setTotalFundsRequired(double totalFundsRequired) {
+        this.totalFundsRequired = totalFundsRequired;
+    }
+    
+    public double getTotalFundsAllocated(){
+        double result = 0;
+        for(FundAllocation fa: getProjectFunds()){
+            result += fa.getFundsAllocated();
+        }
+        return result;
+    }
+    
+    public double fundsRemaining(){
+        return (totalFundsRequired - getTotalFundsAllocated());
     }
     
 }

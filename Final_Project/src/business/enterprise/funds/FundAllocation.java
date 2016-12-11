@@ -15,9 +15,9 @@ public class FundAllocation {
     private int fundDistributionID;
     private static int count = 0;
     private Project project; 
-    private int fundsAllocated;
+    private double fundsAllocated;
     
-    public FundAllocation(Project project, int fundsAllocated){
+    public FundAllocation(Project project, double fundsAllocated){
         fundDistributionID = ++count;
         this.project = project;
         this.fundsAllocated = fundsAllocated;
@@ -31,11 +31,11 @@ public class FundAllocation {
         this.project = project;
     }
 
-    public int getFundsAllocated() {
+    public double getFundsAllocated() {
         return fundsAllocated;
     }
 
-    public void setFundsAllocated(int fundsAllocated) {
+    public void setFundsAllocated(double fundsAllocated) {
         this.fundsAllocated = fundsAllocated;
     }
     

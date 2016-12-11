@@ -21,13 +21,13 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageOrganization
      */
-    private JPanel userProcesContainer;
+    private JPanel userProcessContainer;
     private OrganizationDirectory organizationDirectory;
     
-    public ManageOrganizationJPanel(JPanel userProcesContainer,OrganizationDirectory organizationDirectory) {
+    public ManageOrganizationJPanel(JPanel userProcessContainer,OrganizationDirectory organizationDirectory) {
         initComponents();
         this.organizationDirectory=organizationDirectory;
-        this.userProcesContainer=userProcesContainer;
+        this.userProcessContainer=userProcessContainer;
         populateTable();
         populateCombo();
     }
@@ -156,9 +156,9 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
 
-        userProcesContainer.remove(this);
-        CardLayout layout = (CardLayout) userProcesContainer.getLayout();
-        layout.previous(userProcesContainer);
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed
 
     private void btnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrganizationActionPerformed
