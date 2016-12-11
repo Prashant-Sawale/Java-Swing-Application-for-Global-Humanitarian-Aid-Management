@@ -36,6 +36,8 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
     public void populateDonors(){
         DefaultTableModel dtm =  (DefaultTableModel) tblDonors.getModel() ;
         dtm.setRowCount(0);
+        
+        
         for(Donor d: enterprise.getDonorDiectory().getDonorDirectory()){
             Object row[] = new Object[3];
             row[0] = d.getDonorID();

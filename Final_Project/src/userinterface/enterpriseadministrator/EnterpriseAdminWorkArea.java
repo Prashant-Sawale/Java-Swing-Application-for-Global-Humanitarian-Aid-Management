@@ -24,6 +24,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.enterprise=enterprise;
+        lblWelcome.setText("Welcome !!" );
     }
 
     /**
@@ -44,6 +45,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
         btnCreateProject = new javax.swing.JButton();
         btnManageVolunteer = new javax.swing.JButton();
         btnManageDonors = new javax.swing.JButton();
+        lblWelcome = new javax.swing.JLabel();
 
         btnNGOCommu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnNGOCommu.setText("NGO Communications");
@@ -104,6 +106,8 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
             }
         });
 
+        lblWelcome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,13 +123,17 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
                     .addComponent(btnCreateProject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnManageDonors, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnManageVolunteer)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblWelcome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageVolunteer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnNGOCommu)
                 .addGap(18, 18, 18)
@@ -214,5 +222,6 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JButton btnNGOCommu;
     private javax.swing.JButton jButton2;
     private javax.swing.JSlider jSlider1;
+    private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }
