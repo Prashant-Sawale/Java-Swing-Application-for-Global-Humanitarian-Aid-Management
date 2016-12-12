@@ -5,13 +5,15 @@
  */
 package userinterface.volunteer;
 
-import business.enterprise.Enterprise;
-import business.organization.EducationOrganization;
 import business.project.Project;
 import business.useraccount.UserAccount;
+import business.validation.Validator;
+import business.volunteer.Volunteer;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.enterpriseadministrator.ViewProjectJPanel;
 
 /**
  *
@@ -24,33 +26,30 @@ public class TeacherWorkAreaJPanel extends javax.swing.JPanel {
      */
    private JPanel userProcessContainer;
    private  UserAccount account;
-   private  EducationOrganization educationOrganization;
-   private  Enterprise enterprise;
-   private int count;
-    public TeacherWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EducationOrganization educationOrganization, Enterprise enterprise) {
+   
+    public TeacherWorkAreaJPanel(JPanel userProcessContainer, UserAccount account) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account = account;
-        this.educationOrganization=educationOrganization;
-        this.enterprise=enterprise;
-        populateProjectEventTbl();
+        populateTabel();
         
     }
 
-      public void populateProjectEventTbl(){
-        DefaultTableModel model = (DefaultTableModel) tblProjectEvent.getModel();
-        //wtite a logic for populating the project and event in the table 
+      private void populateTabel() {
+       
+         DefaultTableModel model = (DefaultTableModel) tblProjects.getModel();
+        
         model.setRowCount(0);
-        count=0;
-        for (Project project : enterprise.getProjectDirectory().getProjectList()){
+        
+        for (Project project : account.getVolunteer().getProjectHistory()){
             Object[] row = new Object[3];
             row[0] = project.getProjectID();
-            row[1] = project.getEvent();
-            row[2] = project.getProjectName();
-            //row[3] = result == null ? "Waiting" : result;
+            row[1] = project;
+            row[2]=project.getEvent();
             model.addRow(row);
         }
     }
+
 
     
     /**
@@ -63,39 +62,66 @@ public class TeacherWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblProjectEvent = new javax.swing.JTable();
-        refreshTestJButton = new javax.swing.JButton();
-        requestTestJButton = new javax.swing.JButton();
-        backJButton = new javax.swing.JButton();
+        tblProjects = new javax.swing.JTable();
+        btnViewProject = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtAddrL1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtAddrL2 = new javax.swing.JTextField();
+        txtPin = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtState = new javax.swing.JTextField();
+        txtNumber = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        btnSubmit3 = new javax.swing.JButton();
 
-        tblProjectEvent.setModel(new javax.swing.table.DefaultTableModel(
+        tblProjects.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Sr.No", "Event", "Project"
+                "SrNo", "Project Title", "Event"
             }
         ));
-        jScrollPane1.setViewportView(tblProjectEvent);
+        jScrollPane1.setViewportView(tblProjects);
 
-        refreshTestJButton.setText("Refresh");
-        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnViewProject.setText("View Project");
+        btnViewProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                refreshTestJButtonActionPerformed(evt);
+                btnViewProjectActionPerformed(evt);
             }
         });
 
-        requestTestJButton.setText("Volunteer for the selected Project");
-        requestTestJButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setText("Address:");
+
+        jLabel4.setText("Address Line 1:");
+
+        jLabel5.setText("Address Line 2:");
+
+        jLabel7.setText("Pin Code:");
+
+        jLabel6.setText("City:");
+
+        jLabel8.setText("State:");
+
+        jLabel9.setText("Contact Number:");
+
+        jButton1.setText("<< Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                requestTestJButtonActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        backJButton.setText("<< Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit3.setText("Submit");
+        btnSubmit3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
+                btnSubmit3ActionPerformed(evt);
             }
         });
 
@@ -104,61 +130,147 @@ public class TeacherWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(backJButton)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(requestTestJButton)
-                .addContainerGap(17, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnViewProject)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSubmit3))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel4)
+                                                .addComponent(jLabel8))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtAddrL1)
+                                                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel7))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtPin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAddrL2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(backJButton)
-                .addGap(16, 16, 16)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewProject, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtAddrL1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtAddrL2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(requestTestJButton)
-                    .addComponent(refreshTestJButton))
-                .addContainerGap(123, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnSubmit3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
+    private void btnViewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProjectActionPerformed
 
-       populateProjectEventTbl();
+        int selectedRow = tblProjects.getSelectedRow();
 
-    }//GEN-LAST:event_refreshTestJButtonActionPerformed
+        if(selectedRow >= 0){
+            Project project = (Project)tblProjects.getValueAt(selectedRow, 1);
+            ViewProjectJPanel viewProjectJPanel = new ViewProjectJPanel(userProcessContainer, project);
+            userProcessContainer.add("viewProjectJPanel", viewProjectJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnViewProjectActionPerformed
 
-    private void requestTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_requestTestJButtonActionPerformed
-        
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-      //  userProcessContainer.add("RequestLabTestJPanel", new RequestLabTestJPanel(userProcessContainer, userAccount, enterprise));
-        layout.next(userProcessContainer);
-
-    }//GEN-LAST:event_requestTestJButtonActionPerformed
-
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
-
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSubmit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmit3ActionPerformed
+
+        Validator validator = new Validator();
+        boolean phoneNum = validator.validatePhoneNumber(txtNumber.getText());
+        boolean zipCode = validator.validateZipCode(txtPin.getText());
+
+        if (phoneNum && zipCode) {
+            if (txtAddrL1.getText().isEmpty() && txtAddrL2.getText().isEmpty() && txtCity.getText().isEmpty() && txtNumber.getText().isEmpty() && txtPin.getText().isEmpty() && txtState.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "All Fields are mandatory", "Warning", JOptionPane.WARNING_MESSAGE);
+            } else {
+
+                String address = txtAddrL1.getText() + ", " +txtAddrL2.getText() + ", " + txtCity.getText() + ", " + txtPin.getText() + ", " + txtState.getText();
+                Volunteer volunteer =account.getVolunteer();
+                volunteer.setAddress(address);
+                volunteer.setContactNumber(txtNumber.getText());
+                JOptionPane.showMessageDialog(null, "Details Edited Succeffully", "INFO Message", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Check format validity of phone number or zip code.", "ERROR!", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSubmit3ActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backJButton;
+    private javax.swing.JButton btnSubmit3;
+    private javax.swing.JButton btnViewProject;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton refreshTestJButton;
-    private javax.swing.JButton requestTestJButton;
-    private javax.swing.JTable tblProjectEvent;
+    private javax.swing.JTable tblProjects;
+    private javax.swing.JTextField txtAddrL1;
+    private javax.swing.JTextField txtAddrL2;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtNumber;
+    private javax.swing.JTextField txtPin;
+    private javax.swing.JTextField txtState;
     // End of variables declaration//GEN-END:variables
 }

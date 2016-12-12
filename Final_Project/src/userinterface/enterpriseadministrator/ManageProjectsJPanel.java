@@ -39,7 +39,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         for (Project project : enterprise.getProjectDirectory().getProjectList()){
             Object[] row = new Object[3];
             row[0] = project.getProjectID();
-            row[1] = project.getProjectName();
+            row[1] = project;
             row[2]=project.getEvent();
             model.addRow(row);
         }

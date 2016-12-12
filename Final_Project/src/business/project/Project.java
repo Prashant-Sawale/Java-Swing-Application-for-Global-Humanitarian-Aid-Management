@@ -120,4 +120,8 @@ public class Project {
         return (totalFundsRequired - getTotalFundsAllocated());
     }
     
+    @Override
+        public String toString() {
+            return projectName;
+        }
 }

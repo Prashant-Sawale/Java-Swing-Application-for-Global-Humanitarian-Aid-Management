@@ -285,7 +285,7 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
         for (Project project : userAccount.getVolunteer().getProjectHistory()){
             Object[] row = new Object[3];
             row[0] = project.getProjectID();
-            row[1] = project.getProjectName();
+            row[1] = project;
             row[2]=project.getEvent();
             model.addRow(row);
         }

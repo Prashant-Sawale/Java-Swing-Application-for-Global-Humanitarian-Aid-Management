@@ -34,15 +34,9 @@ public class Volunteer {
 //    public enum VolunteerRoleType {
 //        Chef, Doctor, Teacher, Worker;
 //    }
-    
-    public Volunteer(){
-        
-    }
-    public Volunteer(String name, String address, String contactNumber) {
+    public Volunteer() {
         volunteerID = ++count;
-        this.name=name;
-        this.address=address;
-        this.contactNumber=contactNumber;
+        projectHistory = new ArrayList<>();
     }
 
     public String getName() {
@@ -60,8 +54,6 @@ public class Volunteer {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    
 
     public String getContactNumber() {
         return contactNumber;
