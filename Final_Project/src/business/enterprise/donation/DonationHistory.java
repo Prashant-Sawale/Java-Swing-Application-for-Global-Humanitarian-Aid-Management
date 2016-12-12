@@ -15,6 +15,10 @@ import java.util.ArrayList;
 public class DonationHistory {
 
     private ArrayList<Donation> donationDirectory;
+    
+    public DonationHistory(){
+        donationDirectory = new ArrayList<>();
+    }
 
     public ArrayList<Donation> getDonationDirectory() {
         return donationDirectory;
