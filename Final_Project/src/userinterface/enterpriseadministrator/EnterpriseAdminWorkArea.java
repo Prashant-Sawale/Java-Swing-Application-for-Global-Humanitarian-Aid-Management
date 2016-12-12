@@ -5,6 +5,7 @@
  */
 package userinterface.enterpriseadministrator;
 
+import userinterface.enterpriseadministrator.workrequest.ManageWorkRequests;
 import business.enterprise.Enterprise;
 import business.network.Network;
 import java.awt.CardLayout;

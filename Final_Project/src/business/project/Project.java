@@ -120,4 +120,8 @@ public class Project {
         return (totalFundsRequired - getTotalFundsAllocated());
     }
     
+    public int getVolunteersRemaining(){
+        return (volunteersRequired - volunteers.size());
+    }
+    
 }

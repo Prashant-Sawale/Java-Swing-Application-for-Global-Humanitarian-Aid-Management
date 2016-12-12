@@ -23,7 +23,6 @@ public class Network {
     public Network() {
         enterpriseDirectory = new EnterpriseDirectory();
         ngoWorkqueList = new WorkRequestList();
-
     }
 
     public String getName() {
@@ -42,6 +41,10 @@ public class Network {
         this.enterpriseDirectory = enterpriseDirectory;
     }
 
+    public WorkRequestList getNgoWorkqueList() {
+        return ngoWorkqueList;
+    }
+    
     @Override
     public String toString() {
         return name;
