@@ -17,6 +17,11 @@ public class Funds {
 
     private int totalFundsAvailable;
     private ArrayList<FundAllocation> fundsDistributionHistory;
+    
+    public Funds(){
+        
+        fundsDistributionHistory = new ArrayList<>();
+    }
 
     public int getTotalFundsAvailable() {
         return totalFundsAvailable;
@@ -31,9 +36,10 @@ public class Funds {
     }
 
     public FundAllocation createFundAllocation(Project project, double fundsAllocated) {
+        
         FundAllocation fd = new FundAllocation(project, fundsAllocated);
-        this.fundsDistributionHistory.add(fd);
-        this.totalFundsAvailable -= fundsAllocated;
+        fundsDistributionHistory.add(fd);
+        totalFundsAvailable -= fundsAllocated;
         return fd;
     }
 

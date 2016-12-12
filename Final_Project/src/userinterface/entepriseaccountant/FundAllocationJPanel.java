@@ -164,9 +164,9 @@ public class FundAllocationJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAllocateFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllocateFundsActionPerformed
-        try{
-            double fundsAllocated = Integer.parseInt(txtFundAllocation.getText());
+            double fundsAllocated = Double.parseDouble(txtFundAllocation.getText());
             FundAllocation fa = enterprise.getFunds().createFundAllocation(project, fundsAllocated);
+        try{
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Invalid Fund Amount", "Error",JOptionPane.ERROR_MESSAGE);
