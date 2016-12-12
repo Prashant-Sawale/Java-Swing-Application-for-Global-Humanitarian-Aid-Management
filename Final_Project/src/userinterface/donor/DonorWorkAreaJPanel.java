@@ -95,7 +95,7 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPerInfoActionPerformed
 
     private void btnViewDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDonationsActionPerformed
-        ViewDonorDonations viewDonorDonations = new ViewDonorDonations(userProcessContainer, donor);
+        ViewDonorDonations viewDonorDonations = new ViewDonorDonations(userProcessContainer, enterprise, donor);
         userProcessContainer.add("viewDonorDonations", viewDonorDonations);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

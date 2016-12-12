@@ -34,5 +34,9 @@ public class ProjectDirectory {
         return project;
 
     }
+    
+    public void removeProject(Project p){
+         projectList.remove(p);
+    }
 
 }
