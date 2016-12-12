@@ -35,6 +35,8 @@ public class WorkRequestList {
      */
     public WorkRequest createWorkRequest(Project project) {
         WorkRequest ngoWorkque = new WorkRequest(project);
+        ngoWorkque.setProject(project);
+        ngoWorkRequests.add(ngoWorkque);
         return ngoWorkque;
     }
 }

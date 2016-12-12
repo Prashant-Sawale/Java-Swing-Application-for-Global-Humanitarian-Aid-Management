@@ -169,8 +169,8 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
 
     private void btnManageUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserActionPerformed
 
-        ManageUserAccountJPanel muajp = new ManageUserAccountJPanel(userProcessContainer, enterprise);
-        userProcessContainer.add("ManageUserAccountJPanel", muajp);
+        ManageUserAccountJPanel manageUserAccountJPanel = new ManageUserAccountJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageUserAccountJPanel", manageUserAccountJPanel);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -187,7 +187,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
 
     private void btnNGOCommuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNGOCommuActionPerformed
         ManageWorkRequests manageWorkRequests= new ManageWorkRequests(userProcessContainer,enterprise,network);
-        userProcessContainer.add("manageProjectsJPanel", manageWorkRequests);
+        userProcessContainer.add("manageWorkRequests", manageWorkRequests);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

@@ -13,6 +13,8 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.donor.DonorPersonalInformationJPanel;
+import userinterface.enterpriseadministrator.ViewProjectJPanel;
 
 /**
  *
@@ -39,11 +41,12 @@ public class ManageWorkRequests extends javax.swing.JPanel {
         DefaultTableModel dtm =  (DefaultTableModel) tblWorkRequests.getModel() ;
         dtm.setRowCount(0);
         for(WorkRequest workRequest: network.getNgoWorkqueList().getNgoWorkRequests()){
-            Object row[] = new Object[4];
+            Object row[] = new Object[5];
             row[0] = workRequest;
             row[1] = workRequest.getEnterprise();
-            row[2] = workRequest.getProject().getTotalFundsRequired();
-            row[3] = workRequest.getProject().getVolunteersRemaining();
+            row[2] = workRequest.getProject();
+            row[3] = workRequest.getProject().getTotalFundsRequired();
+            row[4] = workRequest.getProject().getVolunteersRemaining();
             dtm.addRow(row);
         }
     }
@@ -206,7 +209,11 @@ public class ManageWorkRequests extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnViewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProjectActionPerformed
-        // TODO add your handling code here:
+        
+        ViewProjectJPanel viewProjectJPanel = new ViewProjectJPanel(userProcessContainer,(Project) projectCombo.getSelectedItem());
+        userProcessContainer.add("viewProjectJPanel", viewProjectJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnViewProjectActionPerformed
 
     private void btnResponseToRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResponseToRequestActionPerformed
@@ -224,9 +231,11 @@ public class ManageWorkRequests extends javax.swing.JPanel {
     }//GEN-LAST:event_btnResponseToRequestActionPerformed
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+
         Project project = (Project)projectCombo.getSelectedItem();
         WorkRequest workRequest = network.getNgoWorkqueList().createWorkRequest(project);
         populateWorkRequest();
+        JOptionPane.showMessageDialog(null, "Request Added");
     }//GEN-LAST:event_btnBack1ActionPerformed
 
     private void projectComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectComboActionPerformed

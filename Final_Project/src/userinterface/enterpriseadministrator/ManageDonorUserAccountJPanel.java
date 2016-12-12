@@ -8,12 +8,13 @@ package userinterface.enterpriseadministrator;
 import business.enterprise.Enterprise;
 import business.enterprise.donation.Donor;
 import business.roles.NgoDonorRole;
-import business.roles.Role;
 import business.useraccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.systemadminworkarea.EcoSystemAdminWorkAreaJPanel;
 
 /**
  *
@@ -154,13 +155,13 @@ public class ManageDonorUserAccountJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateUserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateUserAccountActionPerformed
-        int selectedRow = tblDonors.getSelectedRowCount();
+        int selectedRow = tblDonors.getSelectedRow();
         if(selectedRow >= 0){
             Donor donor = (Donor)tblDonors.getValueAt(selectedRow, 1);
             String userName = nameJTextField.getText();
             String password = passwordJTextField.getText();
             if(enterprise.getUserAccountDirectory().checkIfUsernameIsUnique(userName)){
-                UserAccount account = enterprise.getUserAccountDirectory().createDonorUserAccount(userName, password, donor, new NgoDonorRole());
+                enterprise.getUserAccountDirectory().createDonorUserAccount(userName, password, donor, new NgoDonorRole());
                 JOptionPane.showMessageDialog(null, "User Created", "Success",JOptionPane.INFORMATION_MESSAGE);
                 populateDonors();
             }else{
@@ -173,7 +174,12 @@ public class ManageDonorUserAccountJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCreateUserAccountActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageDonorsJPanel manageDonorsJPanel = (ManageDonorsJPanel) component;
+        manageDonorsJPanel.populateDonors();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

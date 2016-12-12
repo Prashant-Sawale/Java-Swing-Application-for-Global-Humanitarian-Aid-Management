@@ -232,6 +232,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         }else{
             JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
         }
+        populateDonors();
     }//GEN-LAST:event_btnDeleteDonorActionPerformed
 
     private void btnAddDonorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDonorActionPerformed

@@ -8,8 +8,10 @@ package userinterface.donor;
 import business.enterprise.donation.Donor;
 import business.validation.Validator;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.enterpriseadministrator.ManageDonorsJPanel;
 
 /**
  *
@@ -218,6 +220,7 @@ public class DonorPersonalInformationJPanel extends javax.swing.JPanel {
                 }
                 btnUpdateInfo.setEnabled(true);
                 btnSubmit.setEnabled(false);
+                
             }
         } else {
             JOptionPane.showMessageDialog(null, "Check format validity of date of birth", "ERROR!", JOptionPane.ERROR_MESSAGE);
@@ -231,6 +234,10 @@ public class DonorPersonalInformationJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageDonorsJPanel manageDonorsJPanel = (ManageDonorsJPanel) component;
+        manageDonorsJPanel.populateDonors();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

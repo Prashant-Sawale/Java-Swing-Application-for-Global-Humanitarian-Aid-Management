@@ -64,7 +64,6 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         txtProjectName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         tblProjects.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,13 +104,6 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Delete Project");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,9 +117,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
                             .addComponent(txtProjectName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(89, 89, 89)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(btnProject, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnProject, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnBack)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(75, Short.MAX_VALUE))
@@ -138,9 +128,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnViewProject, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addComponent(btnViewProject, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(11, 11, 11)
@@ -161,7 +149,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         }
         else{
             AddProjectsJPanel addProjectsJPanel= new AddProjectsJPanel(userProcessContainer,enterprise, txtProjectName.getText());
-            userProcessContainer.add("manageProjectsJPanel", addProjectsJPanel);
+            userProcessContainer.add("addProjectsJPanel", addProjectsJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
         }
@@ -173,6 +161,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtProjectNameActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
@@ -194,23 +183,11 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         } 
     }//GEN-LAST:event_btnViewProjectActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int selectedRow = tblProjects.getSelectedRow();
-        
-        if(selectedRow >= 0){
-            Project project = (Project)tblProjects.getValueAt(selectedRow, 1);
-            enterprise.getProjectDirectory().removeProject(project);
-        }else{
-            JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
-        } 
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnProject;
     private javax.swing.JButton btnViewProject;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblProjects;

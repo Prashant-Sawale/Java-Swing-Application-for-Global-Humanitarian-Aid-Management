@@ -30,6 +30,7 @@ public class AddProjectsJPanel extends javax.swing.JPanel {
         lblProjectName.setText(projectName);
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
+        txtProjectName.setText(projectName);
     }
 
     /**
@@ -55,6 +56,8 @@ public class AddProjectsJPanel extends javax.swing.JPanel {
         jLabel1.setText("Project Name:");
 
         jLabel2.setText("Event:");
+
+        txtProjectName.setEditable(false);
 
         btnAddEvent.setText("Submit");
         btnAddEvent.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +129,7 @@ public class AddProjectsJPanel extends javax.swing.JPanel {
         }else{
             project = enterprise.getProjectDirectory().addProject(txtProjectName.getText());
             project.setEvent(txtEvent.getText());
+            JOptionPane.showMessageDialog(null, "Project created successfully");
         }
     }//GEN-LAST:event_btnAddEventActionPerformed
 

@@ -8,11 +8,9 @@ package userinterface.donor;
 import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.network.Network;
-import business.organization.Organization;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import userinterface.enterpriseadministrator.AddVolunteerJPanel;
 
 /**
  *
