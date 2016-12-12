@@ -216,7 +216,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
     }//GEN-LAST:event_btnManageVolunteerActionPerformed
 
     private void btnManageDonorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageDonorsActionPerformed
-
+        
         ManageDonorsJPanel manageDonorsJPanel = new ManageDonorsJPanel(userProcessContainer, enterprise);
         userProcessContainer.add("manageDonorsJPanel", manageDonorsJPanel);
 

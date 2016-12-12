@@ -8,7 +8,6 @@ package userinterface.entepriseaccountant;
 import business.enterprise.Enterprise;
 import business.enterprise.funds.FundAllocation;
 import business.project.Project;
-import business.validation.Validator;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;

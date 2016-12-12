@@ -23,7 +23,7 @@ public class NgoTeacherRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-    return new TeacherWorkAreaJPanel(userProcessContainer,account,(EducationOrganization)organization,enterprise);
+    return new TeacherWorkAreaJPanel(userProcessContainer,account);
     }
      @Override
     public String toString(){

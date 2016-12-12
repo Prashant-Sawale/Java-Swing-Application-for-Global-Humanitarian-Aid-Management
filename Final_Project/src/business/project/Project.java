@@ -124,4 +124,8 @@ public class Project {
         return (volunteersRequired - volunteers.size());
     }
     
+    @Override
+        public String toString() {
+            return projectName;
+        }
 }

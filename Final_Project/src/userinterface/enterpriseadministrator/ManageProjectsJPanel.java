@@ -39,7 +39,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         for (Project project : enterprise.getProjectDirectory().getProjectList()){
             Object[] row = new Object[3];
             row[0] = project.getProjectID();
-            row[1] = project.getProjectName();
+            row[1] = project;
             row[2]=project.getEvent();
             model.addRow(row);
         }
@@ -83,6 +83,11 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         });
 
         btnViewProject.setText("View Project");
+        btnViewProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewProjectActionPerformed(evt);
+            }
+        });
 
         txtProjectName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +132,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnViewProject)
+                .addComponent(btnViewProject, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(11, 11, 11)
@@ -164,6 +169,22 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnViewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProjectActionPerformed
+        
+        
+         int selectedRow = tblProjects.getSelectedRow();
+        
+        if(selectedRow >= 0){
+            Project project = (Project)tblProjects.getValueAt(selectedRow, 1);
+            ViewProjectJPanel viewProjectJPanel = new ViewProjectJPanel(userProcessContainer, project);
+            userProcessContainer.add("viewProjectJPanel", viewProjectJPanel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
+        } 
+    }//GEN-LAST:event_btnViewProjectActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
