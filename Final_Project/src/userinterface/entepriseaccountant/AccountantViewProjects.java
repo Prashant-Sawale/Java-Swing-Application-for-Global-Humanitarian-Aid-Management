@@ -96,6 +96,11 @@ public class AccountantViewProjects extends javax.swing.JPanel {
         });
 
         btnViewAllocation.setText("View Fund Allocation");
+        btnViewAllocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewAllocationActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +163,10 @@ public class AccountantViewProjects extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnViewAllocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllocationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewAllocationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

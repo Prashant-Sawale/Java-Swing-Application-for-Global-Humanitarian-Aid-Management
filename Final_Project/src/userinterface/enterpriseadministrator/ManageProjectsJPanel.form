@@ -48,7 +48,7 @@
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="137" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="btnViewProject" min="-2" max="-2" attributes="0"/>
+              <Component id="btnViewProject" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
@@ -118,6 +118,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View Project"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewProjectActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtProjectName">
       <Events>

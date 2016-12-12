@@ -21,7 +21,7 @@ public class NgoChefRole extends Role{
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         //return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
-      return new ChefWorkAreaJPanel(userProcessContainer,enterprise);
+      return new ChefWorkAreaJPanel(userProcessContainer,account);
     }
      @Override
     public String toString(){

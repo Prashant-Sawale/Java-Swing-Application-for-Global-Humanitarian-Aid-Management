@@ -9,6 +9,7 @@ import business.enterprise.Enterprise;
 import business.project.Project;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -22,15 +23,13 @@ public class AddProjectsJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private Enterprise enterprise;
-   private Project project;
-   
-  
-    
+    private Project project;
+
     public AddProjectsJPanel(JPanel userProcessContainer, Enterprise enterprise, String projectName) {
         initComponents();
         lblProjectName.setText(projectName);
-       this.userProcessContainer=userProcessContainer;
-       this.enterprise=enterprise;
+        this.userProcessContainer = userProcessContainer;
+        this.enterprise = enterprise;
     }
 
     /**
@@ -121,9 +120,13 @@ public class AddProjectsJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEventActionPerformed
-    project= enterprise.getProjectDirectory().addProject(txtProjectName.getText());
-    project.setEvent(txtEvent.getText());
-    
+
+        if (txtProjectName.getText().isEmpty() && txtEvent.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "All fields are mandatory");
+        }else{
+            project = enterprise.getProjectDirectory().addProject(txtProjectName.getText());
+            project.setEvent(txtEvent.getText());
+        }
     }//GEN-LAST:event_btnAddEventActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -132,7 +135,7 @@ public class AddProjectsJPanel extends javax.swing.JPanel {
         Component component = componentArray[componentArray.length - 1];
         ManageProjectsJPanel manageProjectsJPanel = (ManageProjectsJPanel) component;
         manageProjectsJPanel.populateTable();
-        CardLayout layout = (CardLayout)userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
