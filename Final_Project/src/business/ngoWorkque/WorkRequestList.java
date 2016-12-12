@@ -33,7 +33,7 @@ public class WorkRequestList {
      * createWorkRequest method gets project as a parameter creates a work queue
  object and sets the project to it
      */
-    private WorkRequest createWorkRequest(Project project) {
+    public WorkRequest createWorkRequest(Project project) {
         WorkRequest ngoWorkque = new WorkRequest(project);
         return ngoWorkque;
     }

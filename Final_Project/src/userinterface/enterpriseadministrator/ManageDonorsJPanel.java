@@ -200,7 +200,7 @@ public class ManageDonorsJPanel extends javax.swing.JPanel {
         
         if(selectedRow >= 0){
             Donor donor = (Donor)tblDonors.getValueAt(selectedRow, 1);
-            ViewDonorDonations viewDonorDonations = new ViewDonorDonations(userProcessContainer, donor);
+            ViewDonorDonations viewDonorDonations = new ViewDonorDonations(userProcessContainer, enterprise, donor);
             userProcessContainer.add("viewDonorDonations", viewDonorDonations);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);

@@ -5,9 +5,11 @@
  */
 package userinterface.donor;
 
+import business.enterprise.Enterprise;
 import business.enterprise.donation.Donation;
 import business.enterprise.donation.Donor;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,13 +21,15 @@ public class ViewDonorDonations extends javax.swing.JPanel {
     
     JPanel userProcessContainer; 
     Donor donor;
+    Enterprise enterprise;
     /**
      * Creates new form ViewDonorDonations1
      */
-    public ViewDonorDonations(JPanel userProcessContainer, Donor donor) {
+    public ViewDonorDonations(JPanel userProcessContainer, Enterprise enterprise,Donor donor) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.donor = donor;
+        this.enterprise = enterprise;
         populateDonationHistory();
     }
 
@@ -54,6 +58,10 @@ public class ViewDonorDonations extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDonationHistory = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtAddDonation = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
 
         lblPageHeading.setText("Donation History:");
 
@@ -88,6 +96,17 @@ public class ViewDonorDonations extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("Add Donation");
+
+        jLabel2.setText("Amount");
+
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,7 +117,13 @@ public class ViewDonorDonations extends javax.swing.JPanel {
                     .addComponent(lblPageHeading)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtAddDonation, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,10 +132,18 @@ public class ViewDonorDonations extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(lblPageHeading)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAddDonation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -120,11 +153,26 @@ public class ViewDonorDonations extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        try{
+            int donationAmount = Integer.parseInt(txtAddDonation.getText());
+            Donation donation = enterprise.getDonationHistory().addDonation(donor, donationAmount);
+            donor.addDonation(donation);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Enter Valid Amount", "Warning",JOptionPane.WARNING_MESSAGE);
+        }
+        populateDonationHistory();
+    }//GEN-LAST:event_btnAddActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblPageHeading;
     private javax.swing.JTable tblDonationHistory;
+    private javax.swing.JTextField txtAddDonation;
     // End of variables declaration//GEN-END:variables
 }

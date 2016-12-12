@@ -121,6 +121,10 @@ public class Project {
         return (totalFundsRequired - getTotalFundsAllocated());
     }
     
+    public int getVolunteersRemaining(){
+        return (volunteersRequired - volunteers.size());
+    }
+    
     @Override
         public String toString() {
             return projectName;
