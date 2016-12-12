@@ -236,7 +236,7 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
                 String address = txtAddrL1.getText() + ", " +txtAddrL2.getText() + ", " + txtCity.getText() + ", " + txtPin.getText() + ", " + txtState.getText();
                 Volunteer volunteer =userAccount.getVolunteer();
                 volunteer.setAddress(address);
-                volunteer.setContactNumber(txtNumber);
+                volunteer.setContactNumber(txtNumber.getText());
                 JOptionPane.showMessageDialog(null, "Details Edited Succeffully", "INFO Message", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
