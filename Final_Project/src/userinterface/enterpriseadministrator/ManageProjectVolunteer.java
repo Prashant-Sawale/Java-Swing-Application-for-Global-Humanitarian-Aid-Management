@@ -204,6 +204,7 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         if(selectedRow >= 0){
             Volunteer v = (Volunteer)tblVolunteer.getValueAt(selectedRow, 0);
             project.removeVolunteer(v);
+            v.removeProject(project);
             populateTable();
             populateNetworkComboBox();
         }else{
