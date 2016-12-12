@@ -10,6 +10,7 @@ import business.enterprise.Enterprise;
 import business.network.Network;
 import business.organization.Organization;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import userinterface.enterpriseadministrator.AddVolunteerJPanel;
 
@@ -146,10 +147,15 @@ public class VolunteerEnrollJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+       if(txtVolunteerName.getText().isEmpty()){
+           JOptionPane.showMessageDialog(null, "All Fields are mandatory", "Warning", JOptionPane.WARNING_MESSAGE);
+       }
+       else{
         AddVolunteerJPanel addVolunteerJPanel = new AddVolunteerJPanel(userProcessContainer, txtVolunteerName.getText(), orgCombo.getSelectedItem());
         userProcessContainer.add("AddVolunteerJPanel", addVolunteerJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+       }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void enterpriseComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseComboActionPerformed
