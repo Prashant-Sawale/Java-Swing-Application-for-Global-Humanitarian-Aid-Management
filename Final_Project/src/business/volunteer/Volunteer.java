@@ -86,6 +86,10 @@ public class Volunteer {
     public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
+    
+    public void addProject(Project p){
+        this.projectHistory.add(p);
+    }
 
     @Override
     public String toString() {

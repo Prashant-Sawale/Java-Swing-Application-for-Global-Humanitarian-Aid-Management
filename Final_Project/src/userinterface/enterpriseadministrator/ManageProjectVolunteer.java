@@ -11,6 +11,7 @@ import business.organization.Organization;
 import business.project.Project;
 import business.volunteer.Volunteer;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -52,7 +53,11 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         
         for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()){
             for(Volunteer v: o.getVolunteerDirectory().getVolunteers()){
-                
+                for(Volunteer vPro: project.getVolunteers()){
+                    if(!v.equals(vPro)){
+                        comboVolunteer.addItem(vPro);
+                    }
+                }
                 //comboVolunteer
             }
             
@@ -73,7 +78,7 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         tblVolunteer = new javax.swing.JTable();
         comboVolunteer = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAddVol = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -108,7 +113,12 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
 
         jLabel2.setText("Add Volunteer");
 
-        jButton1.setText("Add Volunteer");
+        btnAddVol.setText("Add Volunteer");
+        btnAddVol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddVolActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("<< Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +128,11 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         });
 
         jButton2.setText("Remove Volunteer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -129,7 +144,7 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                        .addComponent(btnAddVol, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
                         .addComponent(comboVolunteer, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -153,7 +168,7 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(comboVolunteer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAddVol)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack)
                 .addContainerGap(120, Short.MAX_VALUE))
@@ -166,11 +181,28 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnAddVolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddVolActionPerformed
+        Volunteer v = (Volunteer) comboVolunteer.getSelectedItem();
+        project.addVolunteer(v);
+        v.addProject(project);
+    }//GEN-LAST:event_btnAddVolActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int selectedRow = tblVolunteer.getSelectedRow();
+        
+        if(selectedRow >= 0){
+            Volunteer v = (Volunteer)tblVolunteer.getValueAt(selectedRow, 0);
+            project.removeVolunteer(v);
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddVol;
     private javax.swing.JButton btnBack;
     private javax.swing.JComboBox comboVolunteer;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
