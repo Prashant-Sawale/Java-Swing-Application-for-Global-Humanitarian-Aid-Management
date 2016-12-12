@@ -182,12 +182,12 @@ public class WorkRequestFundAllocationJPanel extends javax.swing.JPanel {
 
     private void btnAllocateFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllocateFundsActionPerformed
         try{
-            double fundsAllocated = Integer.parseInt(txtFundAllocation.getText());
+            double fundsAllocated = Double.parseDouble(txtFundAllocation.getText());
             FundAllocation fa = enterprise.getFunds().createFundAllocation(project, fundsAllocated);
             WorkResponse workResponse = workRequest.createWorkResponse();
+            workResponse.setMessage(txtMessage.getText());
             workResponse.setEnterprise(enterprise);
             workResponse.setFundAllocation(fa);
-            workResponse.setMessage(txtMessage.getText());
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Invalid Fund Amount", "Error",JOptionPane.ERROR_MESSAGE);

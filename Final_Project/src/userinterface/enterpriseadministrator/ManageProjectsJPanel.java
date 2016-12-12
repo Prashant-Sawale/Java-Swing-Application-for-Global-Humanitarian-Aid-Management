@@ -63,6 +63,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        txtProjectName = new javax.swing.JTextField();
 
         tblProjects.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,6 +121,8 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnProject)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtProjectName, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton2))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,7 +136,8 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProject)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(txtProjectName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnViewProject)
@@ -145,11 +149,15 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProjectActionPerformed
-
-            AddProjectsJPanel addProjectsJPanel= new AddProjectsJPanel(userProcessContainer,enterprise, false);
+if(txtProjectName.getText().isEmpty()){
+JOptionPane.showConfirmDialog(null, "Name is required ..!!");
+}else{
+     AddProjectsJPanel addProjectsJPanel= new AddProjectsJPanel(userProcessContainer,enterprise, false,txtProjectName.getText());
             userProcessContainer.add("addProjectsJPanel", addProjectsJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
+}
+       
     }//GEN-LAST:event_btnProjectActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -166,7 +174,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         
         if(selectedRow >= 0){
             Project project = (Project)tblProjects.getValueAt(selectedRow, 1);
-            AddProjectsJPanel addProjectsJPanel= new AddProjectsJPanel(userProcessContainer,enterprise, true);
+            AddProjectsJPanel addProjectsJPanel= new AddProjectsJPanel(userProcessContainer,enterprise, true,txtProjectName.getText());
             userProcessContainer.add("manageProjectsJPanel", addProjectsJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
@@ -199,6 +207,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblProjects;
+    private javax.swing.JTextField txtProjectName;
     // End of variables declaration//GEN-END:variables
 
    

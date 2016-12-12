@@ -220,7 +220,7 @@ public class ManageWorkRequests extends javax.swing.JPanel {
         int selectedRow = tblWorkRequests.getSelectedRow();
         
         if(selectedRow >= 0){
-            WorkRequest workRequest = (WorkRequest)tblWorkRequests.getValueAt(selectedRow, 1);
+            WorkRequest workRequest = (WorkRequest)tblWorkRequests.getValueAt(selectedRow, 0);
             ViewWorkRequest viewWorkRequest = new ViewWorkRequest(userProcessContainer, enterprise, workRequest);
             userProcessContainer.add("viewDonorDonations", viewWorkRequest);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();

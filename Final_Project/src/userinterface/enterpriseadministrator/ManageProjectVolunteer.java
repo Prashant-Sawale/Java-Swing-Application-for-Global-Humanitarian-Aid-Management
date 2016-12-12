@@ -32,6 +32,7 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         this.project = project;
         this.enterprise = enterprise;
         populateTable();
+        populateNetworkComboBox();
     }
     
     public void populateTable() {
@@ -52,12 +53,15 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         comboVolunteer.removeAllItems();
         
         for (Organization o : enterprise.getOrganizationDirectory().getOrganizationList()){
+            boolean present = false;
             for(Volunteer v: o.getVolunteerDirectory().getVolunteers()){
                 for(Volunteer vPro: project.getVolunteers()){
-                    if(!v.equals(vPro)){
-                        comboVolunteer.addItem(vPro);
+                    if(v.equals(vPro)){
+                        present = true;
                     }
                 }
+                if(!present)
+                    comboVolunteer.addItem(v);
                 //comboVolunteer
             }
             
@@ -110,6 +114,11 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         }
 
         comboVolunteer.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboVolunteer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboVolunteerActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Add Volunteer");
 
@@ -185,6 +194,8 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         Volunteer v = (Volunteer) comboVolunteer.getSelectedItem();
         project.addVolunteer(v);
         v.addProject(project);
+        populateTable();
+        populateNetworkComboBox();
     }//GEN-LAST:event_btnAddVolActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -193,10 +204,16 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         if(selectedRow >= 0){
             Volunteer v = (Volunteer)tblVolunteer.getValueAt(selectedRow, 0);
             project.removeVolunteer(v);
+            populateTable();
+            populateNetworkComboBox();
         }else{
             JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void comboVolunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboVolunteerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboVolunteerActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
