@@ -42,8 +42,11 @@ public class ManageDonorUserAccountJPanel extends javax.swing.JPanel {
             row[1] = d;
             String userName = "";
             for(UserAccount account: enterprise.getUserAccountDirectory().getUserAccountList()){
-                if(account.getDonor().equals(d)){
-                    userName = account.getUsername();
+                try{
+                    if(account.getDonor().equals(d)){
+                        userName = account.getUsername();
+                    }
+                }catch(Exception e){
                 }
             }
             
