@@ -90,6 +90,10 @@ public class Volunteer {
     public void addProject(Project p){
         this.projectHistory.add(p);
     }
+    
+    public void removeProject(Project p){
+        this.projectHistory.remove(p);
+    }
 
     @Override
     public String toString() {

@@ -193,6 +193,7 @@ public class ManageProjectVolunteer extends javax.swing.JPanel {
         if(selectedRow >= 0){
             Volunteer v = (Volunteer)tblVolunteer.getValueAt(selectedRow, 0);
             project.removeVolunteer(v);
+            v.removeProject(project);
         }else{
             JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
         }

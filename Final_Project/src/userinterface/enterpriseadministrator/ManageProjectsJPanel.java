@@ -11,6 +11,8 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.entepriseaccountant.FundsAllocationHistoryJPanel;
+import userinterface.enterpriseadministrator.workrequest.WorkRequestFundAllocationJPanel;
 
 /**
  *
@@ -62,7 +64,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         btnViewProject = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnManageFunds = new javax.swing.JButton();
 
         tblProjects.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,7 +104,12 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setText("Manage Funds");
+        btnManageFunds.setText("Manage Funds");
+        btnManageFunds.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageFundsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -112,7 +119,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnManageFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +144,7 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnViewProject)
-                    .addComponent(jButton3))
+                    .addComponent(btnManageFunds))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBack)
                 .addContainerGap())
@@ -190,13 +197,28 @@ public class ManageProjectsJPanel extends javax.swing.JPanel {
         } 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnManageFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFundsActionPerformed
+        int selectedRow = tblProjects.getSelectedRow();
+        
+        if(selectedRow >= 0){
+            Project project = (Project)tblProjects.getValueAt(selectedRow, 1);
+            FundsAllocationHistoryJPanel allocationHistoryJPanel = new FundsAllocationHistoryJPanel(userProcessContainer, enterprise, project);
+            userProcessContainer.add("allocationHistoryJPanel", allocationHistoryJPanel);
+            CardLayout layout= (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }else{
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
+        } 
+        
+    }//GEN-LAST:event_btnManageFundsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnManageFunds;
     private javax.swing.JButton btnProject;
     private javax.swing.JButton btnViewProject;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblProjects;
     // End of variables declaration//GEN-END:variables

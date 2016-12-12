@@ -5,17 +5,32 @@
  */
 package userinterface.entepriseaccountant;
 
+import business.enterprise.Enterprise;
+import business.project.Project;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Pranjal
  */
 public class FundsAllocationHistoryJPanel extends javax.swing.JPanel {
-
+    JPanel userProcessContainer;
+    Project project;
+    Enterprise enterprise;
     /**
      * Creates new form FundsAllocationHistory
      */
-    public FundsAllocationHistoryJPanel() {
+    public FundsAllocationHistoryJPanel(JPanel userProcessContainer, Enterprise enterprise,Project project) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.project = project;
+        this.enterprise = enterprise;
+        refreshTable();
+    }
+    
+    public void refreshTable(){
+        
     }
 
     /**
@@ -31,28 +46,31 @@ public class FundsAllocationHistoryJPanel extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Fund Allocation", "Amount"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Fund Allocation History");
 
-        jButton1.setText("View Details");
+        jButton1.setText("Allocate Funds");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        btnBack.setText("<< Back");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -62,8 +80,10 @@ public class FundsAllocationHistoryJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(jButton1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -75,16 +95,22 @@ public class FundsAllocationHistoryJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton1)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnBack)
+                .addContainerGap(191, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        FundAllocationJPanel fajp = new FundAllocationJPanel(userProcessContainer, enterprise, project);
+        userProcessContainer.add("FundAllocationJPanel", fajp);
+        CardLayout layout= (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
