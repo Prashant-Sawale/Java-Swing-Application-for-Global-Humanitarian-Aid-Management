@@ -47,12 +47,13 @@ private void populateTable() {
         for (Network network : system.getNetworkList()) {
             for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
                 for (UserAccount userAccount : enterprise.getUserAccountDirectory().getUserAccountList()) {
-                    Object[] row = new Object[3];
-                    row[0] = enterprise;
-                    row[1] = network;
-                    row[2] = userAccount;
-
-                    model.addRow(row);
+                    if(userAccount.getRole().toString().equalsIgnoreCase("NGO Administrator")){                        
+                        Object[] row = new Object[3];
+                        row[0] = enterprise;
+                        row[1] = network;
+                        row[2] = userAccount;
+                        model.addRow(row);
+                    }
                 }
             }
         }
@@ -99,22 +100,21 @@ private void populateTable() {
         btnSubmit = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btnRemoveUser = new javax.swing.JButton();
 
         tblEnterpriseAdmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tblEnterpriseAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Enterprise Name", "Network", "Username"
+                "Enterprise Name", "Network", "Username", "Type"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -182,14 +182,6 @@ private void populateTable() {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Add New NGO Admin");
 
-        btnRemoveUser.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnRemoveUser.setText("Remove User");
-        btnRemoveUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveUserActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -228,11 +220,8 @@ private void populateTable() {
                             .addComponent(btnBack))
                         .addGap(0, 346, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnRemoveUser))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -244,9 +233,7 @@ private void populateTable() {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(btnRemoveUser))
+                .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -271,7 +258,7 @@ private void populateTable() {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -309,18 +296,6 @@ private void populateTable() {
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void btnRemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveUserActionPerformed
-        // TODO add your handling code here:int selectedRow = tblNGOEnterprise.getSelectedRow();
-        int selectedRow = tblEnterpriseAdmin.getSelectedRow();
-        if(selectedRow >= 0){
-            Enterprise enterprise = (Enterprise)tblEnterpriseAdmin.getValueAt(selectedRow, 0);
-            UserAccount userAccount = (UserAccount)tblEnterpriseAdmin.getValueAt(selectedRow, 2);
-            enterprise.getUserAccountDirectory().removeUser(userAccount);
-        }else{
-            JOptionPane.showMessageDialog(null, "Please select a row", "Warning",JOptionPane.WARNING_MESSAGE);
-        }
-    }//GEN-LAST:event_btnRemoveUserActionPerformed
-
     private void comboEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEnterpriseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEnterpriseActionPerformed
@@ -328,7 +303,6 @@ private void populateTable() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnRemoveUser;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JComboBox comboEnterprise;
     private javax.swing.JComboBox comboNetwork;

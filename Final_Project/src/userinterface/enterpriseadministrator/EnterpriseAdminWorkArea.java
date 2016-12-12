@@ -83,7 +83,7 @@ public class EnterpriseAdminWorkArea extends javax.swing.JPanel {
         });
 
         btnCreateProject.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnCreateProject.setText("Create Project");
+        btnCreateProject.setText("Manage Project");
         btnCreateProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateProjectActionPerformed(evt);

@@ -9,6 +9,7 @@ import business.enterprise.Enterprise;
 import business.enterprise.funds.FundAllocation;
 import business.project.Project;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -159,14 +160,21 @@ public class FundAllocationJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        FundsAllocationHistoryJPanel fahjp = (FundsAllocationHistoryJPanel) component;
+        fahjp.refreshTable();
+        userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAllocateFundsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllocateFundsActionPerformed
+        try{
             double fundsAllocated = Double.parseDouble(txtFundAllocation.getText());
             FundAllocation fa = enterprise.getFunds().createFundAllocation(project, fundsAllocated);
-        try{
+            project.addFundAllocation(fa);
+            JOptionPane.showMessageDialog(null, "Funds Allocated", "Information",JOptionPane.INFORMATION_MESSAGE);
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Invalid Fund Amount", "Error",JOptionPane.ERROR_MESSAGE);

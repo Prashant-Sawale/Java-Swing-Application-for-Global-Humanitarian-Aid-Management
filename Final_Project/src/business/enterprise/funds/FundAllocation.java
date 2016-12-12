@@ -40,5 +40,9 @@ public class FundAllocation {
     public void setFundsAllocated(double fundsAllocated) {
         this.fundsAllocated = fundsAllocated;
     }
-
+    
+    @Override
+    public String toString(){
+        return this.project.getProjectName();
+    }
 }

@@ -29,9 +29,10 @@ public class ViewWorkRequest extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         this.workRequest = workRequest;
+        populateTable();
     }
     
-    public void populateDonors(){
+    public void populateTable(){
         DefaultTableModel dtm =  (DefaultTableModel) tblWorkResponse.getModel() ;
         dtm.setRowCount(0);
         for(WorkResponse workResponse: workRequest.getNGOworkquResponses()){

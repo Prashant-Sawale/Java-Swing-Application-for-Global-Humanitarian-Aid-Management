@@ -11,6 +11,7 @@ import business.ngoWorkque.WorkRequest;
 import business.ngoWorkque.WorkResponse;
 import business.project.Project;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -176,6 +177,11 @@ public class WorkRequestFundAllocationJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ViewWorkRequest viewWorkRequest = (ViewWorkRequest) component;
+        viewWorkRequest.populateTable();
+        userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -184,6 +190,7 @@ public class WorkRequestFundAllocationJPanel extends javax.swing.JPanel {
         try{
             double fundsAllocated = Double.parseDouble(txtFundAllocation.getText());
             FundAllocation fa = enterprise.getFunds().createFundAllocation(project, fundsAllocated);
+            project.addFundAllocation(fa);
             WorkResponse workResponse = workRequest.createWorkResponse();
             workResponse.setMessage(txtMessage.getText());
             workResponse.setEnterprise(enterprise);

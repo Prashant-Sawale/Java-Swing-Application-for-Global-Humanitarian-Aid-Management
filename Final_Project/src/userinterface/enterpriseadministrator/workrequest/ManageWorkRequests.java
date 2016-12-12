@@ -45,7 +45,7 @@ public class ManageWorkRequests extends javax.swing.JPanel {
             row[0] = workRequest;
             row[1] = workRequest.getEnterprise();
             row[2] = workRequest.getProject();
-            row[3] = workRequest.getProject().getTotalFundsRequired();
+            row[3] = workRequest.getProject().fundsRemaining();
             row[4] = workRequest.getProject().getVolunteersRemaining();
             dtm.addRow(row);
         }

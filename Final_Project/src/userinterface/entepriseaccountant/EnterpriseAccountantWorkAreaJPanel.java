@@ -25,6 +25,10 @@ public class EnterpriseAccountantWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
     }
+    
+    public void showFunds(){
+        lblFunds.setText(String.valueOf(enterprise.getFunds().getTotalFundsAvailable()));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -36,13 +40,13 @@ public class EnterpriseAccountantWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblFunds = new javax.swing.JLabel();
         btnViewProjects = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         jLabel1.setText("Total Available Funds:");
 
-        jLabel2.setText("<Funds_Amount>");
+        lblFunds.setText("<Funds_Amount>");
 
         btnViewProjects.setText("View Projects");
         btnViewProjects.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +67,7 @@ public class EnterpriseAccountantWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnViewProjects, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -75,7 +79,7 @@ public class EnterpriseAccountantWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(lblFunds))
                 .addGap(63, 63, 63)
                 .addComponent(btnViewProjects)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -96,6 +100,6 @@ public class EnterpriseAccountantWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnViewProjects;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblFunds;
     // End of variables declaration//GEN-END:variables
 }
