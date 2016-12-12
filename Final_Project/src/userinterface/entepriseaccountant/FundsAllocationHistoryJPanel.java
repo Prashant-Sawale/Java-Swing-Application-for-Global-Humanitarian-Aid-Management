@@ -6,9 +6,11 @@
 package userinterface.entepriseaccountant;
 
 import business.enterprise.Enterprise;
+import business.enterprise.funds.FundAllocation;
 import business.project.Project;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -30,6 +32,14 @@ public class FundsAllocationHistoryJPanel extends javax.swing.JPanel {
     }
     
     public void refreshTable(){
+        DefaultTableModel dtm =  (DefaultTableModel) tblFunds.getModel() ;
+        dtm.setRowCount(0);
+        for(FundAllocation fa: project.getProjectFunds()){
+            Object row[] = new Object[2];
+            row[0] = fa.getProject();
+            row[1] = fa.getFundsAllocated();            
+            dtm.addRow(row);
+        }
         
     }
 
@@ -43,12 +53,12 @@ public class FundsAllocationHistoryJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblFunds = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblFunds.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -59,7 +69,7 @@ public class FundsAllocationHistoryJPanel extends javax.swing.JPanel {
                 "Fund Allocation", "Amount"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblFunds);
 
         jLabel1.setText("Fund Allocation History");
 
@@ -114,6 +124,6 @@ public class FundsAllocationHistoryJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblFunds;
     // End of variables declaration//GEN-END:variables
 }
