@@ -124,6 +124,14 @@ public class Project {
     public int getVolunteersRemaining(){
         return (volunteersRequired - volunteers.size());
     }
+
+    public int getVolunteersRequired() {
+        return volunteersRequired;
+    }
+
+    public void setVolunteersRequired(int volunteersRequired) {
+        this.volunteersRequired = volunteersRequired;
+    }
     
     @Override
         public String toString() {
