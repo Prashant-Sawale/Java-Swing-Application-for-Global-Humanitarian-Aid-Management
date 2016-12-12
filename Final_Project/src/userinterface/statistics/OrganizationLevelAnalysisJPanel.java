@@ -10,7 +10,6 @@ import business.enterprise.Enterprise;
 import business.organization.Organization;
 import business.volunteer.Volunteer;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
@@ -18,7 +17,6 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import userinterface.systemadminworkarea.EcoSystemAdminWorkAreaJPanel;
 
 /**
  *

@@ -8,7 +8,6 @@ package business.roles;
 import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.network.Network;
-import business.organization.EducationOrganization;
 import business.organization.Organization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;

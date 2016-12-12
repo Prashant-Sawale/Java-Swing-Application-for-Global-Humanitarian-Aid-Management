@@ -111,7 +111,7 @@ public class EnterpriseLevelAnalysisJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        
+
         userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
@@ -185,8 +185,11 @@ public class EnterpriseLevelAnalysisJPanel extends javax.swing.JPanel {
         if (projects != null && projects.size() > 0) {
             for (Project project : projects) {
                 int volunteerToVictimRatio = 0;
+                ArrayList<Victim> victims = null;
                 ArrayList<Volunteer> volunteers = project.getVolunteers();
-                ArrayList<Victim> victims = project.getVictimDirectory().getVictimList();
+                if (project.getVictimDirectory() != null && project.getVictimDirectory().getVictimList() != null && project.getVictimDirectory().getVictimList().size() > 0) {
+                    victims = project.getVictimDirectory().getVictimList();
+                }
                 if (volunteers != null && volunteers.size() > 0 && victims != null && victims.size() > 0) {
                     volunteerToVictimRatio = volunteers.size() / victims.size();
                     barchartdata.setValue(volunteerToVictimRatio, "Volunteers To Victims Ratio", project.getProjectName());

@@ -7,7 +7,6 @@ package userinterface.enterpriseadministrator;
 
 import business.project.Project;
 import java.awt.CardLayout;
-import java.awt.Component;
 import javax.swing.JPanel;
 
 /**

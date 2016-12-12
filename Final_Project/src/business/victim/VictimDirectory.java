@@ -13,8 +13,9 @@ import java.util.ArrayList;
  */
 public class VictimDirectory {
     private ArrayList<Victim> victimList;
+    
     public VictimDirectory(){
-    this.victimList=new ArrayList<>();
+    victimList=new ArrayList<>();
     }
 
     public ArrayList<Victim> getVictimList() {

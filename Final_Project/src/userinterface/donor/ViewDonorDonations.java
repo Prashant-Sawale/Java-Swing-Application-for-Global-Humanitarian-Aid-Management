@@ -32,7 +32,7 @@ public class ViewDonorDonations extends javax.swing.JPanel {
     public void populateDonationHistory(){
         DefaultTableModel dtm =  (DefaultTableModel) tblDonationHistory.getModel() ;
         dtm.setRowCount(0);
-        for(Donation d: donor.getDonations()){
+        for(Donation d: donor.getDonationList()){
             Object row[] = new Object[3];
             row[0] = d.getDonationID();
             row[1] = d.getDonationAmount();

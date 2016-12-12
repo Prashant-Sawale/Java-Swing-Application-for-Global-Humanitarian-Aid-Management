@@ -9,7 +9,6 @@ import business.EcoSystem;
 import business.enterprise.Enterprise;
 import business.network.Network;
 import business.organization.Organization;
-import business.organization.ShelterOrganization;
 import business.useraccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.volunteer.WorkerWorkAreaJPanel;

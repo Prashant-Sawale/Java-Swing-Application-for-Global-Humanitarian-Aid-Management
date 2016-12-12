@@ -10,6 +10,7 @@ package business.victim;
  * @author Admin
  */
 public class Victim {
+    
     private int victimId;
     private static int count = 0;
     private String victimName;

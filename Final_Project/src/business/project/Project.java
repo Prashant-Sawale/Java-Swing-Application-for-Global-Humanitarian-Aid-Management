@@ -33,6 +33,7 @@ public class Project {
         this.projectName = projectName;
         projectFunds = new ArrayList<FundAllocation>();
         volunteers = new ArrayList<Volunteer>();
+        victimDirectory =new VictimDirectory();
     }
 
     

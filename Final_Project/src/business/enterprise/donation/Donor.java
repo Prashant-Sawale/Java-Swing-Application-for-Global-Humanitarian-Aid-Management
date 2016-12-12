@@ -19,11 +19,12 @@ public class Donor {
     private String address;
     private String dob;
     private boolean maleSex;
-    private ArrayList<Donation> Donations;
+    private ArrayList<Donation> donationList;
     private static int counter = 0;
 
     public Donor() {
         donorID = ++counter;
+        donationList = new ArrayList<>();
     }
 
     public int getDonorID() {
@@ -64,22 +65,22 @@ public class Donor {
 
     public double getTotalDonations() {
         double result = 0;
-        for (Donation d : Donations) {
+        for (Donation d : donationList) {
             result += d.getDonationAmount();
         }
         return result;
     }
 
-    public ArrayList<Donation> getDonations() {
-        return Donations;
+    public ArrayList<Donation> getDonationList() {
+        return donationList;
     }
 
-    public void setDonations(ArrayList<Donation> Donations) {
-        this.Donations = Donations;
+    public void setDonationList(ArrayList<Donation> donationList) {
+        this.donationList = donationList;
     }
 
     public void addDonation(Donation d) {
-        this.Donations.add(d);
+        this.donationList.add(d);
     }
 
     @Override
